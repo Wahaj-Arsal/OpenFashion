@@ -1,0 +1,57 @@
+/** @format */
+
+@use "./variables" as *;
+
+// ******** Typography ********
+@font-face {
+  font-family: "Tenor";
+  src: url("../../assets/font/tenor-sans/TenorSans-Regular.ttf");
+  font-weight: 400;
+  font-style: none;
+}
+
+//Mobile Start
+@mixin m-page-title {
+  font-size: 18px; //1.5rem
+  line-height: 40px; //2rem
+  font-weight: 400;
+}
+
+@mixin m-sub-title {
+  font-size: 16px; //.8125rem
+  line-height: 24px; //1.125rem
+  font-weight: 400;
+}
+@mixin m-sub-sub-title {
+  font-size: 14px; //.8125rem
+  line-height: 20px; //1.125rem
+  font-weight: 400;
+}
+
+@mixin m-body-large {
+  font-size: 16px; //.8125rem
+  line-height: 24px; //1.125rem
+  font-weight: 400;
+  color: $fnt-clr-body-default;
+}
+
+@mixin m-body-medium {
+  font-size: 14px; //.8125rem
+  line-height: 24px; //1.125rem
+  font-weight: 400;
+  color: $fnt-clr-body-default;
+}
+
+@mixin m-body-small {
+  font-size: 12px; //.8125rem
+  line-height: 18px; //1.125rem
+  font-weight: 400;
+  color: $fnt-clr-body-default;
+}
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}

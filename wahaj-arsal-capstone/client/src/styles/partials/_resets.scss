@@ -1,0 +1,39 @@
+/** @format */
+
+@use "./variables" as *;
+
+html,
+body {
+  font-family: Tenor, "serif";
+  color: $fnt-clr-text-default;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+img,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+li,
+button {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+  // box-sizing: border-box;
+  // overflow: auto;
+}

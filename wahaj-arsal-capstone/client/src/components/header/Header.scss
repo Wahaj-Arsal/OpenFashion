@@ -1,0 +1,36 @@
+/** @format */
+
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
+
+.header {
+  @include flex(row, space-between, center);
+  padding: 1rem;
+  // width: 100%;
+  &__menu {
+    width: 4rem;
+  }
+  &__left {
+    @include flex(row, left, center);
+    // flex-basis: 30%;
+  }
+  &__center {
+    @include flex(row, center, center);
+    // padding: 0 0 0 2.5rem;
+    // width: 100%;
+    // flex-basis: 30%;
+    // flex-grow: 2;
+  }
+  &__right {
+    @include flex(row, right, center);
+  }
+  &__search {
+    margin: 0 1rem 0 0;
+    // flex-basis: 30%;
+    // width: 24px;
+    // height: 24px;
+  }
+  &__shopping-cart {
+    // @include flex(row, flex-end, center);
+  }
+}

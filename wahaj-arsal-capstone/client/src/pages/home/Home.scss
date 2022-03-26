@@ -1,0 +1,12 @@
+/** @format */
+
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
+
+.home {
+  @include flex(column, center, center);
+  padding: 0 1rem;
+  &__title {
+    @include m-page-title;
+  }
+}
