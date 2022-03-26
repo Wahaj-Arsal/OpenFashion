@@ -7,8 +7,6 @@ import bookmarkIcon from "../../assets/icons/Bookmark.svg";
 export default function ProductTile({ bg__img }) {
   return (
     <section className="tile">
-      {/* <h1>Product Tile</h1> */}
-      {/* <div className="productTile__card"> */}
       <div className="tile__card">
         <img className="tile__bookmark" src={bookmarkIcon} />
         <p className="tile__description">

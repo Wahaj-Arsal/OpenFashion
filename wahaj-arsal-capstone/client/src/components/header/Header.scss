@@ -2,6 +2,7 @@
 
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/resets" as *;
+@use "../../styles/partials/variables" as *;
 
 .header {
   @include flex(row, space-between, center);
@@ -32,5 +33,58 @@
   }
   &__shopping-cart {
     // @include flex(row, flex-end, center);
+  }
+}
+
+.sidebar {
+  @include flex(column, null, flex-start);
+  background-color: whitesmoke; //TEST VALUE - NEEDS TO BE CHANGED
+  position: fixed;
+  left: -100%;
+  padding: 1rem;
+  height: 100vh;
+  width: 60%;
+  &__list {
+    width: 100%;
+  }
+  &__list-item {
+    @include flex(row, flex-start, center);
+    padding: 0.75rem 0;
+    list-style: none;
+    text-decoration: none;
+    color: $fnt-clr-text-default;
+  }
+  &__icon {
+    padding: 0 0.75rem 0 0;
+  }
+  &__list-link {
+    list-style: none;
+    text-decoration: none;
+    color: $fnt-clr-text-default;
+  }
+  &--active {
+    left: 0;
+  }
+  &__bottom {
+    @include flex(column, center, center);
+    width: 100%;
+  }
+  &__divider {
+    padding: 1rem 0;
+  }
+  &__social {
+    // width: 40%;
+    @include flex(row, center, center);
+    width: 1.25rem;
+    height: 1rem;
+  }
+  &__twitter {
+    padding: 0 0.85rem;
+  }
+  &__instagram {
+    padding: 0 0.85rem;
+  }
+  &__youtube {
+    padding: 0 0.85rem;
   }
 }
