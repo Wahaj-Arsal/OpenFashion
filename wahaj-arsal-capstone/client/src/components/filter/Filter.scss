@@ -1,0 +1,41 @@
+/** @format */
+
+@use "../../styles/partials/mixins" as *;
+
+.filter {
+  &__top {
+    @include flex(row, space-between, center);
+    padding: 0 1rem;
+  }
+  &__total {
+    @include m-sub-title;
+  }
+  &__buttons {
+    @include flex(row, center, center);
+  }
+  &__filter {
+    @include flex(row, null, null);
+    background-color: rgb(196, 196, 196, 0.2);
+    // opacity: 0.1;
+    border-radius: 33px;
+    margin: 0 1rem 0 0;
+    padding: 0.5rem;
+  }
+  &__text {
+    @include m-sub-sub-title;
+    padding: 0 0.5rem 0 0;
+
+    // opacity: 1;
+  }
+  &__down {
+    padding: 0 0.75rem 0 0;
+  }
+  &__sort {
+    background-color: rgb(196, 196, 196, 0.2);
+    // margin: 0 1rem 0 0;
+    padding: 0.5rem;
+    border-radius: 33px;
+  }
+  &__tiles {
+  }
+}

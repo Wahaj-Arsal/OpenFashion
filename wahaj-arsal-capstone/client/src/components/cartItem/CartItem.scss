@@ -1,0 +1,28 @@
+/** @format */
+
+@use "../../styles/partials/mixins" as *;
+
+.item {
+  //   z-index: 1;
+  @include flex(row, flex-start, center);
+  width: 100%;
+  padding: 0 1rem;
+  //   visibility: visible;
+
+  &__picture {
+    // width: 40%;
+  }
+  &__image {
+  }
+  &__information {
+    // width: 60%;
+  }
+  &__title {
+    @include m-sub-title;
+  }
+  &__description {
+    @include m-body-medium;
+  }
+  &__price {
+  }
+}

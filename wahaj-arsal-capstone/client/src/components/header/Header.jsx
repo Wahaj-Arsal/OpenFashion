@@ -1,11 +1,15 @@
 /** @format */
 
 // IMPORT FROM LIBRARIES
-import { useState } from "react";
+import React, { Component, useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { uuid } from "uuid";
 
 // IMPORT LOCAL FILES
 import "./Header.scss";
+import CartItem from "../cartItem/CartItem.jsx";
+import { CartContext } from "../helper/CartContext";
+// import items from "../../data/Items.json";
 
 // IMPORT ASSETS
 import menuIcon from "../../assets/icons/Menu.svg";
@@ -18,21 +22,46 @@ import titleBar from "../../assets/icons/3.svg";
 import twitter from "../../assets/icons/Twitter.svg";
 import instagram from "../../assets/icons/Instagram.svg";
 import youtube from "../../assets/icons/YouTube.svg";
+import shoppingBagWhite from "../../assets/icons/shopping-bag-white.svg";
 
-// HEADER COMPONENT
-const Header = () => {
-  const [sidebar, setSideBar] = useState(false);
+// HEADER COMPONENT START
+function Header(props) {
+  const [sideBar, setSideBar] = useState(false);
+  const [shoppingCart, setShoppingCart] = useState(false);
+  const [cart, setCart] = useContext(CartContext);
 
-  const showSideBar = (e) => {
-    e.preventDefault();
-    setSideBar(!sidebar);
+  const showSidebar = () => setSideBar(!sideBar);
+  const showShoppingCart = () => setShoppingCart(!shoppingCart);
+
+  const fetchLocalStorage = () => {
+    let cartGetItemFromLS = localStorage.getItem("item")
+      ? JSON.parse(localStorage.getItem("item"))
+      : [];
+    const cart = cartGetItemFromLS;
+    setCart(cart);
   };
 
+  useEffect(fetchLocalStorage, []);
+
+  const cartReturnItem = cart.map((item, index) => {
+    return (
+      <>
+        <CartItem key={index} item={item} />
+        <div className="cart__button">
+          <img className="cart__icon" src={shoppingBagWhite} />
+          <p className="cart__details">Checkout</p>
+        </div>
+      </>
+    );
+  });
   return (
     <>
-      <header className="header">
+      {/* {this.state.shoppingCart ? "cart cart--active" : "cart"} */}
+      <header
+        className={shoppingCart ? "header body__scroll-disabled" : "header"}
+      >
         {/* <h1>Header</h1> */}
-        <Link to="#" className="header__menu" onClick={showSideBar}>
+        <Link to="#" className="header__menu" onClick={showSidebar}>
           <img className="header__left" src={menuIcon} />
         </Link>
         <div className="header__logo">
@@ -40,18 +69,32 @@ const Header = () => {
         </div>
         <div className="header__right">
           <img className="header__search" src={search} />
-          <img className="header__shopping-cart" src={shoppingBag} />
+          <Link to="#">
+            <img
+              className="header__shopping-cart"
+              src={shoppingBag}
+              onClick={showShoppingCart}
+            />
+          </Link>
         </div>
       </header>
-      <nav className={sidebar ? "sidebar sidebar--active" : "sidebar"}>
+      <nav className={sideBar ? "sidebar sidebar--active" : "sidebar "}>
         <ul className="sidebar__list">
           <li className="sidebar__list-item">
-            <Link to="#" className="sidebar__list-link">
+            <Link
+              to="/mens"
+              className="sidebar__list-link"
+              // onClick={this.hideMenu}
+            >
               <p className="sidebar__list-text">Men</p>
             </Link>
           </li>
           <li className="sidebar__list-item">
-            <Link to="#" className="sidebar__list-link">
+            <Link
+              to="/womens"
+              className="sidebar__list-link"
+              // onClick={this.hideMenu}
+            >
               <p className="sidebar__list-text">Women</p>
             </Link>
           </li>
@@ -89,8 +132,29 @@ const Header = () => {
           </div>
         </div>
       </nav>
+      <section className={shoppingCart ? "cart cart--active" : "cart"}>
+        <h3 className="cart__heading">Cart</h3>
+        {/* {cartReturnItem} */}
+        {cart.length > 0 ? (
+          <>{cartReturnItem}</>
+        ) : (
+          <>
+            <p className="cart__status">
+              You have no items in your Shopping Bag.
+            </p>
+            <div className="cart__button">
+              <img className="cart__icon" src={shoppingBagWhite} />
+              <p className="cart__details">Continue Shopping</p>
+            </div>
+          </>
+        )}
+        {/* <div className="cart__button">
+          <img className="cart__icon" src={shoppingBagWhite} />
+          <p className="cart__details">Continue Shopping</p>
+        </div> */}
+      </section>
     </>
   );
-};
+}
 
 export default Header;

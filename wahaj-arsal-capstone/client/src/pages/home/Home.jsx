@@ -2,8 +2,14 @@
 
 import "./Home.scss";
 
-import ProductTile from "../../components/ProductTile/ProductTile";
+import ProductTile from "../../components/productTile/ProductTile";
 import titleBar from "../../assets/icons/3.svg";
+import React, { Component } from "react";
+// import Route from "react-router-dom";
+import axios from "axios";
+// import Mens from "../mens/Mens";
+
+// import items from "../../data/Items.json";
 
 // /** @format */
 // import React from "react";
@@ -223,14 +229,24 @@ import titleBar from "../../assets/icons/3.svg";
 //   }
 // }
 
-export default function Home() {
-  return (
-    <>
-      <div className="home">
-        <h1 className="home__title">HOME</h1>
-        <img className="home__underline" src={titleBar} />
-      </div>
-      <ProductTile />
-    </>
-  );
+export default class Home extends Component {
+  // console.log(props);
+
+  // const oneItem = items.filter((item) => item.id == mensId);
+  // const { id, name, description, price } = { ...oneItem[0] };
+  // const { care, materials } = { ...oneItem[0].additional };
+  // const { bleach, iron, tumble, washing } = { ...oneItem[0].instructions };
+
+  render() {
+    console.log(this.state.mens);
+    return (
+      <>
+        <div className="home">
+          <h1 className="home__title">HOME</h1>
+          <img className="home__underline" src={titleBar} />
+        </div>
+        <ProductTile props={this.props} />
+      </>
+    );
+  }
 }

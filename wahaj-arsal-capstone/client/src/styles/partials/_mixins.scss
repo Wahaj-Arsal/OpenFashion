@@ -13,19 +13,41 @@
 //Mobile Start
 @mixin m-page-title {
   font-size: 18px; //1.5rem
-  line-height: 40px; //2rem
+  line-height: 20px; //2rem
   font-weight: 400;
+}
+
+@mixin m-page-title-upper {
+  font-size: 18px; //1.5rem
+  // line-height: 40px; //2rem
+  font-weight: 400;
+  letter-spacing: 4px;
 }
 
 @mixin m-sub-title {
   font-size: 16px; //.8125rem
-  line-height: 24px; //1.125rem
+  line-height: 20px; //1.125rem
   font-weight: 400;
 }
+
+@mixin m-sub-title-upper {
+  font-size: 16px; //.8125rem
+  line-height: 24px; //1.125rem
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
 @mixin m-sub-sub-title {
   font-size: 14px; //.8125rem
   line-height: 20px; //1.125rem
   font-weight: 400;
+}
+
+@mixin m-sub-sub-title-upper {
+  font-size: 14px; //.8125rem
+  line-height: 20px; //1.125rem
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 @mixin m-body-large {

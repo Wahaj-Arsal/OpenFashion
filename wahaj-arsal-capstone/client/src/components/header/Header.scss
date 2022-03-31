@@ -4,10 +4,17 @@
 @use "../../styles/partials/resets" as *;
 @use "../../styles/partials/variables" as *;
 
+.body__scroll--disabled {
+  // background-attachment: fixed;
+  visibility: hidden;
+}
+
 .header {
   @include flex(row, space-between, center);
   padding: 1rem;
+  background-color: $ele-clr-darkness-strain;
   // width: 100%;
+  // overflow: scroll;
   &__menu {
     width: 4rem;
   }
@@ -38,7 +45,8 @@
 
 .sidebar {
   @include flex(column, null, flex-start);
-  background-color: whitesmoke; //TEST VALUE - NEEDS TO BE CHANGED
+  @include m-sub-title;
+  background-color: $ele-clr-darkness-strain; //TEST VALUE - NEEDS TO BE CHANGED
   position: fixed;
   left: -100%;
   padding: 1rem;
@@ -86,5 +94,73 @@
   }
   &__youtube {
     padding: 0 0.85rem;
+  }
+}
+
+.cart {
+  @include flex(column, top, flex-start);
+  @include m-sub-title;
+  padding: 0 0 3.75rem 0;
+  min-height: 91%;
+  width: 100%;
+  left: -100%;
+  // position: fixed;
+  // visibility: hidden;
+  position: absolute;
+  scroll-behavior: auto;
+  background-color: $ele-clr-darkness-strain;
+  // z-index: 1;
+  &--active {
+    left: 0;
+    // visibility: visible;
+  }
+  &__heading {
+    @include m-sub-title;
+    letter-spacing: 3px;
+    padding: 0 1rem 1rem 1rem;
+    text-transform: uppercase;
+  }
+  &__status {
+    @include flex(row, center, center);
+    // align-self: center;
+    padding: 0 1rem 1rem 1rem;
+    position: relative;
+    // top: 50%;
+    // padding: 1rem;
+    &--empty {
+    }
+  }
+  &__picture {
+  }
+  &__image {
+  }
+  &__information {
+    padding: 0 0 0 1rem;
+  }
+  &__title {
+    @include m-sub-title;
+  }
+  &__description {
+    @include m-body-medium;
+  }
+  &__price {
+  }
+  &__button {
+    @include flex(row, center, center);
+    color: $ele-clr-darkness-strain;
+    background-color: $fnt-clr-text-default;
+    text-transform: uppercase;
+    width: 100%;
+    position: absolute;
+    padding: 1.25rem 0;
+    bottom: 0;
+    left: 0;
+  }
+  &__icon {
+    padding: 0 1rem 0 0;
+    // color: White;
+  }
+  &__details {
+    // padding: 1.25rem 0;
   }
 }
