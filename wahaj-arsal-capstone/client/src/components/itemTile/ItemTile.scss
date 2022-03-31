@@ -21,8 +21,10 @@
   &__details {
   }
   &__title {
+    @include m-sub-title;
   }
   &__description {
+    @include m-body-medium;
   }
   &__price {
   }

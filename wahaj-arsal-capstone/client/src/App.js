@@ -10,6 +10,13 @@ import Mens from "./pages/mens/Mens";
 import ProductDetails from "./components/productDetails/ProductDetails";
 import { CartProvider } from "./components/helper/CartContext";
 
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+// const stripePromise = loadStripe("pk_test_qblFNYngBkEdjEZ16jxxoWSM");
+
 const API_URL_MENS_ALL = `http://localhost:8080/mens`;
 const API_URL_MENS_SINGLE = (id) => `http://localhost:8080/mens/${id}`;
 

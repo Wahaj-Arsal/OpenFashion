@@ -2,27 +2,29 @@
 
 @use "../../styles/partials/mixins" as *;
 
-.item {
-  //   z-index: 1;
-  @include flex(row, flex-start, center);
-  width: 100%;
-  padding: 0 1rem;
-  //   visibility: visible;
-
+.shopping-cart {
+  @include flex(row, center, center);
+  padding: 0.5rem 1rem;
+  // width: 60%;
   &__picture {
-    // width: 40%;
+    @include flex(row, flex-start, center);
+    // width: auto;
+    width: 60%;
   }
   &__image {
+    width: 80%;
   }
   &__information {
-    // width: 60%;
+    width: 100%;
   }
   &__title {
-    @include m-sub-title;
+    @include m-sub-title-upper;
+    text-transform: uppercase;
   }
   &__description {
     @include m-body-medium;
   }
   &__price {
+    @include m-body-medium;
   }
 }

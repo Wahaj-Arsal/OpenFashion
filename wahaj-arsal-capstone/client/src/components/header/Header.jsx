@@ -4,6 +4,7 @@
 import React, { Component, useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { uuid } from "uuid";
+import axios from "axios";
 
 // IMPORT LOCAL FILES
 import "./Header.scss";
@@ -24,8 +25,16 @@ import instagram from "../../assets/icons/Instagram.svg";
 import youtube from "../../assets/icons/YouTube.svg";
 import shoppingBagWhite from "../../assets/icons/shopping-bag-white.svg";
 
+import { loadStripe } from "@stripe/stripe-js";
+
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+
 // HEADER COMPONENT START
-function Header(props) {
+export default function Header(props) {
+  const stripe = loadStripe(
+    "pk_test_51KjOyzIMx3ChqAD6opXWVp2NlWeJQT7h7PJhnch2QH0mwQ76rOtYii8SPjX2qUHmK2QRd15mjCIDnUXWKcHiMHiz00bV9efL4i"
+  );
   const [sideBar, setSideBar] = useState(false);
   const [shoppingCart, setShoppingCart] = useState(false);
   const [cart, setCart] = useContext(CartContext);
@@ -43,11 +52,47 @@ function Header(props) {
 
   useEffect(fetchLocalStorage, []);
 
+  // const goToPayment = async (e) => {
+  //   const checkOutSession = await axios.post("http://localhost:8080/checkout");
+  // };
+
+  // console.log(cart);
+
+  // console.log(cart);
+
+  const purchaseItem = async () => {
+    const cartItem = cart.map((item) => {
+      return {
+        // id: item.id,
+        name: item.name,
+        description: item.description,
+        amount: item.price,
+        currency: "GBP",
+        quantity: 1,
+      };
+    });
+    axios
+      .post(`http://localhost:8080/create-checkout-session`, { cartItem })
+      .then((response) => {
+        window.location.href = response.data.url;
+        console.log(response);
+        return stripe.redirectToCheckout({ sessionId: response.data.id });
+      })
+      .then((result) => {
+        if (result.error) {
+          alert(result.error.message);
+        }
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
   const cartReturnItem = cart.map((item, index) => {
     return (
       <>
         <CartItem key={index} item={item} />
-        <div className="cart__button">
+        <div className="cart__button" onClick={purchaseItem}>
           <img className="cart__icon" src={shoppingBagWhite} />
           <p className="cart__details">Checkout</p>
         </div>
@@ -157,4 +202,4 @@ function Header(props) {
   );
 }
 
-export default Header;
+// export default Header;

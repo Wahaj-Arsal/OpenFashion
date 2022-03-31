@@ -19,8 +19,8 @@ import polygon from "../../assets/icons/Polygon.svg";
 const API_URL_MENS_ALL = `http://localhost:8080/mens`;
 
 function Mens({ mens, match }) {
-  console.log(mens);
-  console.log(match);
+  // console.log(mens);
+  // console.log(match);
   return (
     <>
       <Filter />
