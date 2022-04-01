@@ -8,6 +8,7 @@ import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
 import Mens from "./pages/mens/Mens";
 import ProductDetails from "./components/productDetails/ProductDetails";
+import PaymentSuccess from "./components/paymentSuccess/PaymentSuccess";
 import { CartProvider } from "./components/helper/CartContext";
 
 import { Elements } from "@stripe/react-stripe-js";
@@ -22,16 +23,15 @@ const API_URL_MENS_SINGLE = (id) => `http://localhost:8080/mens/${id}`;
 
 export default class App extends Component {
   state = {
-    mens: [],
     currentItem: [],
     cartState: [],
     cartGetItem: [],
   };
 
-  componentDidMount() {
-    this.getItemsMens();
-    // this.getItemWomen();
-  }
+  // componentDidMount() {
+  // this.getItemsMens();
+  // this.getItemWomen();
+  // }
 
   // getItem = async () => {
   // console.log(this.props);
@@ -41,14 +41,6 @@ export default class App extends Component {
   //   currentItem: getMenSingleItem.data,
   // });
   // };
-
-  getItemsMens = async () => {
-    const getAllMens = await axios.get(API_URL_MENS_ALL);
-    this.setState({
-      mens: getAllMens.data,
-    });
-    // console.log(this.state.mens);
-  };
 
   // addToCart = (e) => {
   //   e.preventDefault();
@@ -70,7 +62,6 @@ export default class App extends Component {
 
   render() {
     // console.log(this.state.mens);
-    const { mens } = this.state;
     return (
       <>
         {/* <h1>Main</h1> */}
@@ -85,16 +76,17 @@ export default class App extends Component {
             <Route
               path="/mens"
               exact
-              render={(routerProps) => (
-                <Mens {...routerProps} mens={mens} getItem={this.getItem} />
-              )}
+              render={(routerProps) => <Mens {...routerProps} />}
             />
             <Route
               path="/mens/:mensId"
               exact
-              render={(routerProps) => (
-                <ProductDetails {...routerProps} addToCart={this.addToCart} />
-              )}
+              render={(routerProps) => <ProductDetails {...routerProps} />}
+            />
+            <Route
+              path="/paymentsuccess"
+              exact
+              render={(routerProps) => <PaymentSuccess {...routerProps} />}
             />
 
             {/* <Route element={<ProductDetails />} /> */}

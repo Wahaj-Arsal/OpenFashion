@@ -15,7 +15,16 @@
     width: 80%;
   }
   &__information {
+    @include flex(column, center, flex-start);
     width: 100%;
+    position: relative;
+  }
+  &__button {
+    width: 10%;
+    // justify-content: flex-end;
+    align-self: flex-end;
+    position: absolute;
+    top: -1.875rem;
   }
   &__title {
     @include m-sub-title-upper;

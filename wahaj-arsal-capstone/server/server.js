@@ -11,9 +11,10 @@ const { randomUUID } = require("crypto");
 const stripe = require("stripe")(
   "sk_test_51KjOyzIMx3ChqAD6Gdu3zJCmoqvCRr9Gw8uE8XqzjLnMK4VMRv2DbTe1NMxsNqBe7jaPF7mpS7blFwSlHcUzG6gS00cYrjeoaY"
 );
+const multer = require("multer");
 
-const mensItemsJSON = path.join(__dirname, "./data/mens/items.json");
-const items = require(mensItemsJSON);
+// const mensItemsJSON = path.join(__dirname, "./data/mens/items.json");
+// const items = require(mensItemsJSON);
 
 const app = express();
 const PORT = 8080;
@@ -21,6 +22,7 @@ const PORT = 8080;
 app.listen(PORT);
 app.use(cors());
 app.use(express.json());
+app.use(express.static("public"));
 
 //******** API THAT GETS Random Id ******** */
 app.get("/randomId", (req, res) => {
@@ -38,7 +40,6 @@ app.get("/mens", (req, res) => {
 app.get("/mens/:mensId", (req, res) => {
   const mensSingleItemId = req.params.mensId;
   const fileContent = JSON.parse(fs.readFileSync("./data/mens/items.json"));
-
   for (let i = 0; i < fileContent.length; i++) {
     if (fileContent[i].id == mensSingleItemId) {
       res.status(200).send(fileContent[i]);
@@ -53,12 +54,8 @@ app.post("/create-checkout-session", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: cartResponse,
     mode: "payment",
-    success_url: `http://example.com/success`,
+    success_url: `http://localhost:3000/paymentsuccess`,
     cancel_url: `http://example.com/cancel`,
   });
-  // const line_items = cartResponse;
-  // res.redirect(303, session.url);
   res.json({ url: session.url });
 });
-// { currency: "GBP", amount: 100, quantity: 1, name: "An Item" },
-//       { currency: "GBP", amount: 500, quantity: 2, name: "Another Item" },

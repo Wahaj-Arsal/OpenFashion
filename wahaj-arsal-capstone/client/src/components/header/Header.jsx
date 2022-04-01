@@ -3,7 +3,7 @@
 // IMPORT FROM LIBRARIES
 import React, { Component, useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { uuid } from "uuid";
+// import { uuid } from "uuid";
 import axios from "axios";
 
 // IMPORT LOCAL FILES
@@ -26,14 +26,20 @@ import youtube from "../../assets/icons/YouTube.svg";
 import shoppingBagWhite from "../../assets/icons/shopping-bag-white.svg";
 
 import { loadStripe } from "@stripe/stripe-js";
+import uuid from "react-uuid";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 
+const STRIPE_PUBLIC_KEY = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+const SERVER_KEY_URL = process.env.REACT_APP_SERVER_KEY;
+// console.log(STRIPE_PUBLIC_KEY);
+// console.log(SERVER_KEY_URL);
+
 // HEADER COMPONENT START
 export default function Header(props) {
   const stripe = loadStripe(
-    "pk_test_51KjOyzIMx3ChqAD6opXWVp2NlWeJQT7h7PJhnch2QH0mwQ76rOtYii8SPjX2qUHmK2QRd15mjCIDnUXWKcHiMHiz00bV9efL4i"
+    `pk_test_51KjOyzIMx3ChqAD6opXWVp2NlWeJQT7h7PJhnch2QH0mwQ76rOtYii8SPjX2qUHmK2QRd15mjCIDnUXWKcHiMHiz00bV9efL4i`
   );
   const [sideBar, setSideBar] = useState(false);
   const [shoppingCart, setShoppingCart] = useState(false);
@@ -56,10 +62,7 @@ export default function Header(props) {
   //   const checkOutSession = await axios.post("http://localhost:8080/checkout");
   // };
 
-  // console.log(cart);
-
-  // console.log(cart);
-
+  // Send cart information to the server for Stripe payment
   const purchaseItem = async () => {
     const cartItem = cart.map((item) => {
       return {
@@ -88,17 +91,44 @@ export default function Header(props) {
       });
   };
 
-  const cartReturnItem = cart.map((item, index) => {
+  // const removeFromLocalStorage = (cartItem) => {
+  //   // }
+  // };
+
+  //Remove cart Item
+  const removeCartItem = (e) => {
+    e.preventDefault();
+    const cartItem = e.target.parentElement.parentElement;
+    // console.log(cartItem);
+    const filterItems = cart.filter((item) => item.id !== cartItem.id);
+    setCart(filterItems);
+    const items = JSON.parse(localStorage.getItem("item"));
+    //console.log("Product Removed");
+    const filter = items.filter((item) => item.id !== cartItem.id);
+    console.log(filter);
+    localStorage.setItem("item", JSON.stringify(filter));
+  };
+
+  //check all items in the cart
+  //look for duplicate items check via name
+  // if there are any duplicates
+
+  // Map through the cart state and pull out items
+  const cartReturnItem = cart.map((item) => {
     return (
       <>
-        <CartItem key={index} item={item} />
-        <div className="cart__button" onClick={purchaseItem}>
-          <img className="cart__icon" src={shoppingBagWhite} />
-          <p className="cart__details">Checkout</p>
-        </div>
+        <CartItem key={item.id} item={item} removeCartItem={removeCartItem} />
       </>
     );
   });
+
+  // Calculate the CART Total
+  let cartTotal = 0;
+  for (let i = 0; i < cart.length; i++) {
+    console.log(cart[i].price);
+    cartTotal = cartTotal + cart[i].price / 100;
+  }
+
   return (
     <>
       {/* {this.state.shoppingCart ? "cart cart--active" : "cart"} */}
@@ -181,15 +211,35 @@ export default function Header(props) {
         <h3 className="cart__heading">Cart</h3>
         {/* {cartReturnItem} */}
         {cart.length > 0 ? (
-          <>{cartReturnItem}</>
+          <>
+            {cartReturnItem}
+            <div className="cart__information">
+              <div className="cart__total">
+                <>
+                  <p className="cart__text">Sub Total</p>
+                  <p className="cart__value">£{cartTotal}</p>
+                </>
+                <>
+                  <p className="cart__shipping">
+                    *shipping charges, taxes and discounts codes are calculated
+                    at the time of accounting.
+                  </p>
+                </>
+              </div>
+              <div className="cart__button" onClick={purchaseItem}>
+                <img className="cart__icon" src={shoppingBagWhite} />
+                <p className="cart__details">Checkout</p>
+              </div>
+            </div>
+          </>
         ) : (
           <>
-            <p className="cart__status">
+            <p className="cart-empty__status">
               You have no items in your Shopping Bag.
             </p>
-            <div className="cart__button">
-              <img className="cart__icon" src={shoppingBagWhite} />
-              <p className="cart__details">Continue Shopping</p>
+            <div className="cart-empty__button">
+              <img className="cart-empty__icon" src={shoppingBagWhite} />
+              <p className="cart-empty__details">Continue Shopping</p>
             </div>
           </>
         )}

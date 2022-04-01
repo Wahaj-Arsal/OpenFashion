@@ -9,12 +9,12 @@ import "./ItemTile.scss";
 // IMPORT ASSETS
 import cardigan from "../../assets/images/cardigan.svg";
 
-function ItemTile({ id, name, description, price, image, match }) {
+function ItemTile({ id, name, description, price, image, match, uniqueId }) {
   return (
-    <div id={id} className="item">
+    <div id={uniqueId} className="item">
       <div className="item__picture">
         <Link to={`${match.url}/${id}`}>
-          <img className="item__image" src={cardigan} />
+          <img className="item__image" src={image} />
         </Link>
       </div>
       <div className="item__details">

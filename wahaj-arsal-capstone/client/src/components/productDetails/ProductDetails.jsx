@@ -3,12 +3,13 @@
 // IMPORT FROM LIBRARIES
 import React, { Component, useEffect, useState, useContext } from "react";
 import axios from "axios";
+import uuid from "react-uuid";
 
 // IMPORT LOCAL FILES & COMPONENTS
 import "./ProductDetails.scss";
 import { CartContext } from "../helper/CartContext";
 // import items from "../../data/Items.json";
-import image from "../../assets/images/cardigan.svg";
+// import image from "../../assets/images/cardigan.svg";
 import plus from "../../assets/icons/Plus-white.svg";
 import heart from "../../assets/icons/Heart-white.svg";
 import doNotBleach from "../../assets/icons/Do-Not-Bleach.svg";
@@ -27,7 +28,6 @@ const ProductDetails = ({ match }) => {
   const [productDetails, setProductDetails] = useState([]);
   const fetchData = () => {
     axios.get(API_URL_MENS_SINGLE(url)).then((response) => {
-      // console.log(response);
       const productDetails = response.data;
       setProductDetails(productDetails);
     });
@@ -35,10 +35,10 @@ const ProductDetails = ({ match }) => {
 
   useEffect(fetchData, []);
 
-  const { id, name, description, price } = productDetails;
+  const { id, name, description, price, image } = productDetails;
   const { care, materials } = { ...productDetails.additional };
   const { bleach, iron, tumble, washing } = { ...productDetails.instructions };
-  // console.log(bleach.text);
+  // console.log(image);
 
   const addToCart = (e) => {
     e.preventDefault();
@@ -56,14 +56,14 @@ const ProductDetails = ({ match }) => {
         <p>Loading...</p>
       ) : (
         <section id={id} className="details">
-          <img src={image} alt="" className="details__img" />
+          <img src={productDetails.image} alt="" className="details__img" />
           <div className="details__details">
             <div className="details__heading">
               <h1 className="details__title">{name}</h1>
               <img src="#" alt="" className="details__icon" />
             </div>
             <p className="details__description">{description}</p>
-            <p className="details__price">£{price}</p>
+            <p className="details__price">£{price / 100}</p>
             <div className="details__options">
               <div className="details__color">
                 <p className="details__color-text">Color</p>
