@@ -22,46 +22,7 @@ const API_URL_MENS_ALL = `http://localhost:8080/mens`;
 const API_URL_MENS_SINGLE = (id) => `http://localhost:8080/mens/${id}`;
 
 export default class App extends Component {
-  state = {
-    currentItem: [],
-    cartState: [],
-    cartGetItem: [],
-  };
-
-  // componentDidMount() {
-  // this.getItemsMens();
-  // this.getItemWomen();
-  // }
-
-  // getItem = async () => {
-  // console.log(this.props);
-  // let currentId = this.props.match.params.mensId;
-  // const getMenSingleItem = await axios.get(API_URL_MENS_SINGLE(currentId));
-  // this.setState({
-  //   currentItem: getMenSingleItem.data,
-  // });
-  // };
-
-  // addToCart = (e) => {
-  //   e.preventDefault();
-  //   let cartItems = localStorage.getItem("item")
-  //     ? JSON.parse(localStorage.getItem("item"))
-  //     : [];
-  //   cartItems.push();
-  //   localStorage.setItem("item", JSON.stringify(cartItems));
-  // };
-
-  // cartRender = () => {
-  //   let cartGetItem = localStorage.getItem("item")
-  //     ? JSON.parse(localStorage.getItem("item"))
-  //     : [];
-  //   this.setState({
-  //     cartGetItem: cartGetItem,
-  //   });
-  // };
-
   render() {
-    // console.log(this.state.mens);
     return (
       <>
         {/* <h1>Main</h1> */}
@@ -69,7 +30,7 @@ export default class App extends Component {
           <Header props={this.props} />
           <Switch>
             <Route
-              path="/home"
+              path="/"
               exact
               render={(routerProps) => <Home {...routerProps} />}
             />

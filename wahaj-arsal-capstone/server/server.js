@@ -11,7 +11,7 @@ const { randomUUID } = require("crypto");
 const stripe = require("stripe")(
   "sk_test_51KjOyzIMx3ChqAD6Gdu3zJCmoqvCRr9Gw8uE8XqzjLnMK4VMRv2DbTe1NMxsNqBe7jaPF7mpS7blFwSlHcUzG6gS00cYrjeoaY"
 );
-const multer = require("multer");
+// const multer = require("multer");
 
 // const mensItemsJSON = path.join(__dirname, "./data/mens/items.json");
 // const items = require(mensItemsJSON);
@@ -28,6 +28,12 @@ app.use(express.static("public"));
 app.get("/randomId", (req, res) => {
   const randomIdGenerator = randomUUID();
   res.send(randomIdGenerator);
+});
+
+//******** API THAT GETS ALL Home Page Items ******** */
+app.get("/", (req, res) => {
+  const content = fs.readFileSync("./data/home/home.json");
+  res.send(JSON.parse(content));
 });
 
 //******** API THAT GETS ALL Mens Items ******** */

@@ -4,8 +4,8 @@
     "name": "21WN",
     "description": "reversible angora cardigan",
     "price": 12000,
-    "image": "../images/cardigan.svg",
-    "category": "Cardigan",
+    "image": "../images/shoes-3.svg",
+    "category": "Shoes",
     "additional": {
       "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
       "care": "To keep your jackets and coats clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
@@ -17,11 +17,11 @@
       },
       "tumble": {
         "image": "Insert Image",
-        "text": "Do no tumble dry"
+        "text": "Do not tumble dry."
       },
       "washing": {
         "image": "Insert Image",
-        "text": "Dry clean with tetracholoroethylene"
+        "text": "Dry clean with tetracholoroethylene."
       },
       "iron": {
         "image": "Insert Image",
@@ -29,14 +29,43 @@
       }
     }
   },
-
   {
-    "id": "2f6f9c0c-684c-4cd2-82d7-88d89c17d624",
+    "id": "9f448138-7be4-4090-ad5e-a61a3a4fe536",
+    "name": "21WN",
+    "description": "reversible angora cardigan",
+    "price": 12000,
+    "image": "../images/shoes-2.svg",
+    "category": "Shoes",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your jackets and coats clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "b031dca9-f79f-420c-a3c2-a1a1e4259281",
     "name": "Lame",
     "description": "reversible angora cardigan",
     "price": 4200,
-    "image": "../images/jacket-blue.svg",
-    "category": "Jacket",
+    "image": "../images/shoes-4.svg",
+    "category": "Shoes",
     "additional": {
       "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
       "care": "To keep your jackets and coats clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
@@ -48,11 +77,11 @@
       },
       "tumble": {
         "image": "Insert Image",
-        "text": "Do no tumble dry"
+        "text": "Do not tumble dry."
       },
       "washing": {
         "image": "Insert Image",
-        "text": "Dry clean with tetracholoroethylene"
+        "text": "Dry clean with tetracholoroethylene."
       },
       "iron": {
         "image": "Insert Image",
@@ -61,12 +90,12 @@
     }
   },
   {
-    "id": "5b3ea632-87ad-48bf-8d03-5ec887e09123",
+    "id": "03a3b7cd-1d5b-4b13-b191-ff3491829cb4",
     "name": "Tame",
     "description": "reversible angora cardigan",
     "price": 8000,
-    "image": "../images/jacket.svg",
-    "category": "Jacket",
+    "image": "../images/shoes-5.svg",
+    "category": "Shoes",
     "additional": {
       "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
       "care": "To keep your jackets and coats clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
@@ -78,11 +107,11 @@
       },
       "tumble": {
         "image": "Insert Image",
-        "text": "Do no tumble dry"
+        "text": "Do not tumble dry."
       },
       "washing": {
         "image": "Insert Image",
-        "text": "Dry clean with tetracholoroethylene"
+        "text": "Dry clean with tetracholoroethylene."
       },
       "iron": {
         "image": "Insert Image",
@@ -91,12 +120,12 @@
     }
   },
   {
-    "id": "35c0908f-14b7-427f-919a-7ee97cd502d4",
+    "id": "05ea21f4-a4f7-4444-bfc7-2ec59b36ace3",
     "name": "Tame",
     "description": "reversible angora cardigan",
-    "price": 8000,
-    "image": "../images/jumper.svg",
-    "category": "Jumper",
+    "price": 6200,
+    "image": "../images/shoes-6.svg",
+    "category": "Shoes",
     "additional": {
       "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
       "care": "To keep your jackets and coats clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
@@ -108,11 +137,11 @@
       },
       "tumble": {
         "image": "Insert Image",
-        "text": "Do no tumble dry"
+        "text": "Do not tumble dry."
       },
       "washing": {
         "image": "Insert Image",
-        "text": "Dry clean with tetracholoroethylene"
+        "text": "Dry clean with tetracholoroethylene."
       },
       "iron": {
         "image": "Insert Image",
@@ -121,12 +150,12 @@
     }
   },
   {
-    "id": "e5cbbd75-210d-447f-b763-63e1c7e9ef3d",
+    "id": "e5482528-08ff-441e-8f4b-36ae5640ca09",
     "name": "Tame",
     "description": "reversible angora cardigan",
-    "price": 8000,
-    "image": "../images/shawl.svg",
-    "category": "Shawl",
+    "price": 2300,
+    "image": "../images/shoes-7.svg",
+    "category": "Shoes",
     "additional": {
       "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
       "care": "To keep your jackets and coats clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
@@ -138,11 +167,11 @@
       },
       "tumble": {
         "image": "Insert Image",
-        "text": "Do no tumble dry"
+        "text": "Do not tumble dry."
       },
       "washing": {
         "image": "Insert Image",
-        "text": "Dry clean with tetracholoroethylene"
+        "text": "Dry clean with tetracholoroethylene."
       },
       "iron": {
         "image": "Insert Image",
@@ -151,10 +180,10 @@
     }
   },
   {
-    "id": "60d96e14-ec29-4f54-bdce-a871b1d4b3af",
+    "id": "40bf1f9d-eb31-4e9d-8fca-3810de7c1e30",
     "name": "The 360's",
     "description": "For turning heads, not turning back",
-    "price": 8000,
+    "price": 15000,
     "image": "../images/shoes-350.svg",
     "category": "Shoes",
     "additional": {
@@ -168,11 +197,11 @@
       },
       "tumble": {
         "image": "Insert Image",
-        "text": "Do no tumble dry"
+        "text": "Do not tumble dry."
       },
       "washing": {
         "image": "Insert Image",
-        "text": "Dry clean with tetracholoroethylene"
+        "text": "Dry clean with tetracholoroethylene."
       },
       "iron": {
         "image": "Insert Image",
@@ -181,10 +210,10 @@
     }
   },
   {
-    "id": "5e56f082-3cae-47c3-8347-4011ce459144",
+    "id": "caa2456a-5b2d-4896-b510-6c8e19fda50b",
     "name": "The Dappers",
     "description": "An item of footware...nuff said.",
-    "price": 8000,
+    "price": 7000,
     "image": "../images/shoes.svg",
     "category": "Shoes",
     "additional": {
@@ -198,11 +227,401 @@
       },
       "tumble": {
         "image": "Insert Image",
-        "text": "Do no tumble dry"
+        "text": "Do not tumble dry."
       },
       "washing": {
         "image": "Insert Image",
-        "text": "Dry clean with tetracholoroethylene"
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "afb1a917-bd74-4d17-a9cb-66e2dfb4e0ad",
+    "name": "The Dappers",
+    "description": "An item of footware...nuff said.",
+    "price": 7000,
+    "image": "../images/shoes-8.svg",
+    "category": "Shoes",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "57066f8d-ff4c-4389-9639-7a22c0340262",
+    "name": "The Dappers",
+    "description": "An item of footware...nuff said.",
+    "price": 7000,
+    "image": "../images/shoes-9.svg",
+    "category": "Shoes",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "4e546f62-fdca-4c23-b5b7-7dc9a55aa078",
+    "name": "The Dappers",
+    "description": "An item of footware...nuff said.",
+    "price": 7000,
+    "image": "../images/shoes-10.svg",
+    "category": "Shoes",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "71161e8c-f792-444c-a2a2-5645cf0611ea",
+    "name": "The Dappers",
+    "description": "An item of footware...nuff said.",
+    "price": 7000,
+    "image": "../images/shoes-11.svg",
+    "category": "Shoes",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "22122a5c-350a-4b36-bfdd-6f30631c8d7a",
+    "name": "The Dappers",
+    "description": "An item of footware...nuff said.",
+    "price": 7000,
+    "image": "../images/shoes-12.svg",
+    "category": "Shoes",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "cbba665a-4fbc-42ed-93a7-d034eb702a20",
+    "name": "The Dappers",
+    "description": "An item of footware...nuff said.",
+    "price": 7000,
+    "image": "../images/jacket-2.svg",
+    "category": "Jacket",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "3238b85c-c584-45f5-b106-599a763d7eea",
+    "name": "The Dappers",
+    "description": "An item of footware...nuff said.",
+    "price": 7000,
+    "image": "../images/jacket.svg",
+    "category": "Jacket",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "f80cf167-62a5-492b-9a4d-a10eb0074bfa",
+    "name": "The Dappers",
+    "description": "An item of footware...nuff said.",
+    "price": 7000,
+    "image": "../images/jeans.svg",
+    "category": "Jeans",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "6cbbbee9-c126-4c65-9b51-b7c531edb196",
+    "name": "The Dappers",
+    "description": "An item of footware...nuff said.",
+    "price": 7000,
+    "image": "../images/jumper-2.svg",
+    "category": "Jumper",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "a593ddfb-ef9d-434c-86f8-fc217cc000c9",
+    "name": "The Dappers",
+    "description": "An item of footware...nuff said.",
+    "price": 7000,
+    "image": "../images/jumper.svg",
+    "category": "Jumper",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "9135821b-8b3d-41bb-80e2-64ff0bcfd878",
+    "name": "The Dappers",
+    "description": "An item of footware...nuff said.",
+    "price": 7000,
+    "image": "../images/shawl.svg",
+    "category": "Shawl",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "869f47d6-776d-46f1-a1a7-c6397244f3e7",
+    "name": "The Dappers",
+    "description": "An item of footware...nuff said.",
+    "price": 7000,
+    "image": "../images/shirt.svg",
+    "category": "Shirt",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    }
+  },
+  {
+    "id": "3bf01b59-9496-443b-8387-fb620fe2a3b1",
+    "name": "The Dappers",
+    "description": "An item of footware...nuff said.",
+    "price": 7000,
+    "image": "../images/shirt-2.svg",
+    "category": "Shirt",
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": {
+        "image": "Insert Image",
+        "text": "Do not use bleach."
+      },
+      "tumble": {
+        "image": "Insert Image",
+        "text": "Do not tumble dry."
+      },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
       },
       "iron": {
         "image": "Insert Image",

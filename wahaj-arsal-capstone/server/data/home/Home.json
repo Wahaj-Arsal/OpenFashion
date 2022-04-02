@@ -1,11 +1,14 @@
 [
   {
-    "title": "Men's Collection 2021"
+    "title": "Men's Collection 2021",
+    "class": "tile__card tile__background-men"
   },
   {
-    "title": "Women's Collection 2021"
+    "title": "Women's Collection 2021",
+    "class": "tile__card tile__background-women"
   },
   {
-    "title": "2021 style guide: the biggest fall trends"
+    "title": "2021 style guide: the biggest fall trends",
+    "class": "tile__card tile__background-2022-trends"
   }
 ]

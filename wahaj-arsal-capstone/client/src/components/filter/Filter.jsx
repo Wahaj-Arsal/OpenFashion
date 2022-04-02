@@ -5,7 +5,16 @@ import "./Filter.scss";
 import sort from "../../assets/icons/Filter.svg";
 import polygon from "../../assets/icons/Polygon.svg";
 
-function Filter({ totalItems, setFilterState }) {
+function Filter({ totalItems, setFilterState, category }) {
+  const categoryArray = [];
+  const filteredCategories = category.map((item) => {
+    categoryArray.push(item.category);
+  });
+
+  const categories = [...new Set(categoryArray)].map((item) => {
+    return <option value={item}>{item}</option>;
+  });
+
   return (
     <section>
       <div className="filter">
@@ -19,11 +28,7 @@ function Filter({ totalItems, setFilterState }) {
                 onChange={(e) => setFilterState(e)}
               >
                 <option value="All">All</option>
-                <option value="Cardigan">Cardigan</option>
-                <option value="Jumper">Jumper</option>
-                <option value="Jacket">Jacket</option>
-                <option value="Shawl">Shawl</option>
-                <option value="Shoes">Shoes</option>
+                {categories}
               </select>
               {/* <img className="filter__down" src={polygon} /> */}
             </div>

@@ -21,15 +21,20 @@ const API_URL_MENS_ALL = `http://localhost:8080/mens`;
 
 function Mens({ match }) {
   const [mens, setMens] = useState([]);
-  // const [filter, setFilter] = useState(mens);
-  const getItemsMens = async () => {
-    await axios.get(API_URL_MENS_ALL).then((response) => {
+  const [category, setCategory] = useState([]);
+
+  //Get ALL items from the API
+  const getItemsMens = () => {
+    axios.get(API_URL_MENS_ALL).then((response) => {
       const mens = response.data;
       setMens(mens);
+      setCategory(mens);
     });
   };
+  //Call function to get ALL items on page refresh
   useEffect(getItemsMens, []);
 
+  //Filter items depending on the category
   const setFilterState = async (e) => {
     e.preventDefault();
     if (e.target.value === "All") {
@@ -49,16 +54,19 @@ function Mens({ match }) {
     }
   };
 
+  //Calculate Total Apparel
   const totalItems = mens.length;
-  // console.log(totalItems);
 
   return (
     <>
-      <Filter totalItems={totalItems} setFilterState={setFilterState} />
+      <Filter
+        totalItems={totalItems}
+        setFilterState={setFilterState}
+        category={category}
+      />
       <section className="item-container">
         {mens.length > 0 &&
           mens.map((item) => {
-            // console.log(item.image);
             return (
               <ItemTile
                 key={item.id}

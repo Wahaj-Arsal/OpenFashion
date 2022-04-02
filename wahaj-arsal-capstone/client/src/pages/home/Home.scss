@@ -5,7 +5,7 @@
 
 .home {
   @include flex(column, center, center);
-  padding: 0 1rem;
+  padding: 1rem;
   &__title {
     @include m-page-title;
   }

@@ -37,7 +37,7 @@ const SERVER_KEY_URL = process.env.REACT_APP_SERVER_KEY;
 // console.log(SERVER_KEY_URL);
 
 // HEADER COMPONENT START
-export default function Header(props) {
+export default function Header() {
   const stripe = loadStripe(
     `pk_test_51KjOyzIMx3ChqAD6opXWVp2NlWeJQT7h7PJhnch2QH0mwQ76rOtYii8SPjX2qUHmK2QRd15mjCIDnUXWKcHiMHiz00bV9efL4i`
   );
@@ -57,10 +57,6 @@ export default function Header(props) {
   };
 
   useEffect(fetchLocalStorage, []);
-
-  // const goToPayment = async (e) => {
-  //   const checkOutSession = await axios.post("http://localhost:8080/checkout");
-  // };
 
   // Send cart information to the server for Stripe payment
   const purchaseItem = async () => {
@@ -90,10 +86,6 @@ export default function Header(props) {
         console.log("error", error);
       });
   };
-
-  // const removeFromLocalStorage = (cartItem) => {
-  //   // }
-  // };
 
   //Remove cart Item
   const removeCartItem = (e) => {
@@ -140,7 +132,9 @@ export default function Header(props) {
           <img className="header__left" src={menuIcon} />
         </Link>
         <div className="header__logo">
-          <img className="header__center" src={logo} />
+          <Link to="/">
+            <img className="header__center" src={logo} />
+          </Link>
         </div>
         <div className="header__right">
           <img className="header__search" src={search} />
