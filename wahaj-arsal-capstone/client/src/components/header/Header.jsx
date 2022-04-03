@@ -1,16 +1,14 @@
 /** @format */
 
 // IMPORT FROM LIBRARIES
-import React, { Component, useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-// import { uuid } from "uuid";
 import axios from "axios";
 
 // IMPORT LOCAL FILES
 import "./Header.scss";
 import CartItem from "../cartItem/CartItem.jsx";
 import { CartContext } from "../helper/CartContext";
-// import items from "../../data/Items.json";
 
 // IMPORT ASSETS
 import menuIcon from "../../assets/icons/Menu.svg";
@@ -26,21 +24,15 @@ import youtube from "../../assets/icons/YouTube.svg";
 import shoppingBagWhite from "../../assets/icons/shopping-bag-white.svg";
 
 import { loadStripe } from "@stripe/stripe-js";
-import uuid from "react-uuid";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 
 const STRIPE_PUBLIC_KEY = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
-const SERVER_KEY_URL = process.env.REACT_APP_SERVER_KEY;
-// console.log(STRIPE_PUBLIC_KEY);
-// console.log(SERVER_KEY_URL);
 
 // HEADER COMPONENT START
-export default function Header() {
-  const stripe = loadStripe(
-    `pk_test_51KjOyzIMx3ChqAD6opXWVp2NlWeJQT7h7PJhnch2QH0mwQ76rOtYii8SPjX2qUHmK2QRd15mjCIDnUXWKcHiMHiz00bV9efL4i`
-  );
+export default function Header({ SERVER_KEY_URL }) {
+  const stripe = loadStripe(STRIPE_PUBLIC_KEY);
   const [sideBar, setSideBar] = useState(false);
   const [shoppingCart, setShoppingCart] = useState(false);
   const [cart, setCart] = useContext(CartContext);
@@ -71,7 +63,7 @@ export default function Header() {
       };
     });
     axios
-      .post(`http://localhost:8080/create-checkout-session`, { cartItem })
+      .post(`${SERVER_KEY_URL}/create-checkout-session`, { cartItem })
       .then((response) => {
         window.location.href = response.data.url;
         console.log(response);
@@ -181,11 +173,13 @@ export default function Header() {
           </li>
           <li className="sidebar__list-item">
             <img className="sidebar__icon" src={phone} />
-            <p className="sidebar__list-text">(+44) 546 478 1008</p>
+            <Link to="/sendtext" className="sidebar__list-link">
+              <p className="sidebar__list-text">(+44) 546 478 1008</p>
+            </Link>
           </li>
           <li className="sidebar__list-item">
             <img className="sidebar__icon" src={locator} />
-            <Link to="#" className="sidebar__list-link">
+            <Link to="/storelocator" className="sidebar__list-link">
               <p>Store Locator</p>
             </Link>
           </li>
@@ -203,7 +197,6 @@ export default function Header() {
       </nav>
       <section className={shoppingCart ? "cart cart--active" : "cart"}>
         <h3 className="cart__heading">Cart</h3>
-        {/* {cartReturnItem} */}
         {cart.length > 0 ? (
           <>
             {cartReturnItem}
@@ -237,10 +230,6 @@ export default function Header() {
             </div>
           </>
         )}
-        {/* <div className="cart__button">
-          <img className="cart__icon" src={shoppingBagWhite} />
-          <p className="cart__details">Continue Shopping</p>
-        </div> */}
       </section>
     </>
   );

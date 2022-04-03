@@ -1,0 +1,49 @@
+/** @format */
+
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
+@use "../../styles/partials/variables" as *;
+
+.text {
+  @include flex(column, center, flex-end);
+  padding: 1rem 0 1rem 0;
+  width: 100%;
+  &__title {
+    @include m-sub-title-upper;
+    text-transform: uppercase;
+    padding: 1rem 0 1rem 0;
+    text-align: center;
+  }
+  &__name,
+  &__question {
+    @include m-sub-title-upper;
+    @include flex(column, center, flex-end);
+    text-transform: uppercase;
+    padding: 0.5rem 4rem;
+    width: 100%;
+  }
+  &__label {
+    padding: 0 0 0.5rem 0;
+    width: 100%;
+  }
+  &__input {
+    @include m-sub-sub-title;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid $fnt-clr-text-default;
+    &--question {
+      height: 6rem;
+    }
+  }
+  &__button {
+    @include m-sub-sub-title;
+    margin: 0 4rem;
+    padding: 0.5rem 1rem;
+    // border-radius: 8px;
+    background-color: $fnt-clr-text-default;
+    color: $ele-clr-darkness-strain;
+    outline: none;
+    border: none;
+  }
+}

@@ -1,6 +1,7 @@
 /** @format */
 
 @use "./variables" as *;
+// @use "./resets" as *;
 
 // ******** Typography ********
 @font-face {
@@ -12,12 +13,14 @@
 
 //Mobile Start
 @mixin m-page-title {
+  font-family: Tenor, "serif";
   font-size: 18px; //1.5rem
   line-height: 20px; //2rem
   font-weight: 400;
 }
 
 @mixin m-page-title-upper {
+  font-family: Tenor, "serif";
   font-size: 18px; //1.5rem
   // line-height: 40px; //2rem
   font-weight: 400;
@@ -25,12 +28,14 @@
 }
 
 @mixin m-sub-title {
+  font-family: Tenor, "serif";
   font-size: 16px; //.8125rem
   line-height: 20px; //1.125rem
   font-weight: 400;
 }
 
 @mixin m-sub-title-upper {
+  font-family: Tenor, "serif";
   font-size: 16px; //.8125rem
   line-height: 24px; //1.125rem
   font-weight: 400;
@@ -38,12 +43,14 @@
 }
 
 @mixin m-sub-sub-title {
+  font-family: Tenor, "serif";
   font-size: 14px; //.8125rem
   line-height: 20px; //1.125rem
   font-weight: 400;
 }
 
 @mixin m-sub-sub-title-upper {
+  font-family: Tenor, "serif";
   font-size: 14px; //.8125rem
   line-height: 20px; //1.125rem
   font-weight: 400;
@@ -51,6 +58,7 @@
 }
 
 @mixin m-body-large {
+  font-family: Tenor, "serif";
   font-size: 16px; //.8125rem
   line-height: 24px; //1.125rem
   font-weight: 400;
@@ -58,6 +66,7 @@
 }
 
 @mixin m-body-medium {
+  font-family: Tenor, "serif";
   font-size: 14px; //.8125rem
   line-height: 24px; //1.125rem
   font-weight: 400;
@@ -65,6 +74,7 @@
 }
 
 @mixin m-body-small {
+  font-family: Tenor, "serif";
   font-size: 12px; //.8125rem
   line-height: 18px; //1.125rem
   font-weight: 400;

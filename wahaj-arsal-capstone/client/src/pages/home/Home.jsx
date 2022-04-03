@@ -2,42 +2,40 @@
 
 import "./Home.scss";
 
-import ProductTile from "../../components/productTile/ProductTile";
 import titleBar from "../../assets/icons/3.svg";
-import React, { useEffect, useState } from "react";
-// import Route from "react-router-dom";
-import axios from "axios";
-import uuid from "react-uuid";
-// import Mens from "../mens/Mens";
-
-// import items from "../../data/Items.json";
-const API_URL_HOME = `http://localhost:8080/`;
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
-  // console.log(props);
-  const [home, setHome] = useState([]);
-
-  const getHomePage = () => {
-    axios.get(API_URL_HOME).then((response) => {
-      const home = response.data;
-      setHome(home);
-      // console.log(response.data);
-    });
-  };
-
-  useEffect(getHomePage, []);
-
   return (
     <>
       <div className="home">
         <h1 className="home__title">HOME</h1>
         <img className="home__underline" src={titleBar} />
       </div>
-      {home.length > 0 &&
-        home.map((item) => {
-          return <ProductTile key={uuid()} item={item} />;
-        })}
-      {/* <ProductTile props={this.props} /> */}
+      <div className="tile">
+        <Link className="tile__text" to="/mens">
+          <div className="tile__card tile__background-men">
+            <p className="tile__description">Men's Collection 2021</p>
+          </div>
+        </Link>
+      </div>
+      <div className="tile">
+        <Link className="tile__text" to="/womens">
+          <div className="tile__card tile__background-women">
+            <p className="tile__description">Women's Collection 2021</p>
+          </div>
+        </Link>
+      </div>
+      <div className="tile">
+        <Link className="tile__text" to="/">
+          <div className="tile__card tile__background-2022-trends">
+            <p className="tile__description">
+              2021 style guide: the biggest fall trends
+            </p>
+          </div>
+        </Link>
+      </div>
     </>
   );
 }

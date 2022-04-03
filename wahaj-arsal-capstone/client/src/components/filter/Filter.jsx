@@ -3,7 +3,6 @@
 import "./Filter.scss";
 
 import sort from "../../assets/icons/Filter.svg";
-import polygon from "../../assets/icons/Polygon.svg";
 
 function Filter({ totalItems, setFilterState, category }) {
   const categoryArray = [];
@@ -12,7 +11,11 @@ function Filter({ totalItems, setFilterState, category }) {
   });
 
   const categories = [...new Set(categoryArray)].map((item) => {
-    return <option value={item}>{item}</option>;
+    return (
+      <option key={item} value={item}>
+        {item}
+      </option>
+    );
   });
 
   return (
@@ -27,7 +30,9 @@ function Filter({ totalItems, setFilterState, category }) {
                 className="filter__text"
                 onChange={(e) => setFilterState(e)}
               >
-                <option value="All">All</option>
+                <option className="filter__text" value="All">
+                  All
+                </option>
                 {categories}
               </select>
               {/* <img className="filter__down" src={polygon} /> */}

@@ -1,13 +1,12 @@
 /** @format */
 
 // IMPORT FROM LIBRARIES
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // IMPORT LOCAL FILES & COMPONENTS
 import "./ItemTile.scss";
 
 // IMPORT ASSETS
-import cardigan from "../../assets/images/cardigan.svg";
 
 function ItemTile({ id, name, description, price, image, match, uniqueId }) {
   return (

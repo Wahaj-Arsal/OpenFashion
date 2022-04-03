@@ -1,6 +1,7 @@
 /** @format */
 
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .shopping-cart {
   @include flex(row, center, center);
@@ -20,11 +21,18 @@
     position: relative;
   }
   &__button {
+    background-image: url("../../assets/icons/Close.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    // border: 1px solid $fnt-clr-title-active;
     width: 10%;
+    height: 30%;
+    // color: white;
     // justify-content: flex-end;
     align-self: flex-end;
     position: absolute;
     top: -1.875rem;
+    font-weight: 700;
   }
   &__title {
     @include m-sub-title-upper;

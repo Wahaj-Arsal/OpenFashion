@@ -1,15 +1,13 @@
 /** @format */
 
 // IMPORT FROM LIBRARIES
-import React, { Component, useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import uuid from "react-uuid";
 
 // IMPORT LOCAL FILES & COMPONENTS
 import "./ProductDetails.scss";
-import { CartContext } from "../helper/CartContext";
-// import items from "../../data/Items.json";
-// import image from "../../assets/images/cardigan.svg";
+import { CartContext } from "../../components/helper/CartContext";
+import exportIcon from "../../assets/icons/Export.svg";
 import plus from "../../assets/icons/Plus-white.svg";
 import heart from "../../assets/icons/Heart-white.svg";
 import doNotBleach from "../../assets/icons/Do-Not-Bleach.svg";
@@ -19,10 +17,8 @@ import doNotIron from "../../assets/icons/Iron-Low-Temperature.svg";
 
 // IMPORT ASSETS
 
-// AXIOS
-const API_URL_MENS_SINGLE = (id) => `http://localhost:8080/mens/${id}`;
-
-const ProductDetails = ({ match }) => {
+const ProductDetails = ({ match, SERVER_KEY_URL }) => {
+  const API_URL_MENS_SINGLE = (id) => `${SERVER_KEY_URL}/mens/${id}`;
   const url = match.params.mensId;
   const [cart, setCart] = useContext(CartContext);
   const [productDetails, setProductDetails] = useState([]);
@@ -35,10 +31,9 @@ const ProductDetails = ({ match }) => {
 
   useEffect(fetchData, []);
 
-  const { id, name, description, price, image } = productDetails;
+  const { id, name, description, price } = productDetails;
   const { care, materials } = { ...productDetails.additional };
   const { bleach, iron, tumble, washing } = { ...productDetails.instructions };
-  // console.log(image);
 
   const addToCart = (e) => {
     e.preventDefault();
@@ -60,20 +55,10 @@ const ProductDetails = ({ match }) => {
           <div className="details__details">
             <div className="details__heading">
               <h1 className="details__title">{name}</h1>
-              <img src="#" alt="" className="details__icon" />
+              <img src={exportIcon} alt="" className="details__icon" />
             </div>
             <p className="details__description">{description}</p>
             <p className="details__price">£{price / 100}</p>
-            <div className="details__options">
-              <div className="details__color">
-                <p className="details__color-text">Color</p>
-                <p className="details__color-options"></p>
-              </div>
-              <div className="details__size">
-                <p className="details__size-text">Size</p>
-                <p className="details__size-options"></p>
-              </div>
-            </div>
             <button className="button" onClick={addToCart}>
               <div className="button__add">
                 <img className="button__plus" src={plus} />
@@ -108,6 +93,28 @@ const ProductDetails = ({ match }) => {
               </div>
             </div>
           </div>
+          <div className="comments">
+            <div className="comments__input">
+              <div className="comments__name">
+                <h2 className="comments__name-title">Name:</h2>
+                <input
+                  className="comments__name-input"
+                  type="text"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div className="comments__comment">
+                <h2 className="comments__comment-title">Leave a review:</h2>
+                <textarea
+                  className="comments__comment-input"
+                  type="text"
+                  placeholder="Enter your review"
+                />
+              </div>
+            </div>
+            <button className="comments__submit">Post your review</button>
+          </div>
+          <div className="display"></div>
         </section>
       )}
     </>

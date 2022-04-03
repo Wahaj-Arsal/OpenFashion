@@ -3,7 +3,9 @@
 @use "./variables" as *;
 
 html,
-body {
+body
+// input
+{
   font-family: Tenor, "serif";
   background-color: $ele-clr-darkness-strain;
   color: $fnt-clr-text-default;
@@ -23,7 +25,8 @@ h4,
 p,
 ul,
 img,
-label {
+label,
+input {
   margin: 0;
   padding: 0;
 }

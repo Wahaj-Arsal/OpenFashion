@@ -2,22 +2,21 @@
 
 "use strict";
 
-// import items from "./data/items";
-const path = require("path");
+require("dotenv").config();
 const express = require("express");
 const fs = require("fs");
 const cors = require("cors");
 const { randomUUID } = require("crypto");
-const stripe = require("stripe")(
-  "sk_test_51KjOyzIMx3ChqAD6Gdu3zJCmoqvCRr9Gw8uE8XqzjLnMK4VMRv2DbTe1NMxsNqBe7jaPF7mpS7blFwSlHcUzG6gS00cYrjeoaY"
-);
-// const multer = require("multer");
-
-// const mensItemsJSON = path.join(__dirname, "./data/mens/items.json");
-// const items = require(mensItemsJSON);
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
+const STRIPE_TOKEN = process.env.STRIPE_SECURE_TOKEN;
+const CLIENT_TOKEN = process.env.REACT_APP_CLIENT_KEY;
+const stripe = require("stripe")(`${STRIPE_TOKEN}`);
+
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require("twilio")(accountSid, authToken);
 
 app.listen(PORT);
 app.use(cors());
@@ -53,6 +52,14 @@ app.get("/mens/:mensId", (req, res) => {
   }
 });
 
+//******** API THAT GETS ALL Store Locator ******** */
+app.get("/storelocator", (req, res) => {
+  const locations = fs.readFileSync(
+    "./data/storeLocations/StoreLocations.json"
+  );
+  res.send(JSON.parse(locations));
+});
+
 //******** API FOR CHECK OUT SESSION ******** */
 app.post("/create-checkout-session", async (req, res) => {
   const cartResponse = req.body.cartItem;
@@ -60,8 +67,31 @@ app.post("/create-checkout-session", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: cartResponse,
     mode: "payment",
-    success_url: `http://localhost:3000/paymentsuccess`,
-    cancel_url: `http://example.com/cancel`,
+    success_url: `${CLIENT_TOKEN}/paymentsuccess`,
+    cancel_url: `${CLIENT_TOKEN}/paymentcancelled`,
   });
   res.json({ url: session.url });
 });
+
+app.post("/sendtext", (req, res) => {
+  const name = req.body.name;
+  const question = req.body.question;
+  const message = `${name} has a question: ${question}`;
+  console.log(message);
+  // client.messages
+  //   .create({
+  //     body: message,
+  //     from: "+12058280069",
+  //     to: CLIENT_PHONE_NUMBER,
+  //   })
+  //   .then((message) => console.log(message.sid));
+  // res.send("Message Sent");
+});
+
+// client.messages
+//   .create({
+//     body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+//     from: "+17655629095",
+//     to: "+447746170228",
+//   })
+//   .then((message) => console.log(message.status));

@@ -1,31 +1,23 @@
 /** @format */
 
 // IMPORT FROM LIBRARIES
-// import { useParams, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-// import Route from "react-router-dom";
 import axios from "axios";
-import uuid from "react-uuid";
 
 // IMPORT LOCAL FILES & COMPONENTS
 import "./Mens.scss";
-// import items from "../../data/Items.json";
 import Filter from "../../components/filter/Filter";
 import ItemTile from "../../components/itemTile/ItemTile";
 
 // IMPORT ASSETS
-import sort from "../../assets/icons/Filter.svg";
-import polygon from "../../assets/icons/Polygon.svg";
 
-const API_URL_MENS_ALL = `http://localhost:8080/mens`;
-
-function Mens({ match }) {
+function Mens({ match, SERVER_KEY_URL }) {
   const [mens, setMens] = useState([]);
   const [category, setCategory] = useState([]);
 
   //Get ALL items from the API
   const getItemsMens = () => {
-    axios.get(API_URL_MENS_ALL).then((response) => {
+    axios.get(`${SERVER_KEY_URL}/mens`).then((response) => {
       const mens = response.data;
       setMens(mens);
       setCategory(mens);
@@ -38,12 +30,12 @@ function Mens({ match }) {
   const setFilterState = async (e) => {
     e.preventDefault();
     if (e.target.value === "All") {
-      await axios.get(API_URL_MENS_ALL).then((response) => {
+      await axios.get(`${SERVER_KEY_URL}/mens`).then((response) => {
         const mens = response.data;
         setMens(mens);
       });
     } else {
-      await axios.get(API_URL_MENS_ALL).then((response) => {
+      await axios.get(`${SERVER_KEY_URL}/mens`).then((response) => {
         const mens = response.data;
         // setMens(mens);
         let result = mens.filter((currentData) => {
@@ -59,6 +51,7 @@ function Mens({ match }) {
 
   return (
     <>
+      <h3 className="mens__title">Men's</h3>
       <Filter
         totalItems={totalItems}
         setFilterState={setFilterState}

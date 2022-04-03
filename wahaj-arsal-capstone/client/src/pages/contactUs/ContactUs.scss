@@ -1,0 +1,61 @@
+/** @format */
+
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
+@use "../../styles/partials/variables" as *;
+
+.contactus__title {
+  @include m-sub-title-upper;
+  text-transform: uppercase;
+  padding: 1rem 0 1rem 0;
+  text-align: center;
+}
+
+.store-finder {
+  @include flex(column, center, center);
+  padding: 1rem 0 0 0;
+  &__img {
+    padding: 0 0 1rem 0;
+  }
+  &__text {
+  }
+  &__button {
+    @include m-sub-sub-title;
+    margin: 1rem 1rem;
+    padding: 0.5rem 1rem;
+    // border-radius: 8px;
+    background-color: $fnt-clr-text-default;
+    color: $ele-clr-darkness-strain;
+    outline: none;
+    border: none;
+  }
+}
+
+.sms {
+  @include flex(column, center, center);
+  padding: 1rem 0 0 0;
+  &__img {
+    padding: 0 0 1rem 0;
+  }
+  &__text {
+    @include m-sub-sub-title-upper;
+    text-transform: uppercase;
+    padding: 0 0 1rem 0;
+    text-align: center;
+  }
+  &__text-reply {
+    @include m-body-medium;
+    font-style: italic;
+    text-align: center;
+  }
+  &__button {
+    @include m-sub-sub-title;
+    margin: 1rem 1rem;
+    padding: 0.5rem 1rem;
+    // border-radius: 8px;
+    background-color: $fnt-clr-text-default;
+    color: $ele-clr-darkness-strain;
+    outline: none;
+    border: none;
+  }
+}

@@ -1,0 +1,61 @@
+/** @format */
+
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
+@use "../../styles/partials/variables" as *;
+
+.footer {
+  @include flex(column, center, center);
+  color: $fnt-clr-body;
+  padding: 3rem 0 0 0;
+  &__icons {
+    @include flex(row, space-between, center);
+    // padding: 1rem 0;
+  }
+  &__twitter {
+    padding: 0 1rem;
+  }
+  &__instagram {
+    padding: 0 1rem;
+  }
+  &__youtube {
+    padding: 0 1rem;
+  }
+  &__details {
+    @include flex(column, space-between, center);
+    @include m-sub-title;
+    padding: 2rem 0;
+  }
+  &__email {
+    padding: 0.25rem 0;
+  }
+  &__phone {
+    padding: 0.25rem 0;
+  }
+  &__times {
+    padding: 0.25rem 0;
+  }
+  &__links {
+    // padding: 0;
+  }
+  &__ul {
+    @include flex(row, space-between, center);
+    padding: 0 0 2rem 0;
+  }
+  &__li {
+    @include m-sub-title;
+    list-style: none;
+    padding: 0 1.5rem;
+  }
+  &__li-link {
+    // outline: none;
+    text-decoration: none;
+    color: $fnt-clr-body;
+  }
+  &__copyright {
+    background-color: #c4c4c4;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+  }
+}
