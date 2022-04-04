@@ -7,12 +7,21 @@ const express = require("express");
 const fs = require("fs");
 const cors = require("cors");
 const { randomUUID } = require("crypto");
+const {
+  uniqueNamesGenerator,
+  adjectives,
+  colors,
+  animals,
+  names,
+} = require("unique-names-generator");
+// import { uniqueNamesGenerator, name } from "unique-names-generator";
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 const STRIPE_TOKEN = process.env.STRIPE_SECURE_TOKEN;
 const CLIENT_TOKEN = process.env.REACT_APP_CLIENT_KEY;
 const stripe = require("stripe")(`${STRIPE_TOKEN}`);
+const CLIENT_PHONE_NUMBER = process.env.CLIENT_PHONE_NUMBER;
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
@@ -27,6 +36,16 @@ app.use(express.static("public"));
 app.get("/randomId", (req, res) => {
   const randomIdGenerator = randomUUID();
   res.send(randomIdGenerator);
+});
+
+//******** API THAT Generated Random Name ******** */
+app.get("/randomname", (req, res) => {
+  const randomNameGenerator = {
+    name: uniqueNamesGenerator({
+      dictionaries: [names],
+    }),
+  };
+  res.send(randomNameGenerator);
 });
 
 //******** API THAT GETS ALL Home Page Items ******** */
@@ -73,25 +92,56 @@ app.post("/create-checkout-session", async (req, res) => {
   res.json({ url: session.url });
 });
 
+//******** API FOR POSTING REVIEWS ******** */
+app.post("/mens/:id/reviews", (req, res) => {
+  const id = req.params.id;
+  // console.log(id);
+  const newComment = {
+    id: randomUUID(),
+    name: req.body.name,
+    review: req.body.comment,
+    likes: 0,
+    timestamp: Date.parse(new Date()),
+  };
+  console.log(newComment);
+  const fileContent = JSON.parse(fs.readFileSync("./data/mens/items.json"));
+
+  for (let i = 0; i < fileContent.length; i++) {
+    if (fileContent[i].id == id) {
+      const selectedItem = fileContent[i].reviews;
+      console.log(selectedItem);
+      selectedItem.push(newComment);
+      fs.writeFileSync("./data/mens/items.json", JSON.stringify(fileContent));
+      res.status(200).json(newComment);
+    }
+  }
+  // res.status(404).json("Video Not Found");
+});
+
+//******** API FOR GETTING COMMENTS ******** */
+app.get("/mens/:id/reviews", (req, res) => {
+  const id = req.params.id;
+  const fileContent = JSON.parse(fs.readFileSync("./data/mens/items.json"));
+  for (let i = 0; i < fileContent.length; i++) {
+    if (fileContent[i].id == id) {
+      const selectedItem = fileContent[i].reviews;
+      res.status(200).json(selectedItem);
+    }
+  }
+});
+
+//******** API FOR SENDING TEXT ******** */
 app.post("/sendtext", (req, res) => {
   const name = req.body.name;
   const question = req.body.question;
   const message = `${name} has a question: ${question}`;
-  console.log(message);
-  // client.messages
-  //   .create({
-  //     body: message,
-  //     from: "+12058280069",
-  //     to: CLIENT_PHONE_NUMBER,
-  //   })
-  //   .then((message) => console.log(message.sid));
-  // res.send("Message Sent");
+  // console.log(message);
+  client.messages
+    .create({
+      body: message,
+      // from: "+17655629095",
+      // to: CLIENT_PHONE_NUMBER,
+    })
+    .then((message) => console.log(message.sid));
+  res.send("Message Sent");
 });
-
-// client.messages
-//   .create({
-//     body: "This is the ship that made the Kessel Run in fourteen parsecs?",
-//     from: "+17655629095",
-//     to: "+447746170228",
-//   })
-//   .then((message) => console.log(message.status));

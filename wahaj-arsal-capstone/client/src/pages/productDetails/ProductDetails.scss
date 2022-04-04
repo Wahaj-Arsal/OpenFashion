@@ -34,9 +34,22 @@
     padding: 0.5rem 1rem 0 1rem;
     // padding: 0.5rem 0;
   }
+  &__info {
+    @include flex(row, flex-end, center);
+    width: 100%;
+  }
   &__price {
     // color: $clr-secondary-clr;
     padding: 0.5rem 1rem 0 1rem;
+  }
+  &__sustain {
+    @include flex(row, flex-end, center);
+    padding: 0.5rem 1rem 0 1rem;
+    width: 100%;
+  }
+  &__count {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -115,8 +128,16 @@
 }
 
 .comments {
-  @include flex(column, left, flex-end);
+  @include flex(column, left, null);
   width: 100%;
+  padding: 0 0 2rem 0;
+  &__heading {
+    @include m-page-title-upper;
+    // text-transform: uppercase;
+    font-weight: 700;
+    align-items: left;
+    padding: 0.5rem 1rem 1rem 1rem;
+  }
   &__input {
     padding: 0 1rem;
     width: 100%;

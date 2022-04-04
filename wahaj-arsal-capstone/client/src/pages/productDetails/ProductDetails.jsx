@@ -3,10 +3,14 @@
 // IMPORT FROM LIBRARIES
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import moment from "moment";
 
 // IMPORT LOCAL FILES & COMPONENTS
 import "./ProductDetails.scss";
+import CommentsDispaly from "../../components/commentsDisplay/CommentsDisplay";
 import { CartContext } from "../../components/helper/CartContext";
+
+// IMPORT ASSETS
 import exportIcon from "../../assets/icons/Export.svg";
 import plus from "../../assets/icons/Plus-white.svg";
 import heart from "../../assets/icons/Heart-white.svg";
@@ -14,14 +18,21 @@ import doNotBleach from "../../assets/icons/Do-Not-Bleach.svg";
 import doNotTumbleDry from "../../assets/icons/Do-Not-Tumble-Dry.svg";
 import doNotWash from "../../assets/icons/Do-Not-Wash.svg";
 import doNotIron from "../../assets/icons/Iron-Low-Temperature.svg";
-
-// IMPORT ASSETS
+import leafFull from "../../assets/icons/leaf-f.svg";
+import leafEmpty from "../../assets/icons/leaf-e.svg";
 
 const ProductDetails = ({ match, SERVER_KEY_URL }) => {
   const API_URL_MENS_SINGLE = (id) => `${SERVER_KEY_URL}/mens/${id}`;
+  const API_URL_ID_COMMENTS = (id) => `${SERVER_KEY_URL}/mens/${id}/reviews`;
   const url = match.params.mensId;
+
+  //STATES FOR POSTING COMMENT
+  const [customerName, setCustomerName] = useState([]);
+  const [customerComment, setCustomerComment] = useState([]);
+
   const [cart, setCart] = useContext(CartContext);
   const [productDetails, setProductDetails] = useState([]);
+
   const fetchData = () => {
     axios.get(API_URL_MENS_SINGLE(url)).then((response) => {
       const productDetails = response.data;
@@ -31,7 +42,7 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
 
   useEffect(fetchData, []);
 
-  const { id, name, description, price } = productDetails;
+  const { id, name, description, price, sustainability } = productDetails;
   const { care, materials } = { ...productDetails.additional };
   const { bleach, iron, tumble, washing } = { ...productDetails.instructions };
 
@@ -43,6 +54,66 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
     cartItems.push(productDetails);
     localStorage.setItem("item", JSON.stringify(cartItems));
     setCart(cartItems);
+  };
+
+  const handleChangeName = ({ target: { customerName, value } }) => {
+    setCustomerName(value);
+  };
+  const handleChangeReview = ({ target: { customerComment, value } }) => {
+    setCustomerComment(value);
+  };
+
+  //******** API Call To Post A Comment ******** */
+  // Posts A Comment To The Video
+  const postComment = async () => {
+    // console.log({ customerName });
+    const newComment = {
+      name: customerName,
+      comment: customerComment,
+    };
+    await axios.post(API_URL_ID_COMMENTS(url), newComment).then((response) => {
+      if (response.status === 200) {
+        setTimeout(() => {
+          fetchData();
+        }, 500);
+      }
+    });
+  };
+
+  // const getNewComment = async () => {
+  //   await axios.get(API_URL_ID_COMMENTS(url)).then((response) => {
+  //     console.log(response.data);
+  //     setGetComments(response.data);
+  //   });
+  // };
+
+  // console.log(sustainability);
+
+  // const [sustain, setSustain] = useState([]);
+
+  // useEffect(() => {
+  //   setSustain(item.sustainability);
+  // });
+  // // console.log(sustain);
+  const totalSustain = 5;
+  const sustainReturn = [...Array(totalSustain)].map((sus, index) => {
+    return (
+      <>
+        <img
+          key={id}
+          className="details__count"
+          src={index + 1 <= sustainability ? leafFull : leafEmpty}
+        />
+      </>
+    );
+  });
+
+  //******** Function To Humanise Comment Times ******** */
+  const newMoment = (commentDate) => {
+    let x = new moment(commentDate);
+    let y = new moment();
+    let duration = moment.duration(-y.diff(x)).humanize(true);
+    return duration;
   };
 
   return (
@@ -58,7 +129,10 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
               <img src={exportIcon} alt="" className="details__icon" />
             </div>
             <p className="details__description">{description}</p>
-            <p className="details__price">£{price / 100}</p>
+            <div className="details__info">
+              <p className="details__price">£{price / 100}</p>
+              <div className="details__sustain">{sustainReturn}</div>
+            </div>
             <button className="button" onClick={addToCart}>
               <div className="button__add">
                 <img className="button__plus" src={plus} />
@@ -94,27 +168,43 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
             </div>
           </div>
           <div className="comments">
+            <h3 className="comments__heading">Reviews</h3>
             <div className="comments__input">
               <div className="comments__name">
                 <h2 className="comments__name-title">Name:</h2>
                 <input
                   className="comments__name-input"
+                  name="customerName"
                   type="text"
                   placeholder="Enter your name"
+                  onChange={handleChangeName}
                 />
               </div>
               <div className="comments__comment">
                 <h2 className="comments__comment-title">Leave a review:</h2>
                 <textarea
                   className="comments__comment-input"
+                  name="customerComment"
                   type="text"
                   placeholder="Enter your review"
+                  onChange={handleChangeReview}
                 />
               </div>
             </div>
-            <button className="comments__submit">Post your review</button>
+            <button className="comments__submit" onClick={postComment}>
+              Post your review
+            </button>
           </div>
-          <div className="display"></div>
+          {productDetails.reviews.length > 0 &&
+            productDetails.reviews.map((reviews) => {
+              return (
+                <CommentsDispaly
+                  key={reviews.id}
+                  reviews={reviews}
+                  newMoment={newMoment}
+                />
+              );
+            })}
         </section>
       )}
     </>

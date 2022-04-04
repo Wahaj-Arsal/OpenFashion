@@ -40,6 +40,9 @@ export default function Header({ SERVER_KEY_URL }) {
   const showSidebar = () => setSideBar(!sideBar);
   const showShoppingCart = () => setShoppingCart(!shoppingCart);
 
+  const hideSideBar = () => setSideBar(false);
+  const hideCart = () => setShoppingCart(false);
+
   const fetchLocalStorage = () => {
     let cartGetItemFromLS = localStorage.getItem("item")
       ? JSON.parse(localStorage.getItem("item"))
@@ -145,7 +148,7 @@ export default function Header({ SERVER_KEY_URL }) {
             <Link
               to="/mens"
               className="sidebar__list-link"
-              // onClick={this.hideMenu}
+              onClick={hideSideBar}
             >
               <p className="sidebar__list-text">Men</p>
             </Link>
@@ -154,7 +157,7 @@ export default function Header({ SERVER_KEY_URL }) {
             <Link
               to="/womens"
               className="sidebar__list-link"
-              // onClick={this.hideMenu}
+              onClick={hideSideBar}
             >
               <p className="sidebar__list-text">Women</p>
             </Link>
@@ -173,13 +176,21 @@ export default function Header({ SERVER_KEY_URL }) {
           </li>
           <li className="sidebar__list-item">
             <img className="sidebar__icon" src={phone} />
-            <Link to="/sendtext" className="sidebar__list-link">
+            <Link
+              to="/sendtext"
+              className="sidebar__list-link"
+              onClick={hideSideBar}
+            >
               <p className="sidebar__list-text">(+44) 546 478 1008</p>
             </Link>
           </li>
           <li className="sidebar__list-item">
             <img className="sidebar__icon" src={locator} />
-            <Link to="/storelocator" className="sidebar__list-link">
+            <Link
+              to="/storelocator"
+              className="sidebar__list-link"
+              onClick={hideSideBar}
+            >
               <p>Store Locator</p>
             </Link>
           </li>
@@ -226,7 +237,9 @@ export default function Header({ SERVER_KEY_URL }) {
             </p>
             <div className="cart-empty__button">
               <img className="cart-empty__icon" src={shoppingBagWhite} />
-              <p className="cart-empty__details">Continue Shopping</p>
+              <p className="cart-empty__details" onClick={hideCart}>
+                Continue Shopping
+              </p>
             </div>
           </>
         )}

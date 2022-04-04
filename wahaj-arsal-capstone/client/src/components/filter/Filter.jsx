@@ -4,13 +4,32 @@ import "./Filter.scss";
 
 import sort from "../../assets/icons/Filter.svg";
 
-function Filter({ totalItems, setFilterState, category }) {
+function Filter({
+  totalItems,
+  setFilterState,
+  category,
+  setSustainFilterState,
+  sustainability,
+}) {
   const categoryArray = [];
   const filteredCategories = category.map((item) => {
     categoryArray.push(item.category);
   });
 
+  const sustainArray = [];
+  const filteredSustain = sustainability.map((item) => {
+    sustainArray.push(item.sustainability);
+  });
+
   const categories = [...new Set(categoryArray)].map((item) => {
+    return (
+      <option key={item} value={item}>
+        {item}
+      </option>
+    );
+  });
+
+  const sustainRating = [...new Set(sustainArray)].map((item) => {
     return (
       <option key={item} value={item}>
         {item}
@@ -34,6 +53,19 @@ function Filter({ totalItems, setFilterState, category }) {
                   All
                 </option>
                 {categories}
+              </select>
+              {/* <img className="filter__down" src={polygon} /> */}
+            </div>
+            <div className="filter__filter">
+              <select
+                name="filter"
+                className="filter__text"
+                onChange={(e) => setSustainFilterState(e)}
+              >
+                <option className="filter__text" value="Any">
+                  Any
+                </option>
+                {sustainRating}
               </select>
               {/* <img className="filter__down" src={polygon} /> */}
             </div>
