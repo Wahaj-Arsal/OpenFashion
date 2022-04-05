@@ -38,7 +38,6 @@ function Mens({ match, SERVER_KEY_URL }) {
   //Filter items depending on the category
   const setFilterState = async (e) => {
     if (!e) {
-      console.log("no filter");
     } else if (e.target.value === "All") {
       setCategoryData(mens);
       setSustainFilterState();
@@ -48,7 +47,6 @@ function Mens({ match, SERVER_KEY_URL }) {
         return items.category === e.target.value;
       });
       setCategoryData(filteredItems);
-      console.log(categoryData);
       setSustainFilterState();
     }
   };
@@ -57,17 +55,12 @@ function Mens({ match, SERVER_KEY_URL }) {
     if (!e) {
       //no filter set so passing data in categoryData as is filtered by category
       setSustainabilityData(categoryData);
-      console.log(activeSustainFilter);
-
       if (activeSustainFilter === "Any") {
         setSustainabilityData(categoryData);
       } else {
         let filteredItems = categoryData.filter((items) => {
-          console.log(items.sustainability);
-
           return items.sustainability == activeSustainFilter;
         });
-        console.log(filteredItems);
         setSustainabilityData(filteredItems);
       }
     } else if (e.target.value === "Any") {
@@ -90,7 +83,6 @@ function Mens({ match, SERVER_KEY_URL }) {
 
   //Calculate Total Apparel
   const totalItems = sustainabilityData.length;
-  // console.log(sustainabilityData);
   return (
     <>
       <h3 className="mens__title">Men's</h3>
@@ -116,7 +108,6 @@ function Mens({ match, SERVER_KEY_URL }) {
                 item={item}
                 sustainability={item.sustainability}
                 match={match}
-                // sustainReturn={sustainReturn}
               />
             );
           })}
@@ -126,54 +117,3 @@ function Mens({ match, SERVER_KEY_URL }) {
 }
 
 export default Mens;
-
-// //Get ALL items from the API
-// const getItemsMens = () => {
-//   axios.get(`${SERVER_KEY_URL}/mens`).then((response) => {
-//     const mens = response.data;
-//     setMens(mens);
-//     setCategory(mens);
-//     setSustainability(mens);
-//   });
-// };
-// //Call function to get ALL items on page refresh
-// useEffect(getItemsMens, []);
-// //Filter items depending on the category
-// let result = [];
-// const setFilterState = async (e) => {
-//   e.preventDefault();
-//   if (e.target.value === "All") {
-//     await axios.get(`${SERVER_KEY_URL}/mens`).then((response) => {
-//       const mens = response.data;
-//       setMens(mens);
-//     });
-//   } else {
-//     await axios.get(`${SERVER_KEY_URL}/mens`).then((response) => {
-//       const mens = response.data;
-//       // setMens(mens);
-//       result = mens.filter((currentData) => {
-//         return currentData.category === e.target.value;
-//       });
-//       setMens(result);
-//     });
-//   }
-// };
-
-// const setSustainFilterState = async (e) => {
-//   e.preventDefault();
-//   if (e.target.value === "Any") {
-//     await axios.get(`${SERVER_KEY_URL}/mens`).then((response) => {
-//       const mens = response.data;
-//       setMens(mens);
-//     });
-//   } else {
-//     await axios.get(`${SERVER_KEY_URL}/mens`).then((response) => {
-//       const mens = response.data;
-//       // setMens(mens);
-//       let result = mens.filter((currentData) => {
-//         return currentData.sustainability === parseInt(e.target.value);
-//       });
-//       setMens(result);
-//     });
-//   }
-// };

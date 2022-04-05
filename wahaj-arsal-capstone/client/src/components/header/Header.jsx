@@ -69,7 +69,6 @@ export default function Header({ SERVER_KEY_URL }) {
       .post(`${SERVER_KEY_URL}/create-checkout-session`, { cartItem })
       .then((response) => {
         window.location.href = response.data.url;
-        console.log(response);
         return stripe.redirectToCheckout({ sessionId: response.data.id });
       })
       .then((result) => {
@@ -86,13 +85,10 @@ export default function Header({ SERVER_KEY_URL }) {
   const removeCartItem = (e) => {
     e.preventDefault();
     const cartItem = e.target.parentElement.parentElement;
-    // console.log(cartItem);
     const filterItems = cart.filter((item) => item.id !== cartItem.id);
     setCart(filterItems);
     const items = JSON.parse(localStorage.getItem("item"));
-    //console.log("Product Removed");
     const filter = items.filter((item) => item.id !== cartItem.id);
-    console.log(filter);
     localStorage.setItem("item", JSON.stringify(filter));
   };
 
@@ -112,7 +108,6 @@ export default function Header({ SERVER_KEY_URL }) {
   // Calculate the CART Total
   let cartTotal = 0;
   for (let i = 0; i < cart.length; i++) {
-    console.log(cart[i].price);
     cartTotal = cartTotal + cart[i].price / 100;
   }
 

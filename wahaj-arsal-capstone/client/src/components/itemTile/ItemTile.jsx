@@ -14,7 +14,6 @@ import leafFull from "../../assets/icons/leaf-g.png";
 
 function ItemTile({
   id,
-  index,
   name,
   description,
   price,
@@ -22,12 +21,7 @@ function ItemTile({
   match,
   uniqueId,
   item,
-  sustainability,
 }) {
-  // console.log(sustainability);
-  // console.log(item.sustainability);
-  // const { sustainability } = item;
-
   const [sustain, setSustain] = useState([]);
 
   useEffect(() => {

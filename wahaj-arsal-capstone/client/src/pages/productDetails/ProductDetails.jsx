@@ -66,7 +66,6 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
   //******** API Call To Post A Comment ******** */
   // Posts A Comment To The Video
   const postComment = async () => {
-    // console.log({ customerName });
     const newComment = {
       name: customerName,
       comment: customerComment,
@@ -80,21 +79,6 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
     });
   };
 
-  // const getNewComment = async () => {
-  //   await axios.get(API_URL_ID_COMMENTS(url)).then((response) => {
-  //     console.log(response.data);
-  //     setGetComments(response.data);
-  //   });
-  // };
-
-  // console.log(sustainability);
-
-  // const [sustain, setSustain] = useState([]);
-
-  // useEffect(() => {
-  //   setSustain(item.sustainability);
-  // });
-  // // console.log(sustain);
   const totalSustain = 5;
   const sustainReturn = [...Array(totalSustain)].map((sus, index) => {
     return (

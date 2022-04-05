@@ -16,11 +16,6 @@ import Footer from "./components/footer/Footer";
 import { CartProvider } from "./components/helper/CartContext";
 
 const SERVER_KEY_URL = process.env.REACT_APP_SERVER_KEY;
-
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
-// const stripePromise = loadStripe("pk_test_qblFNYngBkEdjEZ16jxxoWSM");
-
 export default class App extends Component {
   render() {
     return (
@@ -100,9 +95,6 @@ export default class App extends Component {
                 <SendText {...routerProps} SERVER_KEY_URL={SERVER_KEY_URL} />
               )}
             />
-            {/* <Route element={<ProductDetails />} /> */}
-            {/* <Route path="/womens" /> */}
-            {/* <Route path="/womens/:womens" element={<ProductDetails />} /> */}
           </Switch>
           <Footer />
         </CartProvider>

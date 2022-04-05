@@ -7,14 +7,7 @@ const express = require("express");
 const fs = require("fs");
 const cors = require("cors");
 const { randomUUID } = require("crypto");
-const {
-  uniqueNamesGenerator,
-  adjectives,
-  colors,
-  animals,
-  names,
-} = require("unique-names-generator");
-// import { uniqueNamesGenerator, name } from "unique-names-generator";
+const { uniqueNamesGenerator, names } = require("unique-names-generator");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -95,7 +88,6 @@ app.post("/create-checkout-session", async (req, res) => {
 //******** API FOR POSTING REVIEWS ******** */
 app.post("/mens/:id/reviews", (req, res) => {
   const id = req.params.id;
-  // console.log(id);
   const newComment = {
     id: randomUUID(),
     name: req.body.name,
@@ -103,19 +95,17 @@ app.post("/mens/:id/reviews", (req, res) => {
     likes: 0,
     timestamp: Date.parse(new Date()),
   };
-  console.log(newComment);
   const fileContent = JSON.parse(fs.readFileSync("./data/mens/items.json"));
 
   for (let i = 0; i < fileContent.length; i++) {
     if (fileContent[i].id == id) {
       const selectedItem = fileContent[i].reviews;
-      console.log(selectedItem);
       selectedItem.push(newComment);
       fs.writeFileSync("./data/mens/items.json", JSON.stringify(fileContent));
       res.status(200).json(newComment);
     }
   }
-  // res.status(404).json("Video Not Found");
+  res.status(404).json("Review Not Found");
 });
 
 //******** API FOR GETTING COMMENTS ******** */
@@ -135,7 +125,6 @@ app.post("/sendtext", (req, res) => {
   const name = req.body.name;
   const question = req.body.question;
   const message = `${name} has a question: ${question}`;
-  // console.log(message);
   client.messages
     .create({
       body: message,
