@@ -1,8 +1,8 @@
 [
   {
     "id": "20666100-fe6c-493d-ac9f-01387c664afa",
-    "name": "21WN",
-    "description": "reversible angora cardigan",
+    "name": "Multi",
+    "description": "The ultimate in multi-purpose",
     "price": 12000,
     "image": "../images/shoes-3.svg",
     "category": "Shoes",
@@ -42,8 +42,8 @@
   },
   {
     "id": "9f448138-7be4-4090-ad5e-a61a3a4fe536",
-    "name": "21WN",
-    "description": "reversible angora cardigan",
+    "name": "Sprint",
+    "description": "Running shoes for the next big thing",
     "price": 12000,
     "image": "../images/shoes-2.svg",
     "category": "Shoes",
@@ -83,8 +83,8 @@
   },
   {
     "id": "b031dca9-f79f-420c-a3c2-a1a1e4259281",
-    "name": "Lame",
-    "description": "reversible angora cardigan",
+    "name": "All Star",
+    "description": "Running, Walking, and Hiking",
     "price": 4200,
     "image": "../images/shoes-4.svg",
     "category": "Shoes",
@@ -117,8 +117,8 @@
   },
   {
     "id": "03a3b7cd-1d5b-4b13-b191-ff3491829cb4",
-    "name": "Tame",
-    "description": "reversible angora cardigan",
+    "name": "All Star",
+    "description": "The All Star style white Hi-tops",
     "price": 8000,
     "image": "../images/shoes-5.svg",
     "category": "Shoes",

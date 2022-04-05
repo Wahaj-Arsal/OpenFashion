@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 import "./ItemTile.scss";
 
 // IMPORT ASSETS
-import leafEmpty from "../../assets/icons/leaf-e.svg";
-import leafFull from "../../assets/icons/leaf-f.svg";
+import leafEmpty from "../../assets/icons/leaf-b.png";
+import leafFull from "../../assets/icons/leaf-g.png";
 
 function ItemTile({
   id,
@@ -38,6 +38,7 @@ function ItemTile({
     return (
       <>
         <img
+          key={uniqueId}
           className="item__count"
           src={index + 1 <= sustain ? leafFull : leafEmpty}
         />

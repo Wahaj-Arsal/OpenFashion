@@ -18,8 +18,8 @@ import doNotBleach from "../../assets/icons/Do-Not-Bleach.svg";
 import doNotTumbleDry from "../../assets/icons/Do-Not-Tumble-Dry.svg";
 import doNotWash from "../../assets/icons/Do-Not-Wash.svg";
 import doNotIron from "../../assets/icons/Iron-Low-Temperature.svg";
-import leafFull from "../../assets/icons/leaf-f.svg";
-import leafEmpty from "../../assets/icons/leaf-e.svg";
+import leafFull from "../../assets/icons/leaf-g.png";
+import leafEmpty from "../../assets/icons/leaf-b.png";
 
 const ProductDetails = ({ match, SERVER_KEY_URL }) => {
   const API_URL_MENS_SINGLE = (id) => `${SERVER_KEY_URL}/mens/${id}`;
