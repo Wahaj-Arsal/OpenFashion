@@ -37,7 +37,7 @@ function SendText({ SERVER_KEY_URL }) {
           <input
             className="text__input"
             name="name"
-            placeholder="e.g. Larry"
+            placeholder="Enter your name"
             onChange={handleChange}
           ></input>
         </div>
@@ -46,7 +46,7 @@ function SendText({ SERVER_KEY_URL }) {
           <textarea
             className="text__input text__input--question"
             name="question"
-            placeholder="e.g. How do I get home if the 360's aren't for turning around?"
+            placeholder="Enter your question here"
             onChange={handleChange}
           ></textarea>
         </div>

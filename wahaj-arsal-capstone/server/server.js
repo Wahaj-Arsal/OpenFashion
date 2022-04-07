@@ -128,8 +128,8 @@ app.post("/sendtext", (req, res) => {
   client.messages
     .create({
       body: message,
-      // from: "+17655629095",
-      // to: CLIENT_PHONE_NUMBER,
+      from: "+17655629095",
+      to: CLIENT_PHONE_NUMBER,
     })
     .then((message) => console.log(message.sid));
   res.send("Message Sent");

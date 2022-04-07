@@ -2,7 +2,6 @@
 
 import "./Home.scss";
 
-import titleBar from "../../assets/icons/3.svg";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -11,7 +10,6 @@ function Home() {
     <>
       <div className="home">
         <h1 className="home__title">HOME</h1>
-        <img className="home__underline" src={titleBar} />
       </div>
       <div className="tile">
         <Link className="tile__text" to="/mens">

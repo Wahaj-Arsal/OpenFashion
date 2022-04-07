@@ -92,10 +92,6 @@ export default function Header({ SERVER_KEY_URL }) {
     localStorage.setItem("item", JSON.stringify(filter));
   };
 
-  //check all items in the cart
-  //look for duplicate items check via name
-  // if there are any duplicates
-
   // Map through the cart state and pull out items
   const cartReturnItem = cart.map((item) => {
     return (

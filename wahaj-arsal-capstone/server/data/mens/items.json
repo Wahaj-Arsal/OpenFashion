@@ -1,6 +1,88 @@
 [
   {
-    "id": "20666100-fe6c-493d-ac9f-01387c664afa",
+    "id": "49c8d766-3159-4650-900d-a26411d6c1cf",
+    "name": "The Valentin",
+    "description": "Denim smart/casual button-down jacket",
+    "price": 7000,
+    "image": "../images/jacket-2.svg",
+    "category": "Jacket",
+    "sustainability": 4,
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": { "image": "Insert Image", "text": "Do not use bleach." },
+      "tumble": { "image": "Insert Image", "text": "Do not tumble dry." },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    },
+    "reviews": [
+      {
+        "id": "f3c43225-f029-48fe-8b32-13282ca8efb5",
+        "name": "Corie",
+        "review": "This is a great product. I would recommend it to everyone.",
+        "likes": "5",
+        "timestamp": 1649050095000
+      }
+    ]
+  },
+  {
+    "id": "bc8a8a51-8648-41f4-b53f-cfbc1b575558",
+    "name": "Le Croc",
+    "description": "The ultimate fashion croc for daily use",
+    "price": 24000,
+    "image": "../images/the-croc.svg",
+    "category": "Shoes",
+    "sustainability": 4,
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your jackets and coats clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": { "image": "Insert Image", "text": "Do not use bleach." },
+      "tumble": { "image": "Insert Image", "text": "Do not tumble dry." },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    },
+    "reviews": [
+      {
+        "id": "f3c43225-f029-48fe-8b32-13282ca8efb5",
+        "name": "Roanna",
+        "review": "This is a great product. I would recommend it to everyone.",
+        "likes": "5",
+        "timestamp": 1649050095000
+      },
+      {
+        "id": "143f9b73-bedc-4b9e-83bc-8393ee54ffad",
+        "name": "Carin",
+        "review": "This is a great product. I would recommend it to everyone.",
+        "likes": "4",
+        "timestamp": 1649050095000
+      },
+      {
+        "id": "96f8385d-9b46-4982-9c8d-3602e2adf29c",
+        "name": "Hey",
+        "review": "Another good product",
+        "likes": 0,
+        "timestamp": 1649167314000
+      }
+    ]
+  },
+  {
+    "id": "a3c9c56a-36f4-45bf-8621-2f01b7d3c3fb",
     "name": "Multi",
     "description": "The ultimate in multi-purpose",
     "price": 12000,
@@ -37,11 +119,59 @@
         "review": "This is a great product. I would recommend it to everyone.",
         "likes": "4",
         "timestamp": 1649050095000
+      },
+      {
+        "id": "96f8385d-9b46-4982-9c8d-3602e2adf29c",
+        "name": "Hey",
+        "review": "Another good product",
+        "likes": 0,
+        "timestamp": 1649167314000
       }
     ]
   },
   {
-    "id": "9f448138-7be4-4090-ad5e-a61a3a4fe536",
+    "id": "5b61b5b8-b23c-453c-88b1-137c5c7da97b",
+    "name": "Royal Blue",
+    "description": "Jumper collection by Royal Blue",
+    "price": 6600,
+    "image": "../images/jumper.svg",
+    "category": "Jumper",
+    "sustainability": 4,
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": { "image": "Insert Image", "text": "Do not use bleach." },
+      "tumble": { "image": "Insert Image", "text": "Do not tumble dry." },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    },
+    "reviews": [
+      {
+        "id": "f3c43225-f029-48fe-8b32-13282ca8efb5",
+        "name": "Tiffi",
+        "review": "This is a great product. I would recommend it to everyone.",
+        "likes": "5",
+        "timestamp": 1649050095000
+      },
+      {
+        "id": "50280259-8532-4fc0-b522-e6d2de0ada75",
+        "name": "Wahaj",
+        "review": "Amazing",
+        "likes": 0,
+        "timestamp": 1649233832000
+      }
+    ]
+  },
+  {
+    "id": "4eba7323-0195-4570-b3a5-c98dedc02217",
     "name": "Sprint",
     "description": "Running shoes for the next big thing",
     "price": 12000,
@@ -82,7 +212,7 @@
     ]
   },
   {
-    "id": "b031dca9-f79f-420c-a3c2-a1a1e4259281",
+    "id": "4eba7323-0195-4570-b3a5-c98dedc02217",
     "name": "All Star",
     "description": "Running, Walking, and Hiking",
     "price": 4200,
@@ -116,7 +246,7 @@
     ]
   },
   {
-    "id": "03a3b7cd-1d5b-4b13-b191-ff3491829cb4",
+    "id": "1ba59d42-9d9b-4660-98dc-5cf39fa32730",
     "name": "All Star",
     "description": "The All Star style white Hi-tops",
     "price": 8000,
@@ -150,9 +280,9 @@
     ]
   },
   {
-    "id": "05ea21f4-a4f7-4444-bfc7-2ec59b36ace3",
-    "name": "Tame",
-    "description": "reversible angora cardigan",
+    "id": "e28cd65f-19c3-488a-bc4e-6d45bdd1230c",
+    "name": "All Star",
+    "description": "shoes for the next big thing",
     "price": 6200,
     "image": "../images/shoes-6.svg",
     "category": "Shoes",
@@ -184,9 +314,9 @@
     ]
   },
   {
-    "id": "e5482528-08ff-441e-8f4b-36ae5640ca09",
-    "name": "Tame",
-    "description": "reversible angora cardigan",
+    "id": "05db7dc3-a7f1-4b3e-812b-016cfa23af61",
+    "name": "Joggers",
+    "description": "Hi-top joggers for extra comfort",
     "price": 2300,
     "image": "../images/shoes-7.svg",
     "category": "Shoes",
@@ -218,9 +348,9 @@
     ]
   },
   {
-    "id": "40bf1f9d-eb31-4e9d-8fca-3810de7c1e30",
-    "name": "The 360's",
-    "description": "For turning heads, not turning back",
+    "id": "381e5ce4-dd09-45bc-a5a0-426815eafee6",
+    "name": "Trainers",
+    "description": "Moreton casual white trainers",
     "price": 15000,
     "image": "../images/shoes-350.svg",
     "category": "Shoes",
@@ -252,10 +382,10 @@
     ]
   },
   {
-    "id": "caa2456a-5b2d-4896-b510-6c8e19fda50b",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
-    "price": 7000,
+    "id": "32cf40ad-3800-41f8-a484-f9df053c7aa2",
+    "name": "Eco",
+    "description": "Premium Eco-friendly shoes",
+    "price": 5500,
     "image": "../images/shoes.svg",
     "category": "Shoes",
     "sustainability": 3,
@@ -286,10 +416,10 @@
     ]
   },
   {
-    "id": "afb1a917-bd74-4d17-a9cb-66e2dfb4e0ad",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
-    "price": 7000,
+    "id": "41eddae4-3c17-4bc2-bcae-2f753417f86a",
+    "name": "Sprint",
+    "description": "Orange Hi-top sprint trainers",
+    "price": 4200,
     "image": "../images/shoes-8.svg",
     "category": "Shoes",
     "sustainability": 4,
@@ -327,10 +457,10 @@
     ]
   },
   {
-    "id": "57066f8d-ff4c-4389-9639-7a22c0340262",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
-    "price": 7000,
+    "id": "382c6004-414d-4048-ba1e-d762ead51006",
+    "name": "Sprint",
+    "description": "Lightweight casual 'sprint' trainers",
+    "price": 6000,
     "image": "../images/shoes-9.svg",
     "category": "Shoes",
     "sustainability": 4,
@@ -360,147 +490,12 @@
       }
     ]
   },
+
   {
-    "id": "4e546f62-fdca-4c23-b5b7-7dc9a55aa078",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
-    "price": 7000,
-    "image": "../images/shoes-10.svg",
-    "category": "Shoes",
-    "sustainability": 3,
-    "additional": {
-      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
-      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
-    },
-    "instructions": {
-      "bleach": { "image": "Insert Image", "text": "Do not use bleach." },
-      "tumble": { "image": "Insert Image", "text": "Do not tumble dry." },
-      "washing": {
-        "image": "Insert Image",
-        "text": "Dry clean with tetracholoroethylene."
-      },
-      "iron": {
-        "image": "Insert Image",
-        "text": "Iron at a maximum of 110C/230F"
-      }
-    },
-    "reviews": [
-      {
-        "id": "f3c43225-f029-48fe-8b32-13282ca8efb5",
-        "name": "Camilla",
-        "review": "This is a great product. I would recommend it to everyone.",
-        "likes": "5",
-        "timestamp": 1649050095000
-      }
-    ]
-  },
-  {
-    "id": "71161e8c-f792-444c-a2a2-5645cf0611ea",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
-    "price": 7000,
-    "image": "../images/shoes-11.svg",
-    "category": "Shoes",
-    "sustainability": 4,
-    "additional": {
-      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
-      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
-    },
-    "instructions": {
-      "bleach": { "image": "Insert Image", "text": "Do not use bleach." },
-      "tumble": { "image": "Insert Image", "text": "Do not tumble dry." },
-      "washing": {
-        "image": "Insert Image",
-        "text": "Dry clean with tetracholoroethylene."
-      },
-      "iron": {
-        "image": "Insert Image",
-        "text": "Iron at a maximum of 110C/230F"
-      }
-    },
-    "reviews": [
-      {
-        "id": "f3c43225-f029-48fe-8b32-13282ca8efb5",
-        "name": "Ania",
-        "review": "This is a great product. I would recommend it to everyone.",
-        "likes": "5",
-        "timestamp": 1649050095000
-      }
-    ]
-  },
-  {
-    "id": "22122a5c-350a-4b36-bfdd-6f30631c8d7a",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
-    "price": 7000,
-    "image": "../images/shoes-12.svg",
-    "category": "Shoes",
-    "sustainability": 5,
-    "additional": {
-      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
-      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
-    },
-    "instructions": {
-      "bleach": { "image": "Insert Image", "text": "Do not use bleach." },
-      "tumble": { "image": "Insert Image", "text": "Do not tumble dry." },
-      "washing": {
-        "image": "Insert Image",
-        "text": "Dry clean with tetracholoroethylene."
-      },
-      "iron": {
-        "image": "Insert Image",
-        "text": "Iron at a maximum of 110C/230F"
-      }
-    },
-    "reviews": [
-      {
-        "id": "f3c43225-f029-48fe-8b32-13282ca8efb5",
-        "name": "Modestine",
-        "review": "This is a great product. I would recommend it to everyone.",
-        "likes": "5",
-        "timestamp": 1649050095000
-      }
-    ]
-  },
-  {
-    "id": "cbba665a-4fbc-42ed-93a7-d034eb702a20",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
-    "price": 7000,
-    "image": "../images/jacket-2.svg",
-    "category": "Jacket",
-    "sustainability": 4,
-    "additional": {
-      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
-      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
-    },
-    "instructions": {
-      "bleach": { "image": "Insert Image", "text": "Do not use bleach." },
-      "tumble": { "image": "Insert Image", "text": "Do not tumble dry." },
-      "washing": {
-        "image": "Insert Image",
-        "text": "Dry clean with tetracholoroethylene."
-      },
-      "iron": {
-        "image": "Insert Image",
-        "text": "Iron at a maximum of 110C/230F"
-      }
-    },
-    "reviews": [
-      {
-        "id": "f3c43225-f029-48fe-8b32-13282ca8efb5",
-        "name": "Corie",
-        "review": "This is a great product. I would recommend it to everyone.",
-        "likes": "5",
-        "timestamp": 1649050095000
-      }
-    ]
-  },
-  {
-    "id": "3238b85c-c584-45f5-b106-599a763d7eea",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
-    "price": 7000,
+    "id": "b2dac363-00b0-4a6f-a8b6-ae0b81288a60",
+    "name": "Burney",
+    "description": "Burney original tan waterproof jacket",
+    "price": 7400,
     "image": "../images/jacket.svg",
     "category": "Jacket",
     "sustainability": 4,
@@ -531,9 +526,9 @@
     ]
   },
   {
-    "id": "f80cf167-62a5-492b-9a4d-a10eb0074bfa",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
+    "id": "0054c41c-444e-47e9-a9d2-c33637d4c6ca",
+    "name": "Denim",
+    "description": "Denim dark blue jeans by Denim",
     "price": 7000,
     "image": "../images/jeans.svg",
     "category": "Jeans",
@@ -565,10 +560,10 @@
     ]
   },
   {
-    "id": "6cbbbee9-c126-4c65-9b51-b7c531edb196",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
-    "price": 7000,
+    "id": "4faa9821-bdc3-447c-a886-9f98b4e53aa3",
+    "name": "Royal Blue",
+    "description": "Royal Blue eco winter jumper.",
+    "price": 3500,
     "image": "../images/jumper-2.svg",
     "category": "Jumper",
     "sustainability": 5,
@@ -599,44 +594,10 @@
     ]
   },
   {
-    "id": "a593ddfb-ef9d-434c-86f8-fc217cc000c9",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
-    "price": 7000,
-    "image": "../images/jumper.svg",
-    "category": "Jumper",
-    "sustainability": 4,
-    "additional": {
-      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
-      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
-    },
-    "instructions": {
-      "bleach": { "image": "Insert Image", "text": "Do not use bleach." },
-      "tumble": { "image": "Insert Image", "text": "Do not tumble dry." },
-      "washing": {
-        "image": "Insert Image",
-        "text": "Dry clean with tetracholoroethylene."
-      },
-      "iron": {
-        "image": "Insert Image",
-        "text": "Iron at a maximum of 110C/230F"
-      }
-    },
-    "reviews": [
-      {
-        "id": "f3c43225-f029-48fe-8b32-13282ca8efb5",
-        "name": "Tiffi",
-        "review": "This is a great product. I would recommend it to everyone.",
-        "likes": "5",
-        "timestamp": 1649050095000
-      }
-    ]
-  },
-  {
-    "id": "9135821b-8b3d-41bb-80e2-64ff0bcfd878",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
-    "price": 7000,
+    "id": "dff6f367-c7b8-4291-8812-5026986cfc17",
+    "name": "Shawl",
+    "description": "Stylish winter white shawl. Made of cotton.",
+    "price": 1500,
     "image": "../images/shawl.svg",
     "category": "Shawl",
     "sustainability": 2,
@@ -667,10 +628,10 @@
     ]
   },
   {
-    "id": "869f47d6-776d-46f1-a1a7-c6397244f3e7",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
-    "price": 7000,
+    "id": "48b8fe24-87c6-4e07-8ca4-92ea83ffaee9",
+    "name": "Office Shirt",
+    "description": "A collection of white/blue office shirts",
+    "price": 3000,
     "image": "../images/shirt.svg",
     "category": "Shirt",
     "sustainability": 2,
@@ -701,10 +662,10 @@
     ]
   },
   {
-    "id": "3bf01b59-9496-443b-8387-fb620fe2a3b1",
-    "name": "The Dappers",
-    "description": "An item of footware...nuff said.",
-    "price": 7000,
+    "id": "4f771c70-b721-4eb6-99f4-ad2a8df52a4f",
+    "name": "Premium",
+    "description": "Premium royal blue office shirt",
+    "price": 4000,
     "image": "../images/shirt-2.svg",
     "category": "Shirt",
     "sustainability": 4,
@@ -728,6 +689,108 @@
       {
         "id": "f3c43225-f029-48fe-8b32-13282ca8efb5",
         "name": "Kristi",
+        "review": "This is a great product. I would recommend it to everyone.",
+        "likes": "5",
+        "timestamp": 1649050095000
+      }
+    ]
+  },
+  {
+    "id": "04771a20-bfc7-4137-9a56-672a5b6b5a1d",
+    "name": "Lifestyle",
+    "description": "breathable, lightweight, hi-tops",
+    "price": 2500,
+    "image": "../images/shoes-10.svg",
+    "category": "Shoes",
+    "sustainability": 3,
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": { "image": "Insert Image", "text": "Do not use bleach." },
+      "tumble": { "image": "Insert Image", "text": "Do not tumble dry." },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    },
+    "reviews": [
+      {
+        "id": "f3c43225-f029-48fe-8b32-13282ca8efb5",
+        "name": "Camilla",
+        "review": "This is a great product. I would recommend it to everyone.",
+        "likes": "5",
+        "timestamp": 1649050095000
+      }
+    ]
+  },
+  {
+    "id": "0fb40836-a129-4b4f-9d7e-ed1b6442dd2b",
+    "name": "2B",
+    "description": "Ultra Flex, black/white fabric trainers",
+    "price": 3500,
+    "image": "../images/shoes-11.svg",
+    "category": "Shoes",
+    "sustainability": 4,
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": { "image": "Insert Image", "text": "Do not use bleach." },
+      "tumble": { "image": "Insert Image", "text": "Do not tumble dry." },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    },
+    "reviews": [
+      {
+        "id": "f3c43225-f029-48fe-8b32-13282ca8efb5",
+        "name": "Ania",
+        "review": "This is a great product. I would recommend it to everyone.",
+        "likes": "5",
+        "timestamp": 1649050095000
+      }
+    ]
+  },
+  {
+    "id": "01db267f-99af-40da-9a5b-4bdf048454ab",
+    "name": "Eco",
+    "description": "Soft stride eco hi-top trainers",
+    "price": 5000,
+    "image": "../images/shoes-12.svg",
+    "category": "Shoes",
+    "sustainability": 5,
+    "additional": {
+      "materials": "We work with monitoring programmes to ensure complicance with safety, health and quality standards for our products.",
+      "care": "To keep your shoes clean, you only need to freshen them up and go over them wiht a cloth or a clothes brush. If you need to dry clean a garment, look for a dry cleaner that uses technologies that are respectful of the environment."
+    },
+    "instructions": {
+      "bleach": { "image": "Insert Image", "text": "Do not use bleach." },
+      "tumble": { "image": "Insert Image", "text": "Do not tumble dry." },
+      "washing": {
+        "image": "Insert Image",
+        "text": "Dry clean with tetracholoroethylene."
+      },
+      "iron": {
+        "image": "Insert Image",
+        "text": "Iron at a maximum of 110C/230F"
+      }
+    },
+    "reviews": [
+      {
+        "id": "f3c43225-f029-48fe-8b32-13282ca8efb5",
+        "name": "Modestine",
         "review": "This is a great product. I would recommend it to everyone.",
         "likes": "5",
         "timestamp": 1649050095000
