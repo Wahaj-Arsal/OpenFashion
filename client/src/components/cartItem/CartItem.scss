@@ -1,0 +1,62 @@
+/** @format */
+
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.shopping-cart {
+  @include flex(row, center, center);
+  padding: 0.5rem 1rem;
+  &__picture {
+    @include flex(row, flex-start, center);
+    width: 60%;
+  }
+  &__image {
+    width: 80%;
+  }
+  &__information {
+    @include flex(column, center, flex-start);
+    width: 100%;
+    position: relative;
+  }
+  &__close {
+    background-image: url("../../assets/icons/Close.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 10%;
+    height: 30%;
+    align-self: flex-end;
+    position: absolute;
+    top: -1.875rem;
+    font-weight: 700;
+  }
+  &__title {
+    @include m-sub-title-upper;
+    text-transform: uppercase;
+  }
+  &__description {
+    @include m-body-medium;
+  }
+  &__price {
+    @include m-body-medium;
+  }
+  &__label {
+    @include m-body-medium;
+  }
+  &__quantity {
+    @include flex(row, center, center);
+  }
+  &__button {
+    // margin: 0 1rem;
+    padding: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
+    &:nth-child(1) {
+      margin: 0 0.5rem 0 0;
+    }
+    &:nth-child(3) {
+      margin: 0 0 0 0.5rem;
+    }
+  }
+}
