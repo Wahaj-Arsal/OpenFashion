@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Open Fashion Shoreditch",
+    "address": "123 Shoreditch High Street",
+    "coordinates": [-0.0773, 51.52418]
+  },
+  {
+    "name": "Open Fashion London City",
+    "address": "123 London City High Street",
+    "coordinates": [-0.092156, 51.512609]
+  },
+  {
+    "name": "Open Fashion Croydon",
+    "address": "123 Croydon High Street",
+    "coordinates": [-0.101102, 51.372554]
+  },
+  {
+    "name": "Open Fashion Kensington",
+    "address": "123 Kensington High Street",
+    "coordinates": [-0.194291, 51.500662]
+  },
+  {
+    "name": "Open Fashion Brixton",
+    "address": "123 Brixton High Street",
+    "coordinates": [-0.11444, 51.461481]
+  }
+]

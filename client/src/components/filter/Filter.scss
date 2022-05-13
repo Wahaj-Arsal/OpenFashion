@@ -1,0 +1,52 @@
+/** @format */
+
+@use "../../styles/partials/mixins" as *;
+
+.filter {
+  padding: 1rem 0 0 0;
+  &__top {
+    @include flex(row, space-between, center);
+    padding: 0 1rem;
+  }
+  &__total {
+    @include m-sub-title;
+  }
+  &__buttons {
+    @include flex(row, center, center);
+  }
+  &__filter {
+    @include flex(row, flex-start, left);
+    // background-color: rgb(196, 196, 196, 0.2);
+    // opacity: 0.1;
+    // padding: 0.5rem;
+    background-image: url("../../assets/icons/Down.svg");
+    background-repeat: no-repeat;
+    background-position: 70px;
+    background-size: 20%;
+    width: 100%;
+    margin: 0 1rem 0 0;
+  }
+  &__text {
+    border-radius: 33px;
+    @include m-sub-sub-title;
+    // text-decoration: none;
+    padding: 0.5rem 1.5rem 0.5rem 0.75rem;
+    width: 6rem;
+    outline: none;
+    border: none;
+    background-color: rgb(196, 196, 196, 0.2);
+    appearance: none;
+    // opacity: 1;
+  }
+  &__down {
+    padding: 0 0.75rem 0 0;
+  }
+  &__sort {
+    background-color: rgb(196, 196, 196, 0.2);
+    // margin: 0 1rem 0 0;
+    padding: 0.5rem;
+    border-radius: 33px;
+  }
+  &__tiles {
+  }
+}

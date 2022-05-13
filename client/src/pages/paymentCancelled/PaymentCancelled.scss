@@ -1,0 +1,32 @@
+/** @format */
+
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
+
+.cancelled {
+  @include flex(column, center, center);
+  padding: 3rem 1rem;
+
+  &__heading {
+    padding: 0 0 3rem 0;
+  }
+  &__image {
+    padding: 0 0 3rem 0;
+    width: 40%;
+  }
+  &__link {
+    width: 50%;
+  }
+  &__button {
+    // @include flex(row, space-between, center);
+    //   width: 100%;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: $fnt-clr-text-default;
+    color: $ele-clr-darkness-strain;
+    outline: none;
+    border: none;
+    width: 100%;
+  }
+}
