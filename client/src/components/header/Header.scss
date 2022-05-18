@@ -13,9 +13,6 @@
   @include flex(row, space-between, center);
   padding: 1rem;
   background-color: $ele-clr-darkness-strain;
-  &__menu {
-    width: 4rem;
-  }
   &__left {
     @include flex(row, left, center);
   }

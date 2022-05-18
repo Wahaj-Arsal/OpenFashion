@@ -39,8 +39,19 @@ function Mens({ match, location, SERVER_KEY_URL }) {
   //Filter items depending on the category
   const setFilterState = async (e) => {
     if (!e) {
+      // setCategoryData(mens);
+      if (category === "All") {
+        setCategoryData(mens);
+      }
+      // } else {
+      //   let filteredItems = mens.filter((items) => {
+      //     return items.category == categoryData;
+      //   });
+      //   setCategoryData(filteredItems);
+      // }
     } else if (e.target.value === "All") {
       setCategoryData(mens);
+      console.log(JSON.stringify(activeSustainFilter));
       setSustainFilterState();
     } else {
       e.preventDefault();
@@ -48,14 +59,14 @@ function Mens({ match, location, SERVER_KEY_URL }) {
         return items.category === e.target.value;
       });
       setCategoryData(filteredItems);
-      setSustainFilterState();
+      // setSustainFilterState();
     }
   };
 
   const setSustainFilterState = async (e) => {
     if (!e) {
       //no filter set so passing data in categoryData as is filtered by category
-      setSustainabilityData(categoryData);
+      // setSustainabilityData(categoryData);
       if (activeSustainFilter === "Any") {
         setSustainabilityData(categoryData);
       } else {
@@ -66,17 +77,24 @@ function Mens({ match, location, SERVER_KEY_URL }) {
       }
     } else if (e.target.value === "Any") {
       setSustainabilityData(categoryData);
+      setFilterState();
     } else {
       setActiveSustainFilter(e.target.value);
       let filteredItems = categoryData.filter((currentData) => {
         return currentData.sustainability === parseInt(e.target.value);
       });
       setSustainabilityData(filteredItems);
+      // setFilterState();
     }
   };
 
   // Due to setState's async nature, the state updates may not show on first render
   // So rerun the filter functions whenever the categoryData updates
+
+  useEffect(() => {
+    setSustainFilterState();
+  }, [activeSustainFilter]);
+
   useEffect(() => {
     setFilterState();
     setSustainFilterState();

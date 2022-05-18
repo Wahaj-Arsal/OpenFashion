@@ -13,7 +13,7 @@ import { CartContext } from "../helper/CartContext";
 // IMPORT ASSETS
 import menuIcon from "../../assets/icons/Menu.svg";
 import logo from "../../assets/logo/logo.svg";
-import search from "../../assets/icons/Search.svg";
+// import search from "../../assets/icons/Search.svg";
 import shoppingBag from "../../assets/icons/shopping-bag.svg";
 import phone from "../../assets/icons/Call.svg";
 import locator from "../../assets/icons/Location.svg";
@@ -94,21 +94,18 @@ export default function Header({ SERVER_KEY_URL }) {
   const quantityAdd = (e) => {
     e.preventDefault();
     const cartItem = e.target.parentElement.parentElement.parentElement;
-    // console.log(cartItem);
     let getLocalStorage = localStorage.getItem("item")
       ? JSON.parse(localStorage.getItem("item"))
       : [];
     const updatedCart = getLocalStorage.map((item) => {
-      if (item.id == cartItem.id) {
+      if (item.id === cartItem.id) {
         item.quantity += 1;
       }
       return item;
     });
-    // console.log(updatedCart);
     localStorage.setItem("item", JSON.stringify(updatedCart));
     setCart(updatedCart);
     cartTotal(updatedCart);
-    // console.log(updatedCart);
   };
 
   const quantityMinus = (e) => {
@@ -118,8 +115,7 @@ export default function Header({ SERVER_KEY_URL }) {
       ? JSON.parse(localStorage.getItem("item"))
       : [];
     const updatedCart = getLocalStorage.map((item) => {
-      if (item.id == cartItem.id) {
-        console.log("equlas");
+      if (item.id === cartItem.id) {
         if (item.quantity > 1) {
           item.quantity -= 1;
         }
@@ -169,7 +165,6 @@ export default function Header({ SERVER_KEY_URL }) {
           </Link>
         </div>
         <div className="header__right">
-          <img className="header__search" src={search} />
           <Link to="#">
             <img
               className="header__shopping-cart"
