@@ -13,9 +13,6 @@
   @include flex(row, space-between, center);
   padding: 1rem;
   background-color: $ele-clr-darkness-strain;
-  &__menu {
-    width: 4rem;
-  }
   &__left {
     @include flex(row, left, center);
   }
@@ -142,6 +139,8 @@
     text-transform: uppercase;
     width: 100%;
     padding: 1.25rem 0;
+    border: none;
+    outline: none;
   }
   &__icon {
     padding: 0 0.5rem 0 0;
@@ -164,6 +163,8 @@
     padding: 1.25rem 0;
     bottom: 0;
     left: 0;
+    border: none;
+    outline: none;
   }
   &__icon {
     padding: 0 1rem 0 0;

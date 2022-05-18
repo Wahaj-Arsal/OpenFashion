@@ -12,12 +12,12 @@ function Filter({
   sustainability,
 }) {
   const categoryArray = [];
-  const filteredCategories = category.map((item) => {
+  category.forEach((item) => {
     categoryArray.push(item.category);
   });
 
   const sustainArray = [];
-  const filteredSustain = sustainability.map((item) => {
+  sustainability.forEach((item) => {
     sustainArray.push(item.sustainability);
   });
 
