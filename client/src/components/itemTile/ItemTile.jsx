@@ -35,6 +35,7 @@ function ItemTile({
           key={uniqueId}
           className="item__count"
           src={index + 1 <= sustain ? leafFull : leafEmpty}
+          alt="item count"
         />
       </>
     );
@@ -43,7 +44,7 @@ function ItemTile({
     <div id={uniqueId} className="item">
       <div className="item__picture">
         <Link to={`${match.url}/${id}`}>
-          <img className="item__image" src={image} />
+          <img className="item__image" src={image} alt="item" />
         </Link>
       </div>
       <div className="item__details">

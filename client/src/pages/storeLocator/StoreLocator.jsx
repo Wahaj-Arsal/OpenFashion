@@ -52,7 +52,7 @@ const StoreLocator = ({ SERVER_KEY_URL }) => {
         trackUserLocation: true,
       })
     );
-    storeInfo.map((location) => {
+    storeInfo.forEach((location) => {
       new mapboxgl.Marker()
         .setLngLat([`${location.coordinates[0]}`, `${location.coordinates[1]}`])
         .setPopup(

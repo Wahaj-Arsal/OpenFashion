@@ -23,7 +23,11 @@ const PaymentSuccess = () => {
   return (
     <div className="success">
       <h1 className="success__heading">Payment Success</h1>
-      <img className="success__image" src={paymentSuccess} />
+      <img
+        className="success__image"
+        src={paymentSuccess}
+        alt="payment success"
+      />
       <Link className="success__link" to="/">
         <button className="success__button">Back To Home</button>
       </Link>

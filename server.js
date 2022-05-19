@@ -144,7 +144,6 @@ app.post(
   (req, res) => {
     const id = req.params.id;
     const newComment = {
-      // id: randomUUID(),
       name: req.body.name,
       review: req.body.comment,
       likes: 0,

@@ -71,9 +71,6 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
     setCustomerComment(value);
   };
 
-  // console.log(customerName);
-  // console.log(customerComment);
-
   //******** Comment Validation ******** */
   const validate = () => {
     if (customerName.length === 0 || customerComment.length === 0) {
@@ -85,9 +82,6 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
       return true;
     }
   };
-  // console.log(className);
-
-  // useEffect(validate, []);
 
   const validationStatus = () => {
     if (validate()) {
@@ -119,6 +113,7 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
           key={id}
           className="details__count"
           src={index + 1 <= sustainability ? leafFull : leafEmpty}
+          alt="sustainability rating"
         />
       </>
     );
@@ -138,7 +133,11 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
         <p>Loading...</p>
       ) : (
         <section id={id} className="details">
-          <img src={productDetails.image} alt="" className="details__img" />
+          <img
+            src={productDetails.image}
+            alt="product"
+            className="details__img"
+          />
           <div className="details__details">
             <div className="details__heading">
               <h1 className="details__title">{name}</h1>
@@ -151,11 +150,11 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
             </div>
             <button className="button" onClick={addToCart}>
               <div className="button__add">
-                <img className="button__plus" src={plus} />
+                <img className="button__plus" src={plus} alt="plus button" />
                 <p className="button__text">Add to Basket</p>
               </div>
               <div className="button__icon">
-                <img className="button__heart" src={heart} />
+                <img className="button__heart" src={heart} alt="heart" />
               </div>
             </button>
             <div className="materials__materials">
@@ -166,19 +165,19 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
               <h2 className="materials__title">Care</h2>
               <p className="materials__text">{care}</p>
               <div className="materials__bleach">
-                <img src={doNotBleach} />
+                <img src={doNotBleach} alt="do no bleach" />
                 <p>{bleach.text}</p>
               </div>
               <div className="materials__tumble">
-                <img src={doNotTumbleDry} />
+                <img src={doNotTumbleDry} alt="do not tumble dry" />
                 <p>{tumble.text}</p>
               </div>
               <div className="materials__washing">
-                <img src={doNotWash} />
+                <img src={doNotWash} alt="do not wash" />
                 <p>{washing.text}</p>
               </div>
               <div className="materials__iron">
-                <img src={doNotIron} />
+                <img src={doNotIron} alt="do not iron" />
                 <p>{iron.text}</p>
               </div>
             </div>
@@ -189,7 +188,6 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
               <div className="comments__name">
                 <h2 className="comments__name-title">Name:</h2>
                 <input
-                  // className="comments__name-input"
                   className={`${
                     !className
                       ? "comments__name-input comments__name-input--error"
@@ -204,7 +202,6 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
               <div className="comments__comment">
                 <h2 className="comments__comment-title">Leave a review:</h2>
                 <textarea
-                  // className="comments__comment-input"
                   className={`${
                     !classComment
                       ? "comments__comment-input comments__comment-input--error"

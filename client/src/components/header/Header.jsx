@@ -29,10 +29,10 @@ import { loadStripe } from "@stripe/stripe-js";
 // recreating the `Stripe` object on every render.
 
 const STRIPE_PUBLIC_KEY = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+const stripe = loadStripe(STRIPE_PUBLIC_KEY);
 
 // HEADER COMPONENT START
 export default function Header({ SERVER_KEY_URL }) {
-  const stripe = loadStripe(STRIPE_PUBLIC_KEY);
   const [sideBar, setSideBar] = useState(false);
   const [shoppingCart, setShoppingCart] = useState(false);
   const [cart, setCart] = useContext(CartContext);
@@ -157,11 +157,11 @@ export default function Header({ SERVER_KEY_URL }) {
       >
         {/* <h1>Header</h1> */}
         <Link to="#" className="header__menu" onClick={showSidebar}>
-          <img className="header__left" src={menuIcon} />
+          <img className="header__left" src={menuIcon} alt="header sidebar" />
         </Link>
         <div className="header__logo">
           <Link to="/">
-            <img className="header__center" src={logo} />
+            <img className="header__center" src={logo} alt="logo" />
           </Link>
         </div>
         <div className="header__right">
@@ -169,6 +169,7 @@ export default function Header({ SERVER_KEY_URL }) {
             <img
               className="header__shopping-cart"
               src={shoppingBag}
+              alt="shopping cart"
               onClick={showShoppingCart}
             />
           </Link>
@@ -207,7 +208,7 @@ export default function Header({ SERVER_KEY_URL }) {
             <p className="sidebar__list-text">Accessories</p>
           </li>
           <li className="sidebar__list-item">
-            <img className="sidebar__icon" src={phone} />
+            <img className="sidebar__icon" src={phone} alt="phone" />
             <Link
               to="/sendtext"
               className="sidebar__list-link"
@@ -217,7 +218,7 @@ export default function Header({ SERVER_KEY_URL }) {
             </Link>
           </li>
           <li className="sidebar__list-item">
-            <img className="sidebar__icon" src={locator} />
+            <img className="sidebar__icon" src={locator} alt="locator" />
             <Link
               to="/storelocator"
               className="sidebar__list-link"
@@ -229,12 +230,16 @@ export default function Header({ SERVER_KEY_URL }) {
         </ul>
         <div className="sidebar__bottom">
           <div className="sidebar__divider">
-            <img src={titleBar} />
+            <img src={titleBar} alt="title bar" />
           </div>
           <div className="sidebar__social">
-            <img className="sidebar__twitter" src={twitter} />
-            <img className="sidebar__instagram" src={instagram} />
-            <img className="sidebar__youtube" src={youtube} />
+            <img className="sidebar__twitter" src={twitter} alt="twitter" />
+            <img
+              className="sidebar__instagram"
+              src={instagram}
+              alt="instagram"
+            />
+            <img className="sidebar__youtube" src={youtube} alt="youtube" />
           </div>
         </div>
       </nav>
@@ -257,7 +262,11 @@ export default function Header({ SERVER_KEY_URL }) {
                 </>
               </div>
               <button className="cart__button" onClick={purchaseItem}>
-                <img className="cart__icon" src={shoppingBagWhite} />
+                <img
+                  className="cart__icon"
+                  src={shoppingBagWhite}
+                  alt="shopping bag"
+                />
                 <p className="cart__details">Checkout</p>
               </button>
             </div>
@@ -268,7 +277,11 @@ export default function Header({ SERVER_KEY_URL }) {
               You have no items in your Shopping Bag.
             </p>
             <button className="cart-empty__button">
-              <img className="cart-empty__icon" src={shoppingBagWhite} />
+              <img
+                className="cart-empty__icon"
+                src={shoppingBagWhite}
+                alt="shopping bag"
+              />
               <p className="cart-empty__details" onClick={hideCart}>
                 Continue Shopping
               </p>
