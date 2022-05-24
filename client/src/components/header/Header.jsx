@@ -184,8 +184,8 @@ export default function Header({ SERVER_KEY_URL }) {
             <p
               className={
                 cart.length > 0
-                  ? "header__total"
-                  : "header__total header__total--empty"
+                  ? "header__right-total"
+                  : "header__right-total header__right-total--empty"
               }
             >
               {cartTotalNumberOfItems(cart)}
