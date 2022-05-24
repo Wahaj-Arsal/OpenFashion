@@ -21,19 +21,21 @@
   }
   &__right {
     @include flex(row, right, center);
-  }
-  &__total {
-    position: absolute;
-    top: 40px;
-    right: 8px;
-    background-color: black;
-    border-radius: 50%;
-    color: white;
-    width: 1.25rem;
-    height: 1.25rem;
-    text-align: center;
-    &--empty {
-      display: none;
+    position: relative;
+    &-total {
+      position: absolute;
+      top: 18px;
+      right: 0px;
+      background-color: black;
+      border-radius: 50%;
+      color: white;
+      width: 1rem;
+      height: 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      &--empty {
+        display: none;
+      }
     }
   }
 
