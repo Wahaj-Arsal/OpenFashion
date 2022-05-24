@@ -49,7 +49,8 @@ export default function Header({ SERVER_KEY_URL }) {
       : [];
     const cart = cartGetItemFromLS;
     setCart(cart);
-    cartTotal(cart);
+    cartTotalPrice(cart);
+    cartTotalNumberOfItems(cart);
   };
 
   useEffect(fetchLocalStorage, []);
@@ -105,7 +106,7 @@ export default function Header({ SERVER_KEY_URL }) {
     });
     localStorage.setItem("item", JSON.stringify(updatedCart));
     setCart(updatedCart);
-    cartTotal(updatedCart);
+    cartTotalPrice(updatedCart);
   };
 
   const quantityMinus = (e) => {
@@ -142,12 +143,20 @@ export default function Header({ SERVER_KEY_URL }) {
   });
 
   // Calculate the CART Total
-  const cartTotal = (cart) => {
-    let total = 0;
+  const cartTotalPrice = (cart) => {
+    let totalPrice = 0;
     for (let i = 0; i < cart.length; i++) {
-      total = total + cart[i].quantity * (cart[i].price / 100);
+      totalPrice = totalPrice + cart[i].quantity * (cart[i].price / 100);
     }
-    return total;
+    return totalPrice;
+  };
+
+  const cartTotalNumberOfItems = (cart) => {
+    let totalItems = 0;
+    for (let i = 0; i < cart.length; i++) {
+      totalItems = totalItems + cart[i].quantity;
+    }
+    return totalItems;
   };
 
   return (
@@ -172,6 +181,15 @@ export default function Header({ SERVER_KEY_URL }) {
               alt="shopping cart"
               onClick={showShoppingCart}
             />
+            <p
+              className={
+                cart.length > 0
+                  ? "header__total"
+                  : "header__total header__total--empty"
+              }
+            >
+              {cartTotalNumberOfItems(cart)}
+            </p>
           </Link>
         </div>
       </header>
@@ -252,7 +270,7 @@ export default function Header({ SERVER_KEY_URL }) {
               <div className="cart__total">
                 <>
                   <p className="cart__text">Sub Total</p>
-                  <p className="cart__value">£{cartTotal(cart)}</p>
+                  <p className="cart__value">£{cartTotalPrice(cart)}</p>
                 </>
                 <>
                   <p className="cart__shipping">

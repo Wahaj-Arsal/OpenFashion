@@ -123,9 +123,8 @@ function Mens({ match, location, SERVER_KEY_URL }) {
               sustainabilityData.map((item, index) => {
                 return (
                   <ItemTile
-                    key={index + 1}
+                    key={index}
                     id={item.id}
-                    index={index}
                     name={item.name}
                     description={item.description}
                     price={item.price / 100}
