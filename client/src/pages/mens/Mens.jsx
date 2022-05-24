@@ -3,7 +3,6 @@
 // IMPORT FROM LIBRARIES
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import uuid from "react-uuid";
 
 // IMPORT LOCAL FILES & COMPONENTS
 import "./Mens.scss";
@@ -71,7 +70,7 @@ function Mens({ match, location, SERVER_KEY_URL }) {
         setSustainabilityData(categoryData);
       } else {
         let filteredItems = categoryData.filter((items) => {
-          return items.sustainability == activeSustainFilter;
+          return items.sustainability === activeSustainFilter;
         });
         setSustainabilityData(filteredItems);
       }
@@ -90,10 +89,6 @@ function Mens({ match, location, SERVER_KEY_URL }) {
 
   // Due to setState's async nature, the state updates may not show on first render
   // So rerun the filter functions whenever the categoryData updates
-
-  useEffect(() => {
-    setSustainFilterState();
-  }, [activeSustainFilter]);
 
   useEffect(() => {
     setFilterState();
@@ -128,9 +123,8 @@ function Mens({ match, location, SERVER_KEY_URL }) {
               sustainabilityData.map((item, index) => {
                 return (
                   <ItemTile
-                    key={index + 1}
+                    key={index}
                     id={item.id}
-                    index={index}
                     name={item.name}
                     description={item.description}
                     price={item.price / 100}

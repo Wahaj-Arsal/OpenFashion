@@ -12,16 +12,7 @@ import "./ItemTile.scss";
 import leafEmpty from "../../assets/icons/leaf-b.png";
 import leafFull from "../../assets/icons/leaf-g.png";
 
-function ItemTile({
-  id,
-  name,
-  description,
-  price,
-  image,
-  match,
-  uniqueId,
-  item,
-}) {
+function ItemTile({ id, name, description, price, image, match, item }) {
   const [sustain, setSustain] = useState([]);
 
   useEffect(() => {
@@ -32,18 +23,19 @@ function ItemTile({
     return (
       <>
         <img
-          key={uniqueId}
+          key={index}
           className="item__count"
           src={index + 1 <= sustain ? leafFull : leafEmpty}
+          alt="item count"
         />
       </>
     );
   });
   return (
-    <div id={uniqueId} className="item">
+    <div id={id} className="item">
       <div className="item__picture">
         <Link to={`${match.url}/${id}`}>
-          <img className="item__image" src={image} />
+          <img className="item__image" src={image} alt="item" />
         </Link>
       </div>
       <div className="item__details">
