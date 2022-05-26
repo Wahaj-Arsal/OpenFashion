@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function Home() {
   return (
     <>
-      <div className="home">
+      <div className="home" data-testid="home">
         <h1 className="home__title">HOME</h1>
       </div>
       <div className="tile">

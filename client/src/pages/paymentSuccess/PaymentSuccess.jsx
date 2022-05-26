@@ -21,7 +21,7 @@ const PaymentSuccess = () => {
   useEffect(removeFromLocalStorage, []);
 
   return (
-    <div className="success">
+    <div className="success" data-testid="paymentSuccess">
       <h1 className="success__heading">Payment Success</h1>
       <img
         className="success__image"

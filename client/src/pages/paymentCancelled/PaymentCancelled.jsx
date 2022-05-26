@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const PaymentCancelled = () => {
   return (
-    <div className="cancelled">
+    <div className="cancelled" data-testid="paymentCancelled">
       <h1 className="cancelled__heading">Payment cancelled</h1>
       <img
         className="cancelled__image"

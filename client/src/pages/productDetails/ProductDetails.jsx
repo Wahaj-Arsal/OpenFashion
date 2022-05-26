@@ -132,7 +132,7 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
       {!bleach && !iron && !tumble && !washing ? (
         <p>Loading...</p>
       ) : (
-        <section id={id} className="details">
+        <section id={id} className="details" data-testid="productDetails">
           <img
             src={productDetails.image}
             alt="product"

@@ -110,7 +110,9 @@ function Mens({ match, location, SERVER_KEY_URL }) {
         </div>
       ) : (
         <>
-          <h3 className="mens__title">{pageTitle}</h3>
+          <h3 className="mens__title" data-testid="mens">
+            {pageTitle}
+          </h3>
           <Filter
             totalItems={totalItems}
             setFilterState={setFilterState}

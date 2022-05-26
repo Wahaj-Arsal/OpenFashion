@@ -4,14 +4,13 @@
   "private": true,
   "engines": {
     "npm": "6.14.12",
-    "node": "14.16.1"
+    "node": "16.15.0"
   },
   "dependencies": {
     "@mapbox/mapbox-gl-directions": "^4.1.0",
     "@stripe/react-stripe-js": "^1.7.2",
     "@stripe/stripe-js": "^1.29.0",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
@@ -33,7 +32,7 @@
   "scripts": {
     "start": "env-cmd -f .env.development react-scripts start",
     "build": "env-cmd -f .env.production react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -54,6 +53,8 @@
     ]
   },
   "devDependencies": {
-    "@types/mapbox-gl": "^2.7.1"
+    "@testing-library/react": "^12.1.5",
+    "@types/mapbox-gl": "^2.7.1",
+    "react-test-renderer": "^18.1.0"
   }
 }

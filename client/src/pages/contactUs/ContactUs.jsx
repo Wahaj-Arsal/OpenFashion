@@ -9,7 +9,9 @@ import { Link } from "react-router-dom";
 function ContactUs() {
   return (
     <>
-      <h3 className="contactus__title">Contact Us</h3>
+      <h3 className="contactus__title" data-testid="contactUs">
+        Contact Us
+      </h3>
       <div className="store-finder">
         <img src={location} alt="Location Icon" className="store-finder__img" />
         <p className="store-finder__text">Come find us in store!</p>
