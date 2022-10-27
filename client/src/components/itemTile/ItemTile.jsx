@@ -2,7 +2,7 @@
 
 // IMPORT FROM LIBRARIES
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // IMPORT LOCAL FILES & COMPONENTS
@@ -12,11 +12,19 @@ import "./ItemTile.scss";
 import leafEmpty from "../../assets/icons/leaf-b.png";
 import leafFull from "../../assets/icons/leaf-g.png";
 
-function ItemTile({ id, name, description, price, image, match, item }) {
+function ItemTile({
+  id,
+  name,
+  description,
+  price,
+  image,
+  sustainability,
+  match,
+}) {
   const [sustain, setSustain] = useState([]);
 
   useEffect(() => {
-    setSustain(item.sustainability);
+    setSustain(sustainability);
   });
   const totalSustain = 5;
   const sustainReturn = [...Array(totalSustain)].map((sus, index) => {
@@ -31,18 +39,25 @@ function ItemTile({ id, name, description, price, image, match, item }) {
       </>
     );
   });
+
   return (
     <div id={id} className="item">
       <div className="item__picture">
         <Link to={`${match.url}/${id}`}>
-          <img className="item__image" src={image} alt="item" />
+          <img
+            className="item__image"
+            src={require(`../../assets/images/${image}`)}
+            alt="item"
+          />
         </Link>
       </div>
       <div className="item__details">
-        <h3 className="item__title">{name}</h3>
-        <p className="item__description">{description}</p>
+        <div className="item__text">
+          <h3 className="item__title">{name}</h3>
+          <p className="item__description">{description}</p>
+        </div>
         <div className="item__info">
-          <p className="item__price"> £{price}</p>
+          <p className="item__price"> £{price / 100}</p>
           <div className="item__sustain">{sustainReturn}</div>
         </div>
       </div>
@@ -51,3 +66,25 @@ function ItemTile({ id, name, description, price, image, match, item }) {
 }
 
 export default ItemTile;
+
+//  <div className="item__picture">
+//                   <Link>
+//                     <img
+//                       className="item__image"
+//                       src={filteredItem.image}
+//                       alt="item"
+//                     />
+//                   </Link>
+//                 </div>
+//                 <div className="item__details">
+//                   <h3 className="item__title">{filteredItem.name}</h3>
+//                   <p className="item__description">
+//                     {filteredItem.description}
+//                   </p>
+//                   <div className="item__info">
+//                     <p className="item__price"> £{filteredItem.price}</p>
+//                     <div className="item__sustain">
+//                       {filteredItem.sustainability}
+//                     </div>
+//                   </div>
+//                 </div>

@@ -1,5 +1,6 @@
 /** @format */
 
+import React, { Component } from "react";
 import "./ContactUs.scss";
 
 import location from "../../assets/icons/Location.svg";

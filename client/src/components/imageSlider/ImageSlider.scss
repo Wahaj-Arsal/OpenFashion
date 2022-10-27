@@ -1,0 +1,55 @@
+/** @format */
+
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
+@use "../../styles/partials/variables" as *;
+
+.slider {
+  @include flex(row, center, center);
+  width: 100%;
+  &__button {
+    // width: 2rem;
+    margin: 0.25rem;
+    padding: 0;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    background-color: transparent;
+  }
+  &__icon {
+    width: 2rem;
+    transition: all 0.4s ease-in-out;
+    // height: 2rem;
+    &:hover {
+      transform: scale(1.25);
+      transition: all 0.4s ease-in-out;
+    }
+  }
+  &__content {
+    width: 100%;
+  }
+  &__image {
+    width: 100%;
+    filter: grayscale(0.8);
+    transition: all 0.4s ease-in-out;
+    // height: 100%;
+    // margin: 0 auto;
+    &:hover {
+      filter: none;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+  &__information {
+    @include flex(row, space-between, flex-end);
+  }
+  &__details {
+    padding: 1rem 0 0 0;
+  }
+  &__name {
+    @include m-sub-title;
+    font-weight: bold;
+  }
+  &__description {
+    @include m-sub-sub-title;
+  }
+}

@@ -13,41 +13,38 @@
 }
 
 .tile {
-  //   width: 100%;
-  //   height: 10vh;
-  padding: 1rem 1rem 0.5rem 1rem;
+  @include flex(column, center, center);
+  padding: 0.5rem 1rem;
+  width: 100%;
+  &__text {
+    text-decoration: none;
+    width: 100%;
+  }
   &__card {
     @include flex(column, flex-end, center);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% auto;
+    background-position: top;
     width: 100%;
-    height: 200px;
-    // box-shadow: (10px 10px 50px rgba(0, 0, 0, 0.1));
-    border-radius: 16px;
+    // height: 30vh;
     overflow: hidden;
+    position: relative;
   }
-  // &__bookmark {
-  //   align-self: flex-end;
-  //   padding: 1rem 0.5rem 0 0;
-  //   // width: 1.75rem;
-  //   width: 8%;
-  //   // height: 2.5rem;
-  // }
-  &__text {
-    text-decoration: none;
+  &__image {
+    width: 100%;
+    // height: 100%;
+    // display: absolute;
   }
   &__description {
     @include flex(row, center, flex-end);
     @include m-sub-sub-title;
+    position: absolute;
+    // bottom: 100px;
+    // top: 40px;
+    text-align: center;
     color: $ele-clr-darkness-strain;
     text-transform: uppercase;
-    // font-style: none;
-    // text-decoration: none;
-    // list-style: none;
-    // outline-style: none;
-
     letter-spacing: 2px;
-    height: 50%;
     width: 100%;
     padding: 0 1.5rem 1rem 1.5rem;
     background: linear-gradient(
@@ -72,12 +69,68 @@
   }
 }
 
-.tile__background-men {
-  background-image: url("../../../public/home/mens-fashion.svg");
+.latest-container {
+  // width: 580px;
+  // height: 280px;
+  padding: 3rem 1rem;
+  margin: 0 auto;
 }
-.tile__background-women {
-  background-image: url("../../../public/home/womens-fashion3.svg");
+
+.latest {
+  padding: 0 0 1rem 0;
+  &__title {
+    @include m-page-title;
+    font-weight: bold;
+    padding: 0 0 1rem 0;
+  }
+  &__description {
+    @include m-body-large;
+  }
 }
-.tile__background-2022-trends {
-  background-image: url("../../../public/home/trends-1.svg");
+.slider-container {
+  @include flex(row, center, center);
+}
+
+.explore-container {
+  padding: 1rem 1rem 3rem 1rem;
+}
+
+.explore {
+  &__title {
+    @include m-page-title;
+    font-weight: bold;
+    padding: 0 0 1rem 0;
+  }
+  &__para {
+    @include m-body-large;
+  }
+}
+
+.newsletter {
+  @include flex(column, flex-start, center);
+  width: 100%;
+  padding: 1rem;
+  &__title {
+    padding: 0 0 1rem 0;
+  }
+  &__input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+  }
+  &__send {
+    @include m-sub-sub-title;
+    outline: none;
+    border: 1px solid $fnt-clr-text-default;
+    font-weight: bold;
+    width: 100%;
+    margin: 1rem 0 0 0;
+    padding: 0.5rem 0;
+    background-color: $fnt-clr-text-default;
+    color: $ele-clr-input-bg;
+    &:hover {
+      background-color: $ele-clr-input-bg;
+      color: $fnt-clr-text-default;
+    }
+  }
 }

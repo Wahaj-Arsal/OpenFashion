@@ -3,7 +3,7 @@
 import "./PaymentSuccess.scss";
 import paymentSuccess from "../../assets/icons/paymentsuccess.svg";
 import { Link } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { CartContext } from "../../components/helper/CartContext";
 
 const PaymentSuccess = () => {

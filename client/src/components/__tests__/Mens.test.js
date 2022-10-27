@@ -1,6 +1,15 @@
 /** @format */
 
-import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
+import Enzyme, { shallow } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+import Mens from "../../pages/mens/Mens";
 
-import { render, screen, cleanup } from "@testing-library/react";
+Enzyme.configure({ adapter: new Adapter() });
+
+describe("Testing Mens Component", () => {
+  test("Renders Mens Component", () => {
+    const heading = Mens.find("h3");
+    expect(heading).toBeTruthy();
+  });
+});

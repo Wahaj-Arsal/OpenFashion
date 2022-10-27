@@ -134,7 +134,7 @@ const ProductDetails = ({ match, SERVER_KEY_URL }) => {
       ) : (
         <section id={id} className="details" data-testid="productDetails">
           <img
-            src={productDetails.image}
+            src={require(`../../assets/images/${productDetails.image}`)}
             alt="product"
             className="details__img"
           />

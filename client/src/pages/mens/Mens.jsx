@@ -3,6 +3,7 @@
 // IMPORT FROM LIBRARIES
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 // IMPORT LOCAL FILES & COMPONENTS
 import "./Mens.scss";
@@ -12,7 +13,7 @@ import { Ring } from "react-awesome-spinners";
 
 // IMPORT ASSETS
 
-function Mens({ match, location, SERVER_KEY_URL }) {
+function Mens({ SERVER_KEY_URL }) {
   const [mens, setMens] = useState([]);
   const [category, setCategory] = useState([]);
   const [sustainability, setSustainability] = useState([]);
@@ -99,8 +100,8 @@ function Mens({ match, location, SERVER_KEY_URL }) {
   const totalItems = sustainabilityData.length;
 
   //Get the URL pathname to format the title on the page
-  const formatTitle = location.pathname;
-  const pageTitle = formatTitle.replace("/", "");
+  // const formatTitle = location.pathname;
+  // const pageTitle = formatTitle.replace("/", "");
 
   return (
     <>
@@ -111,7 +112,7 @@ function Mens({ match, location, SERVER_KEY_URL }) {
       ) : (
         <>
           <h3 className="mens__title" data-testid="mens">
-            {pageTitle}
+            {/* {pageTitle} */}
           </h3>
           <Filter
             totalItems={totalItems}
@@ -120,24 +121,12 @@ function Mens({ match, location, SERVER_KEY_URL }) {
             setSustainFilterState={setSustainFilterState}
             sustainability={sustainability}
           />
-          <section className="item-container">
+          {/* <section className="item-container">
             {sustainabilityData.length > 0 &&
               sustainabilityData.map((item, index) => {
-                return (
-                  <ItemTile
-                    key={index}
-                    id={item.id}
-                    name={item.name}
-                    description={item.description}
-                    price={item.price / 100}
-                    image={item.image}
-                    item={item}
-                    sustainability={item.sustainability}
-                    match={match}
-                  />
-                );
+                return <ItemTile key={index} {...item} />;
               })}
-          </section>
+          </section> */}
         </>
       )}
     </>

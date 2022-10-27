@@ -81,8 +81,37 @@ app.get(
 app.get(
   "/mens",
   (req, res) => {
-    const content = fs.readFileSync("./data/mens/items.json");
-    res.send(JSON.parse(content));
+    const content = JSON.parse(fs.readFileSync("./data/mens/items.json"));
+    res.send(content);
+  },
+  () => {
+    console.log("Get Mens Crash");
+  }
+);
+
+//******** API THAT GETS Mens Featured Items ******** */
+app.get(
+  "/mensLatest",
+  (req, res) => {
+    const content = JSON.parse(fs.readFileSync("./data/mens/items.json"));
+    const featuredItems = content.filter((items) => items.featured === "Yes");
+    res.send(featuredItems);
+  },
+  () => {
+    console.log("Get Mens Crash");
+  }
+);
+
+// //******** API THAT GETS Mens Featured Items ******** */
+app.post(
+  "/newsletter",
+  (req, res) => {
+    const { name, email } = req.body;
+    console.log(name);
+    console.log(email);
+    const content = JSON.parse(fs.readFileSync("./data/mens/items.json"));
+    const featuredItems = content.filter((items) => items.featured === "Yes");
+    res.send(featuredItems);
   },
   () => {
     console.log("Get Mens Crash");

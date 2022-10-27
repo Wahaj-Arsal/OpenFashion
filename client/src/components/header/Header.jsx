@@ -163,9 +163,15 @@ export default function Header({ SERVER_KEY_URL }) {
     <>
       <header
         className={shoppingCart ? "header body__scroll-disabled" : "header"}
+        data-testid="test_header"
       >
         {/* <h1>Header</h1> */}
-        <Link to="#" className="header__menu" onClick={showSidebar}>
+        <Link
+          to="#"
+          className="header__menu"
+          onClick={showSidebar}
+          data-testid="test_sidebar"
+        >
           <img className="header__left" src={menuIcon} alt="header sidebar" />
         </Link>
         <div className="header__logo">
@@ -180,6 +186,7 @@ export default function Header({ SERVER_KEY_URL }) {
               src={shoppingBag}
               alt="shopping cart"
               onClick={showShoppingCart}
+              data-testid="cart__button"
             />
             <p
               className={
@@ -291,7 +298,7 @@ export default function Header({ SERVER_KEY_URL }) {
           </>
         ) : (
           <>
-            <p className="cart-empty__status">
+            <p className="cart-empty__status" test-dataid="empty__cart">
               You have no items in your Shopping Bag.
             </p>
             <button className="cart-empty__button">

@@ -1,6 +1,7 @@
 /** @format */
 
 import "./CommentsDisplay.scss";
+import React from "react";
 
 function CommentsDispaly({ reviews, newMoment }) {
   return (

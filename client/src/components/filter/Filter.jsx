@@ -1,7 +1,7 @@
 /** @format */
 
 import "./Filter.scss";
-
+import React from "react";
 import sort from "../../assets/icons/Filter.svg";
 
 function Filter({

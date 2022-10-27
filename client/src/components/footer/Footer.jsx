@@ -2,6 +2,7 @@
 
 import "./Footer.scss";
 
+import React from "react";
 import { Link } from "react-router-dom";
 
 import twitter from "../../assets/icons/Twitter.svg";
@@ -14,14 +15,14 @@ function Footer() {
       <div className="footer">
         <div className="footer__icons">
           <Link
-            to={{ pathname: "https://twitter.com/?lang=en" }}
+            to={{ pathname: "https://twitter.com/" }}
             target="_blank"
             rel="noopener noreferrer"
           >
             <img className="footer__twitter" src={twitter} />
           </Link>
           <Link
-            to={{ pathname: "https://www.instagram.com/?hl=en" }}
+            to={{ pathname: "https://www.instagram.com/" }}
             target="_blank"
             rel="noopener noreferrer"
           >

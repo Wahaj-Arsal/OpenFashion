@@ -1,6 +1,7 @@
 /** @format */
 
 import "./CartItem.scss";
+import React from "react";
 
 const CartItem = ({ item, removeCartItem, quantityAdd, quantityMinus }) => {
   const { id, name, description, price, quantity, image } = item;
