@@ -2,6 +2,7 @@
 
 // IMPORT FROM LIBRARIES
 import React, { useEffect, useState, useContext } from "react";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
 
@@ -21,10 +22,14 @@ import doNotIron from "../../assets/icons/Iron-Low-Temperature.svg";
 import leafFull from "../../assets/icons/leaf-g.png";
 import leafEmpty from "../../assets/icons/leaf-b.png";
 
-const ProductDetails = ({ match, SERVER_KEY_URL }) => {
-  const API_URL_MENS_SINGLE = (id) => `${SERVER_KEY_URL}/mens/${id}`;
-  const API_URL_ID_COMMENTS = (id) => `${SERVER_KEY_URL}/mens/${id}/reviews`;
-  const url = match.params.mensId;
+const ProductDetails = ({ SERVER_KEY_URL }) => {
+  const API_URL_MENS_SINGLE = (id) => `${SERVER_KEY_URL}${id}`;
+  const API_URL_ID_COMMENTS = (id) => `${SERVER_KEY_URL}${id}/reviews`;
+
+  const location = useLocation();
+  const url = location.pathname;
+
+  console.log(url);
 
   //STATES FOR POSTING COMMENT
   const [customerName, setCustomerName] = useState([]);

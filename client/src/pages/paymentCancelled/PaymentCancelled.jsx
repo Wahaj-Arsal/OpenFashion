@@ -1,9 +1,11 @@
 /** @format */
 
 import "./PaymentCancelled.scss";
-import paymentCancelled from "../../assets/images/cancelled.jpg";
-import { Link } from "react-router-dom";
+
 import React from "react";
+import { Link } from "react-router-dom";
+
+import paymentCancelled from "../../assets/images/cancelled.jpg";
 
 const PaymentCancelled = () => {
   return (

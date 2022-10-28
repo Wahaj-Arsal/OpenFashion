@@ -3,7 +3,7 @@
 // IMPORT FROM LIBRARIES
 
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // IMPORT LOCAL FILES & COMPONENTS
 import "./ItemTile.scss";
@@ -12,16 +12,10 @@ import "./ItemTile.scss";
 import leafEmpty from "../../assets/icons/leaf-b.png";
 import leafFull from "../../assets/icons/leaf-g.png";
 
-function ItemTile({
-  id,
-  name,
-  description,
-  price,
-  image,
-  sustainability,
-  match,
-}) {
+function ItemTile({ id, name, description, price, image, sustainability }) {
   const [sustain, setSustain] = useState([]);
+
+  const location = useLocation();
 
   useEffect(() => {
     setSustain(sustainability);
@@ -43,7 +37,7 @@ function ItemTile({
   return (
     <div id={id} className="item">
       <div className="item__picture">
-        <Link to={`${match.url}/${id}`}>
+        <Link to={`${location.pathname}/${id}`}>
           <img
             className="item__image"
             src={require(`../../assets/images/${image}`)}

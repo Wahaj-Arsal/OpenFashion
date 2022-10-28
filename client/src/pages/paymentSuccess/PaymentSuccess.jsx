@@ -1,10 +1,12 @@
 /** @format */
 
 import "./PaymentSuccess.scss";
-import paymentSuccess from "../../assets/icons/paymentsuccess.svg";
+
 import { Link } from "react-router-dom";
 import React, { useContext, useEffect } from "react";
+
 import { CartContext } from "../../components/helper/CartContext";
+import paymentSuccess from "../../assets/icons/paymentsuccess.svg";
 
 const PaymentSuccess = () => {
   const [cart, setCart] = useContext(CartContext);

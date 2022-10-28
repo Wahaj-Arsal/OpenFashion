@@ -18,7 +18,7 @@ function Home({ SERVER_KEY_URL }) {
   const womensLatestImageIndex = 0;
   const kidsLatestImageIndex = 2;
 
-  const location = useLocation();
+  // const location = useLocation();
 
   //Get ALL items from the API
   const getItemsMens = () => {
@@ -53,7 +53,7 @@ function Home({ SERVER_KEY_URL }) {
   //Call function to get ALL items on page refresh
   useEffect(getItemsMens, []);
 
-  console.log(location.pathname);
+  // console.log(location.pathname);
 
   return (
     <>

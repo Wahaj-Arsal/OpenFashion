@@ -9,7 +9,10 @@ const CartItem = ({ item, removeCartItem, quantityAdd, quantityMinus }) => {
     // <h2>Product Inserted</h2>
     <div id={id} className="shopping-cart">
       <div className="shopping-cart__picture">
-        <img className="shopping-cart__image" src={image} />
+        <img
+          className="shopping-cart__image"
+          src={require(`../../assets/images/${image}`)}
+        />
       </div>
       <div className="shopping-cart__information">
         <p className="shopping-cart__close" onClick={removeCartItem}></p>

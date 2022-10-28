@@ -121,12 +121,12 @@ function Mens({ SERVER_KEY_URL }) {
             setSustainFilterState={setSustainFilterState}
             sustainability={sustainability}
           />
-          {/* <section className="item-container">
+          <section className="item-container">
             {sustainabilityData.length > 0 &&
               sustainabilityData.map((item, index) => {
                 return <ItemTile key={index} {...item} />;
               })}
-          </section> */}
+          </section>
         </>
       )}
     </>

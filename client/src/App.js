@@ -22,7 +22,7 @@ export default function App() {
     <>
       {/* <h1>Main</h1> */}
       <CartProvider>
-        {/* <Header SERVER_KEY_URL={SERVER_KEY_URL} /> */}
+        <Header SERVER_KEY_URL={SERVER_KEY_URL} />
         <Routes>
           <Route
             path="/"
@@ -34,64 +34,40 @@ export default function App() {
             exact
             element={<Mens SERVER_KEY_URL={SERVER_KEY_URL} />}
           />
-          {/* <Route
+          <Route
             path="/mens/:mensId"
             exact
-            render={(routerProps) => (
-              <ProductDetails
-                {...routerProps}
-                SERVER_KEY_URL={SERVER_KEY_URL}
-              />
-            )}
-          /> */}
-          {/* <Route
+            element={<ProductDetails SERVER_KEY_URL={SERVER_KEY_URL} />}
+          />
+          <Route
             path="/womens"
             exact
-            render={(routerProps) => (
-              <Mens {...routerProps} SERVER_KEY_URL={SERVER_KEY_URL} />
-            )}
-          /> */}
-          {/* <Route
+            element={<Mens SERVER_KEY_URL={SERVER_KEY_URL} />}
+          />
+          <Route
             path="/womens/:mensId"
             exact
-            render={(routerProps) => (
-              <ProductDetails
-                {...routerProps}
-                SERVER_KEY_URL={SERVER_KEY_URL}
-              />
-            )}
-          /> */}
-          {/* <Route
-            path="/paymentsuccess"
-            exact
-            render={(routerProps) => <PaymentSuccess {...routerProps} />}
-          /> */}
-          {/* <Route
+            element={<ProductDetails SERVER_KEY_URL={SERVER_KEY_URL} />}
+          />
+          <Route path="/paymentsuccess" exact element={<PaymentSuccess />} />
+          <Route
             path="/paymentcancelled"
             exact
-            render={(routerProps) => <PaymentCancelled {...routerProps} />}
-          /> */}
-          {/* <Route
-            path="/contactus"
-            exact
-            render={(routerProps) => <ContactUs {...routerProps} />}
-          /> */}
-          {/* <Route
+            element={<PaymentCancelled />}
+          />
+          <Route path="/contactus" exact element={<ContactUs />} />
+          <Route
             path="/storelocator"
             exact
-            render={(routerProps) => (
-              <StoreLocator {...routerProps} SERVER_KEY_URL={SERVER_KEY_URL} />
-            )}
-          /> */}
-          {/* <Route
+            element={<StoreLocator SERVER_KEY_URL={SERVER_KEY_URL} />}
+          />
+          <Route
             path="/sendtext"
             exact
-            render={(routerProps) => (
-              <SendText {...routerProps} SERVER_KEY_URL={SERVER_KEY_URL} />
-            )}
-          /> */}
+            element={<SendText SERVER_KEY_URL={SERVER_KEY_URL} />}
+          />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </CartProvider>
     </>
   );
