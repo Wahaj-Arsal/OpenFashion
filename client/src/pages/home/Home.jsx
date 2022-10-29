@@ -2,12 +2,18 @@
 
 import "./Home.scss";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
+import emailjs from "@emailjs/browser";
+
 import MensTile from "../../assets/images/mens-fashion.svg";
 import WomensTile from "../../assets/images/womens-fashion.svg";
 import ImageSlider from "../../components/imageSlider/ImageSlider";
+
+const REACT_APP_EMAIL_SERVICE_ID = process.env.REACT_APP_EMAIL_SERVICE_ID;
+const REACT_APP_EMAIL_TEMPLATE_ID = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
+const REACT_APP_EMAIL_PUBLIC_KEY = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
 
 function Home({ SERVER_KEY_URL }) {
   const [mensLatest, setMensLatest] = useState([]);
@@ -17,6 +23,8 @@ function Home({ SERVER_KEY_URL }) {
   const mensLatestImageIndex = 1;
   const womensLatestImageIndex = 0;
   const kidsLatestImageIndex = 2;
+
+  const form = useRef();
 
   // const location = useLocation();
 
@@ -37,17 +45,29 @@ function Home({ SERVER_KEY_URL }) {
     }
   };
 
-  const sendToServer = async (e) => {
+  const sendToServer = (e) => {
     e.preventDefault();
-    const clientInformation = {
-      name: name,
-      email: email,
-    };
+    // const clientInformation = {
+    //   name: name,
+    //   email: email,
+    // };
     console.log(name);
     console.log(email);
-    // await axios
-    //   .post(`${SERVER_KEY_URL}/newsletter`, clientInformation)
-    //   .then((response) => {});
+    emailjs
+      .sendForm(
+        `service_o7jcgoh`,
+        `template_kyxim88`,
+        form.current,
+        `rWH357N27s5qA9N-M`
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   };
 
   //Call function to get ALL items on page refresh
@@ -181,7 +201,7 @@ function Home({ SERVER_KEY_URL }) {
             </p>
           </section>
           {/* ****** Newsletter ****** */}
-          <form className="newsletter">
+          <form ref={form} className="newsletter" onSubmit={sendToServer}>
             <h3 className="newsletter__title">
               By Subscribing To Our Newsletter You Can Get 30% Off!
             </h3>
@@ -199,9 +219,7 @@ function Home({ SERVER_KEY_URL }) {
               placeholder="Your Email Address"
               onChange={handleChange}
             />
-            <button className="newsletter__send" onClick={sendToServer}>
-              Send
-            </button>
+            <input type="submit" value="Send" className="newsletter__send" />
           </form>
         </>
       )}
