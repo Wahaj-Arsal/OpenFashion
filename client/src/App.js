@@ -1,19 +1,21 @@
 /** @format */
 
+import "./App.scss";
+
 import { Route, Routes } from "react-router-dom";
 import React from "react";
 
-import Header from "./components/header/Header";
-import Home from "./pages/home/Home";
-import Mens from "./pages/mens/Mens";
-import ProductDetails from "./pages/productDetails/ProductDetails";
-import PaymentSuccess from "./pages/paymentSuccess/PaymentSuccess";
-import PaymentCancelled from "./pages/paymentCancelled/PaymentCancelled";
-import ContactUs from "./pages/contactUs/ContactUs";
-import StoreLocator from "./pages/storeLocator/StoreLocator";
-import SendText from "./pages/sendText/SendText";
-import Footer from "./components/footer/Footer";
-import { CartProvider } from "./components/helper/CartContext";
+import Header from "./components/header/Header.jsx";
+import Home from "./pages/home/Home.jsx";
+import Mens from "./pages/mens/Mens.jsx";
+import ProductDetails from "./pages/productDetails/ProductDetails.jsx";
+import PaymentSuccess from "./pages/paymentSuccess/PaymentSuccess.jsx";
+import PaymentCancelled from "./pages/paymentCancelled/PaymentCancelled.jsx";
+import ContactUs from "./pages/contactUs/ContactUs.jsx";
+import StoreLocator from "./pages/storeLocator/StoreLocator.jsx";
+import SendText from "./pages/sendText/SendText.jsx";
+import Footer from "./components/footer/Footer.jsx";
+import { CartProvider } from "./components/helper/CartContext.jsx";
 
 const SERVER_KEY_URL = process.env.REACT_APP_SERVER_KEY;
 

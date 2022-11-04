@@ -3,30 +3,38 @@
 import "./Home.scss";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import cryptoRandomString from "crypto-random-string";
 
 import MensTile from "../../assets/images/mens-fashion.svg";
 import WomensTile from "../../assets/images/womens-fashion.svg";
 import ImageSlider from "../../components/imageSlider/ImageSlider";
 
-const REACT_APP_EMAIL_SERVICE_ID = process.env.REACT_APP_EMAIL_SERVICE_ID;
-const REACT_APP_EMAIL_TEMPLATE_ID = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
-const REACT_APP_EMAIL_PUBLIC_KEY = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
+const EMAIL_SERVICE_ID = process.env.REACT_APP_EMAIL_SERVICE_ID;
+const EMAIL_TEMPLATE_ID = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
+const EMAIL_PUBLIC_KEY = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
 
 function Home({ SERVER_KEY_URL }) {
   const [mensLatest, setMensLatest] = useState([]);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
 
-  const mensLatestImageIndex = 1;
-  const womensLatestImageIndex = 0;
-  const kidsLatestImageIndex = 2;
+  const mensLatestStartIndex = 1;
+  const mensLatestNextIndex = 2;
+  const mensLatestPreviousIndex = 0;
 
+  const womensLatestStartIndex = 0;
+  const womensLatestNextIndex = 1;
+  const womensLatestPreviousIndex = 2;
+
+  const kidsLatestStartIndex = 2;
+  const kidsLatestNextIndex = 0;
+  const kidsLatestPreviousIndex = 1;
+
+  //grabs the reference for the form
   const form = useRef();
-
-  // const location = useLocation();
 
   //Get ALL items from the API
   const getItemsMens = () => {
@@ -36,38 +44,27 @@ function Home({ SERVER_KEY_URL }) {
     });
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "name") {
-      setName(value);
-    } else {
-      setEmail(value);
-    }
-  };
-
   const sendToServer = (e) => {
     e.preventDefault();
-    // const clientInformation = {
-    //   name: name,
-    //   email: email,
-    // };
-    console.log(name);
-    console.log(email);
     emailjs
       .sendForm(
-        `service_o7jcgoh`,
-        `template_kyxim88`,
+        `${EMAIL_SERVICE_ID}`,
+        `${EMAIL_TEMPLATE_ID}`,
         form.current,
-        `rWH357N27s5qA9N-M`
+        `${EMAIL_PUBLIC_KEY}`
       )
       .then(
         (result) => {
-          console.log(result.text);
+          toastify(`${result} - Newsletter Email Sent!`);
         },
         (error) => {
-          console.log(error);
+          toastify(`Error! - ${error}`);
         }
       );
+  };
+
+  const toastify = (text) => {
+    toast(text);
   };
 
   //Call function to get ALL items on page refresh
@@ -82,48 +79,63 @@ function Home({ SERVER_KEY_URL }) {
           <p>Loading!!!!</p>
         </div>
       ) : (
-        <>
-          <section>
-            <div className="home" data-testid="home">
+        <section className="homepage">
+          <ToastContainer />
+          {/* <div className="home" data-testid="home">
               <h1 className="home__title">HOME</h1>
-            </div>
-            {/* ****** Mens Tile ****** */}
-            <div className="tile">
-              <Link className="tile__text" to="/mens">
-                <div className="tile__card">
-                  <img className="tile__image" src={MensTile} />
-                  <p className="tile__description">Men</p>
-                </div>
-              </Link>
-            </div>
-            {/* ****** Womens Tile ****** */}
-            <div className="tile">
-              <Link className="tile__text" to="/womens">
-                <div className="tile__card">
-                  <img className="tile__image" src={WomensTile} />
-                  <p className="tile__description">Women</p>
-                </div>
-              </Link>
-            </div>
-            {/* ****** Kids Tile ****** */}
-            <div className="tile">
-              <Link className="tile__text" to="/">
-                <div className="tile__card tile__background-2022-trends">
-                  <img className="tile__image" src={MensTile} />
-                  <p className="tile__description">Kids</p>
-                </div>
-              </Link>
-            </div>
-            {/* ****** Accessories Tile ****** */}
-            <div className="tile">
-              <Link className="tile__text" to="/">
-                <div className="tile__card tile__background-2022-trends">
-                  <img className="tile__image" src={MensTile} />
-                  <p className="tile__description">Accessories</p>
-                </div>
-              </Link>
-            </div>
-          </section>
+            </div> */}
+          {/* ****** Mens Tile ****** */}
+          <div className="tile">
+            <Link className="tile__text" to="/mens">
+              <div className="tile__card">
+                <img
+                  className="tile__image"
+                  src={MensTile}
+                  alt="mens section"
+                />
+                <p className="tile__description">Men</p>
+              </div>
+            </Link>
+          </div>
+          {/* ****** Womens Tile ****** */}
+          <div className="tile">
+            <Link className="tile__text" to="/womens">
+              <div className="tile__card">
+                <img
+                  className="tile__image"
+                  src={WomensTile}
+                  alt="womens section"
+                />
+                <p className="tile__description">Women</p>
+              </div>
+            </Link>
+          </div>
+          {/* ****** Kids Tile ****** */}
+          <div className="tile">
+            <Link className="tile__text" to="/">
+              <div className="tile__card tile__background-2022-trends">
+                <img
+                  className="tile__image"
+                  src={MensTile}
+                  alt="kids section"
+                />
+                <p className="tile__description">Kids</p>
+              </div>
+            </Link>
+          </div>
+          {/* ****** Accessories Tile ****** */}
+          <div className="tile">
+            <Link className="tile__text" to="/">
+              <div className="tile__card tile__background-2022-trends">
+                <img
+                  className="tile__image"
+                  src={MensTile}
+                  alt="accessories section"
+                />
+                <p className="tile__description">Accessories</p>
+              </div>
+            </Link>
+          </div>
           {/* ****** Mens Latest In Fashion ****** */}
           <section className="latest-container">
             <div className="latest">
@@ -135,8 +147,11 @@ function Home({ SERVER_KEY_URL }) {
             </div>
             <div className="slider-container">
               <ImageSlider
+                key={cryptoRandomString}
                 mensLatest={mensLatest}
-                index={mensLatestImageIndex}
+                startIndex={mensLatestStartIndex}
+                nextIndex={mensLatestNextIndex}
+                previousIndex={mensLatestPreviousIndex}
               />
             </div>
           </section>
@@ -151,8 +166,11 @@ function Home({ SERVER_KEY_URL }) {
             </div>
             <div className="slider-container">
               <ImageSlider
+                key={cryptoRandomString}
                 mensLatest={mensLatest}
-                index={womensLatestImageIndex}
+                startIndex={womensLatestStartIndex}
+                nextIndex={womensLatestNextIndex}
+                previousIndex={womensLatestPreviousIndex}
               />
             </div>
           </section>
@@ -167,8 +185,11 @@ function Home({ SERVER_KEY_URL }) {
             </div>
             <div className="slider-container">
               <ImageSlider
+                key={cryptoRandomString}
                 mensLatest={mensLatest}
-                index={kidsLatestImageIndex}
+                startIndex={kidsLatestStartIndex}
+                nextIndex={kidsLatestNextIndex}
+                previousIndex={kidsLatestPreviousIndex}
               />
             </div>
           </section>
@@ -210,18 +231,16 @@ function Home({ SERVER_KEY_URL }) {
               className="newsletter__input"
               name="name"
               placeholder="Your Name"
-              onChange={handleChange}
             />
             <input
               id="email"
               className="newsletter__input"
               name="email"
               placeholder="Your Email Address"
-              onChange={handleChange}
             />
             <input type="submit" value="Send" className="newsletter__send" />
           </form>
-        </>
+        </section>
       )}
     </>
   );

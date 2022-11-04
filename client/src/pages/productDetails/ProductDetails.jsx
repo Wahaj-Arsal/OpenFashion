@@ -5,6 +5,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
+import { v4 as uuidv4 } from "uuid";
 
 // IMPORT LOCAL FILES & COMPONENTS
 import "./ProductDetails.scss";
@@ -29,7 +30,7 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
   const location = useLocation();
   const url = location.pathname;
 
-  console.log(url);
+  // console.log(url);
 
   //STATES FOR POSTING COMMENT
   const [customerName, setCustomerName] = useState([]);
@@ -79,7 +80,7 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
   //******** Comment Validation ******** */
   const validate = () => {
     if (customerName.length === 0 || customerComment.length === 0) {
-      console.log("Empty Both");
+      // console.log("Empty Both");
       setClassName(false);
       setClassComment(false);
       return false;
@@ -113,14 +114,12 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
   const totalSustain = 5;
   const sustainReturn = [...Array(totalSustain)].map((sus, index) => {
     return (
-      <>
-        <img
-          key={id}
-          className="details__count"
-          src={index + 1 <= sustainability ? leafFull : leafEmpty}
-          alt="sustainability rating"
-        />
-      </>
+      <img
+        key={index}
+        className="details__count"
+        src={index + 1 <= sustainability ? leafFull : leafEmpty}
+        alt="sustainability rating"
+      />
     );
   });
 
@@ -137,7 +136,7 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
       {!bleach && !iron && !tumble && !washing ? (
         <p>Loading...</p>
       ) : (
-        <section id={id} className="details" data-testid="productDetails">
+        <section className="details" data-testid="productDetails">
           <img
             src={require(`../../assets/images/${productDetails.image}`)}
             alt="product"

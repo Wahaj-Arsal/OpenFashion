@@ -8,16 +8,16 @@
   @include flex(row, center, center);
   width: 100%;
   &__button {
-    // width: 2rem;
-    margin: 0.25rem;
-    padding: 0;
+    width: 10%;
+    // margin: 0.25rem;
+    // padding: 1rem;
     border: none;
     outline: none;
     overflow: hidden;
     background-color: transparent;
   }
   &__icon {
-    width: 2rem;
+    width: 100%;
     transition: all 0.4s ease-in-out;
     // height: 2rem;
     &:hover {
@@ -27,6 +27,9 @@
   }
   &__content {
     width: 100%;
+  }
+  &__content:nth-child(even) {
+    margin: 0 1rem 0 0;
   }
   &__image {
     width: 100%;

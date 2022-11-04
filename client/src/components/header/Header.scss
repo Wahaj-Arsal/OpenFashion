@@ -11,7 +11,7 @@
 
 .header {
   @include flex(row, space-between, center);
-  padding: 1rem;
+  padding: 1rem 1rem 2.5rem 1rem;
   background-color: $ele-clr-darkness-strain;
   &__left {
     @include flex(row, left, center);
@@ -53,14 +53,14 @@
   float: left;
   padding: 1rem;
   width: 100%;
-  max-width: 414px;
+  // max-width: 414px;
   margin: 0;
   z-index: 5;
   &__list {
     width: 100%;
   }
   &__list-item {
-    @include flex(row, flex-start, center);
+    @include flex(row, center, center);
     padding: 0.75rem 0;
     list-style: none;
     text-decoration: none;
@@ -81,13 +81,10 @@
     @include flex(column, center, center);
     width: 100%;
   }
-  &__divider {
-    padding: 1rem 0;
-  }
   &__social {
     @include flex(row, center, center);
     width: 1.25rem;
-    height: 1rem;
+    height: 3rem;
   }
   &__twitter {
     padding: 0 0.85rem;

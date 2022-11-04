@@ -1,0 +1,8 @@
+/** @format */
+
+@use "./styles/partials/breakpoints" as *;
+@use "./styles/partials/resets" as *;
+
+body {
+  max-width: 1280px;
+}

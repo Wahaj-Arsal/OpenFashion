@@ -130,7 +130,7 @@
   },
   {
     "id": "b3f7240c-bf1d-4a77-b7e4-3d2f1ae3879e",
-    "featured": "No",
+    "featured": "Yes",
     "name": "Sprint",
     "description": "Running shoes for the next big thing",
     "price": 12000,
@@ -317,7 +317,7 @@
   },
   {
     "id": "381e5ce4-dd09-45bc-a5a0-426815eafee6",
-    "featured": "No",
+    "featured": "Yes",
     "name": "Trainers",
     "description": "Moreton casual white trainers",
     "price": 15000,

@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 // IMPORT LOCAL FILES & COMPONENTS
 import "./Mens.scss";
@@ -123,8 +124,8 @@ function Mens({ SERVER_KEY_URL }) {
           />
           <section className="item-container">
             {sustainabilityData.length > 0 &&
-              sustainabilityData.map((item, index) => {
-                return <ItemTile key={index} {...item} />;
+              sustainabilityData.map((item) => {
+                return <ItemTile {...item} key={item.id} />;
               })}
           </section>
         </>

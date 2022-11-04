@@ -6,29 +6,34 @@
 
 .footer {
   @include flex(column, center, center);
-  color: $fnt-clr-body;
-  padding: 3rem 0 0 0;
+  background-color: $ele-footer;
+  color: $ele-clr-darkness-strain;
+  margin: 3rem 0 0 0;
   left: 0;
   right: 0;
   width: 100%;
   bottom: 0;
+  &__social {
+    @include flex(row, center, center);
+    height: 3rem;
+    width: 100%;
+  }
   &__icons {
-    @include flex(row, space-between, center);
-  }
-  &__twitter {
     padding: 0 1rem;
   }
-  &__instagram {
-    padding: 0 1rem;
-  }
-  &__youtube {
-    padding: 0 1rem;
-  }
-  &__details {
+  &__contact {
     @include flex(column, space-between, center);
     @include m-sub-title;
-    padding: 2rem 0;
+    padding: 4rem 0 2rem 0;
     // position: absolute;
+  }
+  &__logo {
+    margin: 0 1.5rem 0.75rem 1.5rem;
+    width: 6.125rem;
+    height: 2.5rem;
+    &:hover {
+      cursor: pointer;
+    }
   }
   &__email {
     padding: 0.25rem 0;
@@ -39,18 +44,24 @@
   &__times {
     padding: 0.25rem 0;
   }
+  &-categories {
+    padding: 2rem 0;
+  }
+  &__heading {
+    padding: 0 1.5rem 0.75rem 1.5rem;
+  }
   &__links {
-    // padding: 0;
-    // position: absolute;
+    padding: 2rem 0;
   }
   &__ul {
-    @include flex(row, space-between, center);
-    padding: 0 0 2rem 0;
+    @include flex(column, space-between, center);
+    // padding: 0 0 2rem 0;
   }
   &__li {
     @include m-sub-title;
+    color: $ele-clr-darkness-strain;
     list-style: none;
-    padding: 0 1.5rem;
+    padding: 0.25rem 1.5rem;
   }
   &__li-link {
     // outline: none;
@@ -58,7 +69,6 @@
     color: $fnt-clr-body;
   }
   &__copyright {
-    background-color: #c4c4c4;
     text-align: center;
     padding: 1rem;
     width: 100%;

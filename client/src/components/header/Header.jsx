@@ -12,12 +12,10 @@ import { CartContext } from "../helper/CartContext";
 
 // IMPORT ASSETS
 import menuIcon from "../../assets/icons/Menu.svg";
-import logo from "../../assets/logo/logo.svg";
-// import search from "../../assets/icons/Search.svg";
+import logo from "../../assets/logo/logoBlack.svg";
 import shoppingBag from "../../assets/icons/shopping-bag.svg";
 import phone from "../../assets/icons/Call.svg";
 import locator from "../../assets/icons/Location.svg";
-import titleBar from "../../assets/icons/3.svg";
 import twitter from "../../assets/icons/Twitter.svg";
 import instagram from "../../assets/icons/Instagram.svg";
 import youtube from "../../assets/icons/YouTube.svg";
@@ -130,15 +128,13 @@ export default function Header({ SERVER_KEY_URL }) {
   // Map through the cart state and pull out items
   const cartReturnItem = cart.map((item) => {
     return (
-      <>
-        <CartItem
-          key={item.id}
-          item={item}
-          removeCartItem={removeCartItem}
-          quantityAdd={quantityAdd}
-          quantityMinus={quantityMinus}
-        />
-      </>
+      <CartItem
+        key={item.id}
+        item={item}
+        removeCartItem={removeCartItem}
+        quantityAdd={quantityAdd}
+        quantityMinus={quantityMinus}
+      />
     );
   });
 
@@ -254,9 +250,6 @@ export default function Header({ SERVER_KEY_URL }) {
           </li>
         </ul>
         <div className="sidebar__bottom">
-          <div className="sidebar__divider">
-            <img src={titleBar} alt="title bar" />
-          </div>
           <div className="sidebar__social">
             <img className="sidebar__twitter" src={twitter} alt="twitter" />
             <img

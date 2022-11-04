@@ -4,6 +4,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 // IMPORT LOCAL FILES & COMPONENTS
 import "./ItemTile.scss";
@@ -23,19 +24,17 @@ function ItemTile({ id, name, description, price, image, sustainability }) {
   const totalSustain = 5;
   const sustainReturn = [...Array(totalSustain)].map((sus, index) => {
     return (
-      <>
-        <img
-          key={index}
-          className="item__count"
-          src={index + 1 <= sustain ? leafFull : leafEmpty}
-          alt="item count"
-        />
-      </>
+      <img
+        key={index}
+        className="item__count"
+        src={index + 1 <= sustain ? leafFull : leafEmpty}
+        alt="item count"
+      />
     );
   });
 
   return (
-    <div id={id} className="item">
+    <div className="item">
       <div className="item__picture">
         <Link to={`${location.pathname}/${id}`}>
           <img
