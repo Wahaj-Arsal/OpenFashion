@@ -4,6 +4,7 @@ import "./ImageSlider.scss";
 
 import React, { useEffect, useState } from "react";
 
+import SingelSlider from "../singleSlider/SingleSlider";
 import backwardsIcon from "../../assets/icons/Backward.svg";
 import forwardsIcon from "../../assets/icons/Forward.svg";
 
@@ -37,7 +38,18 @@ function ImageSlider({ mensLatest, startIndex, nextIndex, previousIndex }) {
       <button className="slider__button left" onClick={previousImage}>
         <img className="slider__icon" src={backwardsIcon} />
       </button>
-      <div className="slider__content">
+      mensLatest.map((item)=>{<Slider mensLatest={mensLatest} />})
+      <button className="slider__button" onClick={nextImage}>
+        <img className="slider__icon" src={forwardsIcon} />
+      </button>
+    </div>
+  );
+}
+
+export default ImageSlider;
+
+{
+  /* <div className="slider__content">
         <img
           className="slider__image"
           src={require(`../../assets/images/${mensLatest[currentIndex].image}`)}
@@ -72,12 +84,5 @@ function ImageSlider({ mensLatest, startIndex, nextIndex, previousIndex }) {
             <p className="slider__cost">£{mensLatest[newIndex].price / 100}</p>
           </div>
         </div>
-      </div>
-      <button className="slider__button" onClick={nextImage}>
-        <img className="slider__icon" src={forwardsIcon} />
-      </button>
-    </div>
-  );
+      </div> */
 }
-
-export default ImageSlider;
