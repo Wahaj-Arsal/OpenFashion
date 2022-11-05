@@ -24,10 +24,10 @@ function ImageSlider({ mensLatest, startIndex, nextIndex, previousIndex }) {
 
   const previousImage = () => {
     if (currentIndex === 0) {
-      setOldIndex(currentIndex);
-      setCurrentIndex(2);
+      setNewIndex(currentIndex);
+      setCurrentIndex(mensLatest.length - 1);
     } else {
-      setOldIndex(currentIndex);
+      setNewIndex(currentIndex);
       setCurrentIndex(currentIndex - 1);
     }
   };
