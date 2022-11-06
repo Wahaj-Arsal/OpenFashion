@@ -13,11 +13,26 @@
   @include flex(row, space-between, center);
   padding: 1rem 1rem 2.5rem 1rem;
   background-color: $ele-clr-darkness-strain;
+  @include tablet {
+    padding: 0;
+    margin: 1rem 4rem 2.5rem 4rem;
+  }
+  &__menu {
+    @include tablet {
+      display: none;
+    }
+  }
   &__left {
     @include flex(row, left, center);
+    @include tablet {
+      display: none;
+    }
   }
   &__center {
     @include flex(row, center, center);
+    @include tablet {
+      @include flex(row, left, left);
+    }
   }
   &__right {
     @include flex(row, right, center);
@@ -38,7 +53,6 @@
       }
     }
   }
-
   &__search {
     margin: 0 1rem 0 0;
   }
@@ -51,9 +65,10 @@
   position: absolute;
   visibility: hidden;
   float: left;
-  padding: 1rem;
+  margin: 0 2rem;
+  padding: 1rem 2rem 1rem 2rem;
   width: 100%;
-  // max-width: 414px;
+  max-width: 1280px;
   margin: 0;
   z-index: 5;
   &__list {
@@ -94,6 +109,49 @@
   }
   &__youtube {
     padding: 0 0.85rem;
+  }
+}
+
+.menu {
+  display: none;
+  @include tablet {
+    @include m-sub-title;
+    @include flex(row, center, center);
+    background-color: $ele-clr-darkness-strain; //TEST VALUE - NEEDS TO BE CHANGED
+    // position: absolute;
+    // visibility: hidden;
+    // float: left;
+    // margin: 0 2rem;
+    // padding: 1rem 2rem 1rem 2rem;
+    // width: 100%;
+    max-width: 1280px;
+    // margin: 0;
+  }
+  &__right {
+    @include flex(row, center, center);
+  }
+  // z-index: 5;
+  &__list {
+    @include flex(row, center, center);
+    width: 100%;
+  }
+  &__list-item {
+    // @include flex(row, center, center);
+    padding: 0.75rem 0.75rem;
+    list-style: none;
+    text-decoration: none;
+    color: $fnt-clr-text-default;
+  }
+  &__list-item:nth-last-child(1) {
+    margin: 0 1.5rem 0 0;
+  }
+  &__icon {
+    padding: 0 0.75rem 0 0;
+  }
+  &__list-link {
+    list-style: none;
+    text-decoration: none;
+    color: $fnt-clr-text-default;
   }
 }
 

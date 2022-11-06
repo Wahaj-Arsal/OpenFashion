@@ -175,25 +175,47 @@ export default function Header({ SERVER_KEY_URL }) {
             <img className="header__center" src={logo} alt="logo" />
           </Link>
         </div>
-        <div className="header__right">
-          <Link to="#">
-            <img
-              className="header__shopping-cart"
-              src={shoppingBag}
-              alt="shopping cart"
-              onClick={showShoppingCart}
-              data-testid="cart__button"
-            />
-            <p
-              className={
-                cart.length > 0
-                  ? "header__right-total"
-                  : "header__right-total header__right-total--empty"
-              }
-            >
-              {cartTotalNumberOfItems(cart)}
-            </p>
-          </Link>
+        <div className="menu__right">
+          <div className="menu">
+            <ul className="menu__list">
+              <li className="menu__list-item">
+                <Link to="/mens" className="menu__list-link">
+                  <p className="menu__list-text">Men</p>
+                </Link>
+              </li>
+              <li className="menu__list-item">
+                <Link to="/womens" className="menu__list-link">
+                  <p className="menu__list-text">Women</p>
+                </Link>
+              </li>
+              <li className="menu__list-item">
+                <p className="menu__list-text">Kids</p>
+              </li>
+              <li className="menu__list-item">
+                <p className="menu__list-text">Accessories</p>
+              </li>
+            </ul>
+          </div>
+          <div className="header__right">
+            <Link to="#">
+              <img
+                className="header__shopping-cart"
+                src={shoppingBag}
+                alt="shopping cart"
+                onClick={showShoppingCart}
+                data-testid="cart__button"
+              />
+              <p
+                className={
+                  cart.length > 0
+                    ? "header__right-total"
+                    : "header__right-total header__right-total--empty"
+                }
+              >
+                {cartTotalNumberOfItems(cart)}
+              </p>
+            </Link>
+          </div>
         </div>
       </header>
       <nav className={sideBar ? "sidebar sidebar--active" : "sidebar "}>
@@ -217,39 +239,13 @@ export default function Header({ SERVER_KEY_URL }) {
             </Link>
           </li>
           <li className="sidebar__list-item">
-            <p className="sidebar__list-text">Bags</p>
-          </li>
-          <li className="sidebar__list-item">
-            <p className="sidebar__list-text">Shoes</p>
-          </li>
-          <li className="sidebar__list-item">
-            <p className="sidebar__list-text">Beauty</p>
+            <p className="sidebar__list-text">Kids</p>
           </li>
           <li className="sidebar__list-item">
             <p className="sidebar__list-text">Accessories</p>
           </li>
-          <li className="sidebar__list-item">
-            <img className="sidebar__icon" src={phone} alt="phone" />
-            <Link
-              to="/sendtext"
-              className="sidebar__list-link"
-              onClick={hideSideBar}
-            >
-              <p className="sidebar__list-text">(+44) 546 478 1008</p>
-            </Link>
-          </li>
-          <li className="sidebar__list-item">
-            <img className="sidebar__icon" src={locator} alt="locator" />
-            <Link
-              to="/storelocator"
-              className="sidebar__list-link"
-              onClick={hideSideBar}
-            >
-              <p>Store Locator</p>
-            </Link>
-          </li>
         </ul>
-        <div className="sidebar__bottom">
+        {/* <div className="sidebar__bottom">
           <div className="sidebar__social">
             <img className="sidebar__twitter" src={twitter} alt="twitter" />
             <img
@@ -259,7 +255,7 @@ export default function Header({ SERVER_KEY_URL }) {
             />
             <img className="sidebar__youtube" src={youtube} alt="youtube" />
           </div>
-        </div>
+        </div> */}
       </nav>
       <section className={shoppingCart ? "cart cart--active" : "cart"}>
         <h3 className="cart__heading">Cart</h3>

@@ -10,6 +10,11 @@ import TripleSlider from "../tripleSlider/tripleSlider";
 import backwardsIcon from "../../assets/icons/Backward.svg";
 import forwardsIcon from "../../assets/icons/Forward.svg";
 
+const mobileMinWidth = 320;
+const mobileMaxWidth = 767;
+const tabletMinWidth = 768;
+const desktopMinWidth = 1020;
+
 function ImageSlider({ mensLatest, startIndex, nextIndex, previousIndex }) {
   const [oldIndex, setOldIndex] = useState(previousIndex);
   const [currentIndex, setCurrentIndex] = useState(startIndex);
@@ -60,9 +65,9 @@ function ImageSlider({ mensLatest, startIndex, nextIndex, previousIndex }) {
   };
 
   const windowCheck = () => {
-    if (windowSize.winWidth <= 768) {
+    if (windowSize.winWidth < tabletMinWidth) {
       setSelectSlider("0");
-    } else if (windowSize.winWidth <= 1280) {
+    } else if (windowSize.winWidth < desktopMinWidth) {
       setSelectSlider("1");
     } else {
       setSelectSlider("2");
