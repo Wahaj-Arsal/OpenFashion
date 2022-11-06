@@ -21,17 +21,17 @@ const EMAIL_PUBLIC_KEY = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
 function Home({ SERVER_KEY_URL }) {
   const [mensLatest, setMensLatest] = useState([]);
 
-  const mensLatestStartIndex = 1;
-  const mensLatestNextIndex = 2;
-  const mensLatestPreviousIndex = 0;
+  const mensLatestStartIndex = 0;
+  const mensLatestNextIndex = 1;
+  const mensLatestPreviousIndex = 2;
 
-  const womensLatestStartIndex = 0;
-  const womensLatestNextIndex = 1;
-  const womensLatestPreviousIndex = 2;
+  const womensLatestStartIndex = 2;
+  const womensLatestNextIndex = 3;
+  const womensLatestPreviousIndex = 4;
 
-  const kidsLatestStartIndex = 2;
-  const kidsLatestNextIndex = 0;
-  const kidsLatestPreviousIndex = 1;
+  const kidsLatestStartIndex = 1;
+  const kidsLatestNextIndex = 2;
+  const kidsLatestPreviousIndex = 3;
 
   //grabs the reference for the form
   const form = useRef();

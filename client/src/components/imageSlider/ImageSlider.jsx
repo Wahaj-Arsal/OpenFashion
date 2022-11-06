@@ -4,7 +4,9 @@ import "./ImageSlider.scss";
 
 import React, { useEffect, useState } from "react";
 
-import SingelSlider from "../singleSlider/SingleSlider";
+import SingleSlider from "../singleSlider/SingleSlider";
+import DoubleSlider from "../doubleSlider/DoubleSlider";
+import TripleSlider from "../tripleSlider/tripleSlider";
 import backwardsIcon from "../../assets/icons/Backward.svg";
 import forwardsIcon from "../../assets/icons/Forward.svg";
 
@@ -12,77 +14,114 @@ function ImageSlider({ mensLatest, startIndex, nextIndex, previousIndex }) {
   const [oldIndex, setOldIndex] = useState(previousIndex);
   const [currentIndex, setCurrentIndex] = useState(startIndex);
   const [newIndex, setNewIndex] = useState(nextIndex);
+  const [selectSlider, setSelectSlider] = useState("0");
+  const [windowSize, detectWidth] = useState({
+    winWidth: window.innerWidth,
+  });
+
+  const checkSize = () => {
+    detectWidth({
+      winWidth: window.innerWidth,
+    });
+  };
 
   const nextImage = () => {
     if (newIndex === mensLatest.length - 1) {
+      setOldIndex(newIndex - 1);
       setCurrentIndex(newIndex);
       setNewIndex(0);
+    } else if (currentIndex === mensLatest.length - 1) {
+      setOldIndex(mensLatest.length - 1);
+      setCurrentIndex(newIndex);
+      setNewIndex(newIndex + 1);
     } else {
+      setOldIndex(newIndex - 1);
       setCurrentIndex(newIndex);
       setNewIndex(newIndex + 1);
     }
   };
 
+  // console.log(oldIndex, currentIndex, newIndex);
+
   const previousImage = () => {
     if (currentIndex === 0) {
       setNewIndex(currentIndex);
       setCurrentIndex(mensLatest.length - 1);
+      setOldIndex(oldIndex - 1);
+    } else if (oldIndex === 0) {
+      setOldIndex(mensLatest.length - 1);
+      setNewIndex(currentIndex);
+      setCurrentIndex(currentIndex - 1);
     } else {
       setNewIndex(currentIndex);
       setCurrentIndex(currentIndex - 1);
+      setOldIndex(currentIndex - 2);
+    }
+  };
+
+  const windowCheck = () => {
+    if (windowSize.winWidth <= 768) {
+      setSelectSlider("0");
+    } else if (windowSize.winWidth <= 1280) {
+      setSelectSlider("1");
+    } else {
+      setSelectSlider("2");
+    }
+  };
+
+  console.log(windowSize, selectSlider);
+
+  useEffect(() => {
+    window.addEventListener("resize", checkSize);
+    return () => {
+      window.removeEventListener("resize", checkSize);
+    };
+  }, [windowSize]);
+
+  useEffect(windowCheck, [windowSize]);
+
+  const displaySlider = () => {
+    switch (selectSlider) {
+      case "0":
+        return (
+          <SingleSlider mensLatest={mensLatest} currentIndex={currentIndex} />
+        );
+      case "1":
+        return (
+          <DoubleSlider
+            mensLatest={mensLatest}
+            currentIndex={currentIndex}
+            newIndex={newIndex}
+            oldIndex={oldIndex}
+          />
+        );
+      case "2":
+        return (
+          <TripleSlider
+            mensLatest={mensLatest}
+            currentIndex={currentIndex}
+            newIndex={newIndex}
+            oldIndex={oldIndex}
+          />
+        );
+      default:
+        <SingleSlider mensLatest={mensLatest} currentIndex={currentIndex} />;
     }
   };
 
   return (
-    <div className="slider">
-      <button className="slider__button left" onClick={previousImage}>
-        <img className="slider__icon" src={backwardsIcon} />
-      </button>
-      mensLatest.map((item)=>{<Slider mensLatest={mensLatest} />})
-      <button className="slider__button" onClick={nextImage}>
-        <img className="slider__icon" src={forwardsIcon} />
-      </button>
-    </div>
+    <>
+      <div className="slider">
+        <button className="slider__button left" onClick={previousImage}>
+          <img className="slider__icon" src={backwardsIcon} />
+        </button>
+        {displaySlider()}
+        <button className="slider__button" onClick={nextImage}>
+          <img className="slider__icon" src={forwardsIcon} />
+        </button>
+      </div>
+    </>
   );
 }
 
 export default ImageSlider;
-
-{
-  /* <div className="slider__content">
-        <img
-          className="slider__image"
-          src={require(`../../assets/images/${mensLatest[currentIndex].image}`)}
-        />
-        <div className="slider__information">
-          <div className="slider__details">
-            <p className="slider__name">{mensLatest[currentIndex].name}</p>
-            <p className="slider__description">
-              {mensLatest[currentIndex].description}
-            </p>
-          </div>
-          <div className="slider__pricing">
-            <p className="slider__cost">
-              £{mensLatest[currentIndex].price / 100}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="slider__content">
-        <img
-          className="slider__image"
-          src={require(`../../assets/images/${mensLatest[newIndex].image}`)}
-        />
-        <div className="slider__information">
-          <div className="slider__details">
-            <p className="slider__name">{mensLatest[newIndex].name}</p>
-            <p className="slider__description">
-              {mensLatest[newIndex].description}
-            </p>
-          </div>
-          <div className="slider__pricing">
-            <p className="slider__cost">£{mensLatest[newIndex].price / 100}</p>
-          </div>
-        </div>
-      </div> */
-}

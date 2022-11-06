@@ -31,6 +31,9 @@
   &__content:nth-child(even) {
     margin: 0 1rem 0 0;
   }
+  &__content:nth-child(odd) {
+    margin: 0 1rem 0 0;
+  }
   &__image {
     width: 100%;
     filter: grayscale(0.8);

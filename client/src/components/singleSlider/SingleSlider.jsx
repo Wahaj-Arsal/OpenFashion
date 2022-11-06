@@ -1,6 +1,6 @@
 /** @format */
 
-function SingleSlider({ mensLatest }) {
+function SingleSlider({ mensLatest, currentIndex }) {
   return (
     <div className="slider__content">
       <img
