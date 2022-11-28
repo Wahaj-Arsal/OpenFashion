@@ -93,16 +93,14 @@ function Home({ SERVER_KEY_URL }) {
           {/* ****** Mens Tile ****** */}
           <section className="tile-container">
             <div className="tile big">
-              <Link className="tile__text" to="/mens">
-                <div className="tile__card">
-                  <img
-                    className="tile__image"
-                    src={openFashion}
-                    alt="mens section"
-                  />
-                  <p className="tile__description">OpenFashion</p>
-                </div>
-              </Link>
+              <div className="tile__card">
+                <img
+                  className="tile__image"
+                  src={openFashion}
+                  alt="mens section"
+                />
+                <p className="tile__description">OpenFashion</p>
+              </div>
             </div>
             <div className="tile small">
               <Link className="tile__text" to="/mens">
