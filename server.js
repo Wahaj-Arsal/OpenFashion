@@ -65,17 +65,17 @@ app.get(
 );
 
 //******** API THAT GETS ALL Home Page Items ******** */
-app.get(
-  "/",
-  (req, res) => {
-    // const content = fs.readFileSync("./data/home/home.json");
-    // res.send(JSON.parse(content));
-    res.send("<h1>Hello World</h1>");
-  },
-  () => {
-    console.log("Get / Crash");
-  }
-);
+// app.get(
+//   "/",
+//   (req, res) => {
+//     // const content = fs.readFileSync("./data/home/home.json");
+//     // res.send(JSON.parse(content));
+//     res.send("<h1>Hello World</h1>");
+//   },
+//   () => {
+//     console.log("Get / Crash");
+//   }
+// );
 
 //******** API THAT GETS ALL Mens Items ******** */
 app.get(

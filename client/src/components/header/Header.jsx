@@ -12,7 +12,7 @@ import { CartContext } from "../helper/CartContext";
 
 // IMPORT ASSETS
 import menuIcon from "../../assets/icons/Menu.svg";
-import logo from "../../assets/logo/logoBlack.svg";
+import logo from "../../assets/logo/logoWhite.svg";
 import shoppingBag from "../../assets/icons/shopping-bag.svg";
 import phone from "../../assets/icons/Call.svg";
 import locator from "../../assets/icons/Location.svg";
@@ -156,7 +156,7 @@ export default function Header({ SERVER_KEY_URL }) {
   };
 
   return (
-    <>
+    <section className="header-container">
       <header
         className={shoppingCart ? "header body__scroll-disabled" : "header"}
         data-testid="test_header"
@@ -194,13 +194,18 @@ export default function Header({ SERVER_KEY_URL }) {
               <li className="menu__list-item">
                 <p className="menu__list-text">Accessories</p>
               </li>
+              <li className="menu__list-item">
+                <Link to="/contactus" className="menu__list-link">
+                  <p className="menu__list-text">Contact Us</p>
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="header__right">
             <Link to="#">
               <img
                 className="header__shopping-cart"
-                src={shoppingBag}
+                src={shoppingBagWhite}
                 alt="shopping cart"
                 onClick={showShoppingCart}
                 data-testid="cart__button"
@@ -303,7 +308,7 @@ export default function Header({ SERVER_KEY_URL }) {
           </>
         )}
       </section>
-    </>
+    </section>
   );
 }
 

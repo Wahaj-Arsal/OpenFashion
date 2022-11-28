@@ -23,13 +23,53 @@
   }
 }
 
+.tile-container {
+  @include desktop {
+    display: grid;
+    margin: 2rem 0;
+    // height: 100%;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    // grid-template-rows: 40vh 30vh 30vh;
+  }
+}
+
 .tile {
   @include flex(column, center, center);
   padding: 0.5rem 0.5rem;
-  // width: 100%;
   @include tablet {
     padding: 1rem 0;
   }
+  @include desktop {
+    @include flex(row, center, center);
+    // background-color: aquamarine;
+    // width: 100%;
+    // height: 100%;
+    // padding: 1rem 0.5rem;
+    // flex-wrap: wrap;
+    &:nth-child(odd) {
+      padding: 0.5rem 0 0.5rem 0.5rem;
+    }
+    &:nth-child(even) {
+      padding: 0.5rem 0.5rem 0.5rem 0;
+    }
+    &:nth-child(1) {
+      padding: 0 0 0.5rem 0;
+    }
+  }
+  &.small {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+  &.medium {
+    grid-row: span 1;
+    grid-column: 3 / span 1;
+  }
+  &.big {
+    grid-row: 1 / span 2;
+    grid-column: span 2;
+  }
+
   &__text {
     text-decoration: none;
     width: 100%;
@@ -40,17 +80,15 @@
     background-size: 100% auto;
     background-position: top;
     width: 100%;
-    // height: 30vh;
     overflow: hidden;
     position: relative;
   }
   &__image {
     width: 100%;
-    // height: 100%;
-    // display: absolute;
+    // height: 80%;
   }
   &__description {
-    @include flex(row, center, flex-end);
+    @include flex(row, center, center);
     @include m-sub-sub-title;
     position: absolute;
     // bottom: 100px;
@@ -60,7 +98,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     width: 100%;
-    padding: 0 1.5rem 1rem 1.5rem;
+    padding: 6rem 1.5rem 1rem 1.5rem;
     background: linear-gradient(
       360deg,
       #111111 0%,

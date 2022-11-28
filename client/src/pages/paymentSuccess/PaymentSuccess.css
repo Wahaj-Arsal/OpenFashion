@@ -1,0 +1,74 @@
+/** @format */ /** @format */
+@font-face {
+  font-family: "Tenor";
+  src: url("../../assets/font/tenor-sans/TenorSans-Regular.ttf");
+  font-weight: 400;
+  font-style: none;
+}
+/** @format */
+html,
+body {
+  font-family: Tenor, "serif";
+  background-color: #fcfcfc;
+  color: #212529;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 1280px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+img,
+label,
+input,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+li,
+button {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+
+/** @format */
+.success {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+.success__heading {
+  padding: 0 0 3rem 0;
+}
+.success__image {
+  padding: 0 0 3rem 0;
+}
+.success__link {
+  width: 50%;
+}
+.success__button {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #212529;
+  color: #fcfcfc;
+  outline: none;
+  border: none;
+  width: 100%;
+}/*# sourceMappingURL=PaymentSuccess.css.map */

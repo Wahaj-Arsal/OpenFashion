@@ -74,7 +74,7 @@ function ImageSlider({ mensLatest, startIndex, nextIndex, previousIndex }) {
     }
   };
 
-  console.log(windowSize, selectSlider);
+  // console.log(windowSize, selectSlider);
 
   useEffect(() => {
     window.addEventListener("resize", checkSize);

@@ -8,10 +8,12 @@ import axios from "axios";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import cryptoRandomString from "crypto-random-string";
+import uniqid from "uniqid";
 
+import openFashion from "../../assets/images/openfashion.svg";
 import MensTile from "../../assets/images/mens-fashion.svg";
 import WomensTile from "../../assets/images/womens-fashion.svg";
+import Accessories from "../../assets/images/accessories.svg";
 import ImageSlider from "../../components/imageSlider/ImageSlider";
 
 const EMAIL_SERVICE_ID = process.env.REACT_APP_EMAIL_SERVICE_ID;
@@ -29,9 +31,9 @@ function Home({ SERVER_KEY_URL }) {
   const womensLatestNextIndex = 3;
   const womensLatestPreviousIndex = 4;
 
-  const kidsLatestStartIndex = 1;
-  const kidsLatestNextIndex = 2;
-  const kidsLatestPreviousIndex = 3;
+  const kidsLatestStartIndex = 4;
+  const kidsLatestNextIndex = 0;
+  const kidsLatestPreviousIndex = 1;
 
   //grabs the reference for the form
   const form = useRef();
@@ -39,10 +41,14 @@ function Home({ SERVER_KEY_URL }) {
   //Get ALL items from the API
   const getItemsMens = () => {
     axios.get(`${SERVER_KEY_URL}/mensLatest`).then((response) => {
+      console.log(response);
       const mensLatest = response.data;
       setMensLatest(mensLatest);
     });
   };
+
+  // console.log(mensLatest);
+  // console.log(SERVER_KEY_URL + "/mensLatest");
 
   const sendToServer = (e) => {
     e.preventDefault();
@@ -85,57 +91,71 @@ function Home({ SERVER_KEY_URL }) {
               <h1 className="home__title">HOME</h1>
             </div> */}
           {/* ****** Mens Tile ****** */}
-          <div className="tile">
-            <Link className="tile__text" to="/mens">
-              <div className="tile__card">
-                <img
-                  className="tile__image"
-                  src={MensTile}
-                  alt="mens section"
-                />
-                <p className="tile__description">Men</p>
-              </div>
-            </Link>
-          </div>
-          {/* ****** Womens Tile ****** */}
-          <div className="tile">
-            <Link className="tile__text" to="/womens">
-              <div className="tile__card">
-                <img
-                  className="tile__image"
-                  src={WomensTile}
-                  alt="womens section"
-                />
-                <p className="tile__description">Women</p>
-              </div>
-            </Link>
-          </div>
-          {/* ****** Kids Tile ****** */}
-          <div className="tile">
-            <Link className="tile__text" to="/">
-              <div className="tile__card tile__background-2022-trends">
-                <img
-                  className="tile__image"
-                  src={MensTile}
-                  alt="kids section"
-                />
-                <p className="tile__description">Kids</p>
-              </div>
-            </Link>
-          </div>
-          {/* ****** Accessories Tile ****** */}
-          <div className="tile">
-            <Link className="tile__text" to="/">
-              <div className="tile__card tile__background-2022-trends">
-                <img
-                  className="tile__image"
-                  src={MensTile}
-                  alt="accessories section"
-                />
-                <p className="tile__description">Accessories</p>
-              </div>
-            </Link>
-          </div>
+          <section className="tile-container">
+            <div className="tile big">
+              <Link className="tile__text" to="/mens">
+                <div className="tile__card">
+                  <img
+                    className="tile__image"
+                    src={openFashion}
+                    alt="mens section"
+                  />
+                  <p className="tile__description">OpenFashion</p>
+                </div>
+              </Link>
+            </div>
+            <div className="tile small">
+              <Link className="tile__text" to="/mens">
+                <div className="tile__card">
+                  <img
+                    className="tile__image"
+                    src={MensTile}
+                    alt="mens section"
+                  />
+                  <p className="tile__description">Men</p>
+                </div>
+              </Link>
+            </div>
+            {/* ****** Womens Tile ****** */}
+            <div className="tile small">
+              <Link className="tile__text" to="/womens">
+                <div className="tile__card">
+                  <img
+                    className="tile__image"
+                    src={WomensTile}
+                    alt="womens section"
+                  />
+                  <p className="tile__description">Women</p>
+                </div>
+              </Link>
+            </div>
+            {/* ****** Kids Tile ****** */}
+            <div className="tile small">
+              <Link className="tile__text" to="/">
+                <div className="tile__card tile__background-2022-trends">
+                  <img
+                    className="tile__image"
+                    src={MensTile}
+                    alt="kids section"
+                  />
+                  <p className="tile__description">Kids</p>
+                </div>
+              </Link>
+            </div>
+            {/* ****** Accessories Tile ****** */}
+            <div className="tile small">
+              <Link className="tile__text" to="/">
+                <div className="tile__card tile__background-2022-trends">
+                  <img
+                    className="tile__image"
+                    src={Accessories}
+                    alt="accessories section"
+                  />
+                  <p className="tile__description">Accessories</p>
+                </div>
+              </Link>
+            </div>
+          </section>
           {/* ****** Mens Latest In Fashion ****** */}
           <section className="latest-container">
             <div className="latest">
@@ -147,7 +167,7 @@ function Home({ SERVER_KEY_URL }) {
             </div>
             <div className="slider-container">
               <ImageSlider
-                key={cryptoRandomString}
+                key={uniqid}
                 mensLatest={mensLatest}
                 startIndex={mensLatestStartIndex}
                 nextIndex={mensLatestNextIndex}
@@ -166,7 +186,7 @@ function Home({ SERVER_KEY_URL }) {
             </div>
             <div className="slider-container">
               <ImageSlider
-                key={cryptoRandomString}
+                key={uniqid}
                 mensLatest={mensLatest}
                 startIndex={womensLatestStartIndex}
                 nextIndex={womensLatestNextIndex}
@@ -185,7 +205,7 @@ function Home({ SERVER_KEY_URL }) {
             </div>
             <div className="slider-container">
               <ImageSlider
-                key={cryptoRandomString}
+                key={uniqid}
                 mensLatest={mensLatest}
                 startIndex={kidsLatestStartIndex}
                 nextIndex={kidsLatestNextIndex}

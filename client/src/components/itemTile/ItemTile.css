@@ -1,0 +1,81 @@
+/** @format */ /** @format */
+@font-face {
+  font-family: "Tenor";
+  src: url("../../assets/font/tenor-sans/TenorSans-Regular.ttf");
+  font-weight: 400;
+  font-style: none;
+}
+/** @format */
+.item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  width: 49%;
+}
+.item__picture {
+  width: 100%;
+}
+.item__image {
+  width: 100%;
+}
+.item__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+.item__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+.item__title {
+  font-family: Tenor, "serif";
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.item__description {
+  font-family: Tenor, "serif";
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.item__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+.item__sustain {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+.item__count {
+  width: 20px;
+  height: 20px;
+}/*# sourceMappingURL=ItemTile.css.map */
