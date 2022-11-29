@@ -46,8 +46,8 @@
     }
   }
   &__information {
-    @include flex(row, space-between, flex-end);
-    height: 5rem;
+    @include flex(row, space-between, flex-start);
+    height: 3.5rem;
   }
   &__details {
     padding: 1rem 0 0 0;
@@ -58,5 +58,8 @@
   }
   &__description {
     @include m-sub-sub-title;
+  }
+  &__pricing {
+    padding: 1rem 0 0 0;
   }
 }

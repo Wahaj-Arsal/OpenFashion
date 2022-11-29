@@ -23,6 +23,12 @@ const EMAIL_PUBLIC_KEY = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
 function Home({ SERVER_KEY_URL }) {
   const [mensLatest, setMensLatest] = useState([]);
 
+  const [customerName, setCustomerName] = useState([]);
+  const [customerEmail, setCustomerEmail] = useState([]);
+
+  const [newsletterName, setNewsletterName] = useState(true);
+  const [newsletterEmail, setNewsletterEmail] = useState(true);
+
   const mensLatestStartIndex = 0;
   const mensLatestNextIndex = 1;
   const mensLatestPreviousIndex = 2;
@@ -47,11 +53,37 @@ function Home({ SERVER_KEY_URL }) {
     });
   };
 
-  // console.log(mensLatest);
-  // console.log(SERVER_KEY_URL + "/mensLatest");
+  const handleChangeName = ({ target: { customerName, value } }) => {
+    setCustomerName(value);
+  };
 
-  const sendToServer = (e) => {
+  const handleChangeEmail = ({ target: { customerEmail, value } }) => {
+    setCustomerEmail(value);
+  };
+
+  const validateForm = () => {
+    setNewsletterName(true);
+    setNewsletterEmail(true);
+    if (customerName.length === 0) {
+      setNewsletterName(false);
+      toastify(`Please - Enter your Name`);
+      return false;
+    } else if (customerEmail.length === 0) {
+      setNewsletterEmail(false);
+      toastify(`Please - Enter your Email`);
+    } else {
+      return true;
+    }
+  };
+
+  const checkValidateStatus = (e) => {
     e.preventDefault();
+    if (validateForm()) {
+      sendToServer();
+    }
+  };
+
+  const sendToServer = () => {
     emailjs
       .sendForm(
         `${EMAIL_SERVICE_ID}`,
@@ -76,8 +108,6 @@ function Home({ SERVER_KEY_URL }) {
   //Call function to get ALL items on page refresh
   useEffect(getItemsMens, []);
 
-  // console.log(location.pathname);
-
   return (
     <>
       {!mensLatest.length > 0 ? (
@@ -87,9 +117,6 @@ function Home({ SERVER_KEY_URL }) {
       ) : (
         <section className="homepage">
           <ToastContainer />
-          {/* <div className="home" data-testid="home">
-              <h1 className="home__title">HOME</h1>
-            </div> */}
           {/* ****** Mens Tile ****** */}
           <section className="tile-container">
             <div className="tile big">
@@ -240,23 +267,39 @@ function Home({ SERVER_KEY_URL }) {
             </p>
           </section>
           {/* ****** Newsletter ****** */}
-          <form ref={form} className="newsletter" onSubmit={sendToServer}>
+          <form
+            ref={form}
+            className="newsletter"
+            onSubmit={checkValidateStatus}
+          >
             <h3 className="newsletter__title">
               By Subscribing To Our Newsletter You Can Get 30% Off!
             </h3>
             <input
               id="name"
-              className="newsletter__input"
+              className={
+                !newsletterName == false
+                  ? "newsletter__input"
+                  : "newsletter__input--false"
+              }
               name="name"
               placeholder="Your Name"
+              onChange={handleChangeName}
             />
             <input
-              id="email"
-              className="newsletter__input"
-              name="email"
+              id="from_email"
+              className={
+                !newsletterEmail == false
+                  ? "newsletter__input"
+                  : "newsletter__input--false"
+              }
+              name="from_email"
               placeholder="Your Email Address"
+              onChange={handleChangeEmail}
             />
-            <input type="submit" value="Send" className="newsletter__send" />
+            <div className="newsletter__send">
+              <input type="submit" value="Send" className="send__button" />
+            </div>
           </form>
         </section>
       )}

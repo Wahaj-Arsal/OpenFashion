@@ -6,7 +6,7 @@
 @use "../../styles/partials/breakpoints" as *;
 
 .homepage {
-  margin: 0 0.75rem;
+  margin: 0 0.5rem;
   @include tablet {
     margin: 0 4rem;
   }
@@ -24,6 +24,7 @@
 }
 
 .tile-container {
+  padding: 0.75rem 0 3rem 0;
   @include desktop {
     display: grid;
     margin: 2rem 0;
@@ -124,10 +125,14 @@
 .latest-container {
   // width: 580px;
   // height: 280px;
-  padding: 3rem 1rem;
+  padding: 3rem 0.5rem;
   margin: 0 auto;
   @include tablet {
     margin: 0 2rem;
+  }
+  @include desktop {
+    margin: 2rem 0;
+    // padding: 3rem 0 0 0;
   }
 }
 
@@ -151,6 +156,9 @@
   @include tablet {
     margin: 0 4.5rem;
   }
+  @include desktop {
+    margin: 0;
+  }
 }
 
 .explore {
@@ -165,10 +173,13 @@
 }
 
 .newsletter {
-  @include flex(column, flex-start, center);
+  @include flex(column, flex-start, flex-start);
   padding: 1rem;
   @include tablet {
     margin: 0 4.5rem;
+  }
+  @include desktop {
+    margin: 0;
   }
   &__title {
     padding: 0 0 1rem 0;
@@ -177,20 +188,37 @@
     width: 100%;
     padding: 0.5rem;
     margin: 0.25rem 0;
+    border: 1px solid black;
+  }
+  &__input--false {
+    border: 1px solid red;
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
   }
   &__send {
-    @include m-sub-sub-title;
-    outline: none;
-    border: 1px solid $fnt-clr-text-default;
-    font-weight: bold;
+    @include flex(row, flex-end, center);
     width: 100%;
     margin: 1rem 0 0 0;
     padding: 0.5rem 0;
-    background-color: $fnt-clr-text-default;
-    color: $ele-clr-input-bg;
-    &:hover {
-      background-color: $ele-clr-input-bg;
-      color: $fnt-clr-text-default;
-    }
+  }
+}
+
+.send__button {
+  @include m-sub-sub-title;
+  outline: none;
+  border: 1px solid $fnt-clr-text-default;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  background-color: $fnt-clr-text-default;
+  color: $ele-clr-input-bg;
+  width: 35%;
+  &:hover {
+    background-color: $ele-clr-input-bg;
+    color: $fnt-clr-text-default;
+  }
+  @include tablet {
+    @include flex(row, center, flex-end);
+    width: 35%;
   }
 }

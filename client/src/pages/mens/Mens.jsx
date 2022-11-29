@@ -3,8 +3,6 @@
 // IMPORT FROM LIBRARIES
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
 
 // IMPORT LOCAL FILES & COMPONENTS
 import "./Mens.scss";
