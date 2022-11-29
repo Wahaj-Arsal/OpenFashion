@@ -47,7 +47,6 @@ function Home({ SERVER_KEY_URL }) {
   //Get ALL items from the API
   const getItemsMens = () => {
     axios.get(`${SERVER_KEY_URL}/mensLatest`).then((response) => {
-      console.log(response);
       const mensLatest = response.data;
       setMensLatest(mensLatest);
     });
@@ -126,7 +125,9 @@ function Home({ SERVER_KEY_URL }) {
                   src={openFashion}
                   alt="mens section"
                 />
-                <p className="tile__description">OpenFashion</p>
+                <p className="tile__description top__tile">
+                  OpenFashion <br /> An e-commerce website!
+                </p>
               </div>
             </div>
             <div className="tile small">
