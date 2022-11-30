@@ -1,14 +1,20 @@
 /** @format */
 
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
 
 .shopping-cart {
   @include flex(row, center, center);
   padding: 0.5rem 1rem;
+  width: 100%;
+  @include tablet {
+    padding: 0.5rem 0.5rem;
+  }
   &__picture {
     @include flex(row, flex-start, center);
-    width: 60%;
+    width: 70%;
   }
   &__image {
     width: 80%;

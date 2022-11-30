@@ -61,9 +61,16 @@ function Home({ SERVER_KEY_URL }) {
   };
 
   const validateForm = () => {
+    const validRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     setNewsletterName(true);
     setNewsletterEmail(true);
-    if (customerName.length === 0) {
+    if (customerName.length === 0 && customerEmail.length === 0) {
+      setNewsletterName(false);
+      setNewsletterEmail(false);
+      toastify(`Please - Enter your Name & Email`);
+      return false;
+    } else if (customerName.length === 0) {
       setNewsletterName(false);
       toastify(`Please - Enter your Name`);
       return false;
@@ -71,14 +78,21 @@ function Home({ SERVER_KEY_URL }) {
       setNewsletterEmail(false);
       toastify(`Please - Enter your Email`);
     } else {
-      return true;
+      if (customerEmail.match(validRegex)) {
+        return true;
+      } else {
+        toastify(`Please - Enter valid Email`);
+        setNewsletterEmail(false);
+        return false;
+      }
     }
   };
 
   const checkValidateStatus = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      sendToServer();
+      // sendToServer();
+      console.log("Form VALIDATED");
     }
   };
 

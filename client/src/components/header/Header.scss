@@ -78,11 +78,9 @@
   position: absolute;
   visibility: hidden;
   float: left;
-  margin: 0 2rem;
   padding: 1rem 2rem 1rem 2rem;
   width: 100%;
   max-width: 1280px;
-  margin: 0;
   z-index: 5;
   &__list {
     width: 100%;
@@ -159,18 +157,37 @@
   }
 }
 
+.cart-container {
+  position: absolute;
+  max-width: 1280px;
+  width: 100%;
+  visibility: hidden;
+  z-index: 5;
+  @include tablet {
+    @include flex(row, flex-end, flex-end);
+  }
+  @include desktop {
+    @include flex(row, flex-end, flex-end);
+  }
+}
+
 .cart {
   @include flex(column, top, flex-start);
   @include m-sub-title;
-  width: 100%;
-  visibility: hidden;
-  position: absolute;
-  max-width: 414px;
-  margin: 0;
-  scroll-behavior: auto;
-  overflow: scroll;
   background-color: $ele-clr-darkness-strain;
-  z-index: 5;
+  visibility: hidden;
+  // margin: 0;
+  padding: 2rem 1rem 1rem 1rem;
+  width: 100%;
+  max-width: 1280px;
+  scroll-behavior: auto;
+  overflow: hidden;
+  @include tablet {
+    width: 60%;
+  }
+  @include desktop {
+    width: 50%;
+  }
   &--active {
     visibility: visible;
   }

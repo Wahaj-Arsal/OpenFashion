@@ -36,12 +36,12 @@
   }
   &__image {
     width: 100%;
-    filter: grayscale(0.8);
+    filter: none;
     transition: all 0.4s ease-in-out;
     // height: 100%;
     // margin: 0 auto;
     &:hover {
-      filter: none;
+      filter: grayscale(0.8);
       transition: all 0.4s ease-in-out;
     }
   }

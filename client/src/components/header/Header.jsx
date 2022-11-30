@@ -202,12 +202,11 @@ export default function Header({ SERVER_KEY_URL }) {
             </ul>
           </div>
           <div className="header__right">
-            <Link to="#">
+            <Link to="#" onClick={showShoppingCart}>
               <img
                 className="header__shopping-cart"
                 src={shoppingBagWhite}
                 alt="shopping cart"
-                onClick={showShoppingCart}
                 data-testid="cart__button"
               />
               <p
@@ -262,51 +261,53 @@ export default function Header({ SERVER_KEY_URL }) {
           </div>
         </div> */}
       </nav>
-      <section className={shoppingCart ? "cart cart--active" : "cart"}>
-        <h3 className="cart__heading">Cart</h3>
-        {cart.length > 0 ? (
-          <>
-            {cartReturnItem}
-            <div className="cart__information">
-              <div className="cart__total">
-                <>
-                  <p className="cart__text">Sub Total</p>
-                  <p className="cart__value">£{cartTotalPrice(cart)}</p>
-                </>
-                <>
-                  <p className="cart__shipping">
-                    *shipping charges, taxes and discounts codes are calculated
-                    at the time of accounting.
-                  </p>
-                </>
+      <section className="cart-container">
+        <div className={shoppingCart ? "cart cart--active" : "cart"}>
+          <h3 className="cart__heading">Cart</h3>
+          {cart.length > 0 ? (
+            <>
+              {cartReturnItem}
+              <div className="cart__information">
+                <div className="cart__total">
+                  <>
+                    <p className="cart__text">Sub Total</p>
+                    <p className="cart__value">£{cartTotalPrice(cart)}</p>
+                  </>
+                  <>
+                    <p className="cart__shipping">
+                      *shipping charges, taxes and discounts codes are
+                      calculated at the time of accounting.
+                    </p>
+                  </>
+                </div>
+                <button className="cart__button" onClick={purchaseItem}>
+                  <img
+                    className="cart__icon"
+                    src={shoppingBagWhite}
+                    alt="shopping bag"
+                  />
+                  <p className="cart__details">Checkout</p>
+                </button>
               </div>
-              <button className="cart__button" onClick={purchaseItem}>
+            </>
+          ) : (
+            <>
+              <p className="cart-empty__status" test-dataid="empty__cart">
+                You have no items in your Shopping Bag.
+              </p>
+              <button className="cart-empty__button">
                 <img
-                  className="cart__icon"
+                  className="cart-empty__icon"
                   src={shoppingBagWhite}
                   alt="shopping bag"
                 />
-                <p className="cart__details">Checkout</p>
+                <p className="cart-empty__details" onClick={hideCart}>
+                  Continue Shopping
+                </p>
               </button>
-            </div>
-          </>
-        ) : (
-          <>
-            <p className="cart-empty__status" test-dataid="empty__cart">
-              You have no items in your Shopping Bag.
-            </p>
-            <button className="cart-empty__button">
-              <img
-                className="cart-empty__icon"
-                src={shoppingBagWhite}
-                alt="shopping bag"
-              />
-              <p className="cart-empty__details" onClick={hideCart}>
-                Continue Shopping
-              </p>
-            </button>
-          </>
-        )}
+            </>
+          )}
+        </div>
       </section>
     </section>
   );

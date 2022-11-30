@@ -120,6 +120,11 @@ function Mens({ SERVER_KEY_URL }) {
             setSustainFilterState={setSustainFilterState}
             sustainability={sustainability}
           />
+          <section className="banner-container">
+            <div className="banner">
+              <h2 className="banner__heading">Check out our products!</h2>
+            </div>
+          </section>
           <section className="item-container">
             {sustainabilityData.length > 0 &&
               sustainabilityData.map((item) => {
