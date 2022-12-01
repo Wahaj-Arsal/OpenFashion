@@ -116,7 +116,7 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
     return (
       <img
         key={index}
-        className="details__count"
+        className="product__count"
         src={index + 1 <= sustainability ? leafFull : leafEmpty}
         alt="sustainability rating"
       />
@@ -137,13 +137,42 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
         <p>Loading...</p>
       ) : (
         <section className="details" data-testid="productDetails">
-          <img
-            src={require(`../../assets/images/${productDetails.image}`)}
-            alt="product"
-            className="details__img"
-          />
+          <div className="product">
+            <img
+              src={require(`../../assets/images/${productDetails.image}`)}
+              alt="product"
+              className="product__img"
+            />
+            <div className="product__details">
+              <div className="product__heading">
+                <h1 className="product__title">{name}</h1>
+                <img src={exportIcon} alt="" className="product__icon" />
+              </div>
+              <p className="product__description">{description}</p>
+              <p className="product__text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Consequat ac felis donec et. Netus et malesuada fames ac turpis
+                egestas. Enim blandit volutpat maecenas volutpat blandit aliquam
+                etiam. Quis auctor elit sed vulputate.
+              </p>
+              <div className="product__info">
+                <p className="product__price">£{price / 100}</p>
+                <div className="product__sustain">{sustainReturn}</div>
+              </div>
+              <button className="button" onClick={addToCart}>
+                <div className="button__add">
+                  <img className="button__plus" src={plus} alt="plus button" />
+                  <p className="button__text">Add to Basket</p>
+                </div>
+                <div className="button__icon">
+                  <img className="button__heart" src={heart} alt="heart" />
+                </div>
+              </button>
+            </div>
+          </div>
           <div className="details__details">
-            <div className="details__heading">
+            {/* <div className="details__heading">
               <h1 className="details__title">{name}</h1>
               <img src={exportIcon} alt="" className="details__icon" />
             </div>
@@ -151,8 +180,8 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
             <div className="details__info">
               <p className="details__price">£{price / 100}</p>
               <div className="details__sustain">{sustainReturn}</div>
-            </div>
-            <button className="button" onClick={addToCart}>
+            </div> */}
+            {/* <button className="button" onClick={addToCart}>
               <div className="button__add">
                 <img className="button__plus" src={plus} alt="plus button" />
                 <p className="button__text">Add to Basket</p>
@@ -160,7 +189,7 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
               <div className="button__icon">
                 <img className="button__heart" src={heart} alt="heart" />
               </div>
-            </button>
+            </button> */}
             <div className="materials__materials">
               <h2 className="materials__title">Materials</h2>
               <p className="materials__text">{materials}</p>
@@ -218,9 +247,11 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
                 />
               </div>
             </div>
-            <button className="comments__submit" onClick={validationStatus}>
-              Post your review
-            </button>
+            <div className="submit-container">
+              <button className="comments__submit" onClick={validationStatus}>
+                Post Review
+              </button>
+            </div>
           </div>
           {productDetails.reviews.length > 0 &&
             productDetails.reviews.map((reviews) => {

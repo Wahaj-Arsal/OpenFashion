@@ -110,21 +110,25 @@ function Mens({ SERVER_KEY_URL }) {
         </div>
       ) : (
         <>
-          <h3 className="mens__title" data-testid="mens">
-            {/* {pageTitle} */}
-          </h3>
-          <Filter
+          <section className="banner-container">
+            <div className="banner">
+              <h2 className="banner__heading">Check Our Products!</h2>
+            </div>
+          </section>
+
+          <div className="heading">
+            <h2 className="heading__title">Our Latest Products!</h2>
+            <p className="heading__description">
+              Check out all of our products
+            </p>
+          </div>
+          {/* <Filter
             totalItems={totalItems}
             setFilterState={setFilterState}
             category={category}
             setSustainFilterState={setSustainFilterState}
             sustainability={sustainability}
-          />
-          <section className="banner-container">
-            <div className="banner">
-              <h2 className="banner__heading">Check out our products!</h2>
-            </div>
-          </section>
+          /> */}
           <section className="item-container">
             {sustainabilityData.length > 0 &&
               sustainabilityData.map((item) => {

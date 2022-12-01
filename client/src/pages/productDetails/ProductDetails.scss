@@ -3,28 +3,41 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/resets" as *;
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
 
-.details {
-  @include flex(column, center, center);
+.product {
+  @include flex(column, center, flex-start);
   width: 100%;
+  // height: 100%;
+  padding: 1rem 0 1rem 0;
+  @include desktop {
+    @include flex(row, center, center);
+    width: 80%;
+  }
   &__img {
-    width: 100%;
+    width: 80%;
     height: 100%;
-    padding: 1rem;
+
+    // padding: 1rem;
+    margin: 3.5rem auto 2rem auto;
+    @include tablet {
+      width: 60%;
+    }
   }
   &__details {
-    @include flex(column, center, flex-start);
     width: 100%;
-    // height: 100%;
-    padding: 1rem 0 1rem 0;
   }
   &__heading {
     @include flex(row, space-between, center);
     padding: 0.5rem 1rem 0 1rem;
     width: 100%;
+    @include tablet {
+      padding: 0.5rem 2rem 0 2rem;
+    }
   }
   &__title {
     @include m-page-title-upper;
+    font-weight: bold;
     width: 100%;
   }
   &__icon {
@@ -32,7 +45,20 @@
   &__description {
     @include m-body-large;
     padding: 0.5rem 1rem 0 1rem;
+    font-style: italic;
     // padding: 0.5rem 0;
+    @include tablet {
+      padding: 0.5rem 2rem 0 2rem;
+    }
+  }
+  &__text {
+    @include m-body-large;
+    padding: 0.5rem 1rem 0 1rem;
+    font-style: italic;
+    // padding: 0.5rem 0;
+    @include tablet {
+      padding: 0.5rem 2rem 0 2rem;
+    }
   }
   &__info {
     @include flex(row, flex-end, center);
@@ -41,30 +67,47 @@
   &__price {
     // color: $clr-secondary-clr;
     padding: 0.5rem 1rem 0 1rem;
+    @include tablet {
+      padding: 0.5rem 2rem 0 2rem;
+    }
   }
   &__sustain {
     @include flex(row, flex-end, center);
     padding: 0.5rem 1rem 0 1rem;
     width: 100%;
+    @include tablet {
+      padding: 0.5rem 2rem 0 2rem;
+    }
   }
   &__count {
     width: 20px;
     height: 20px;
   }
 }
+.details {
+  @include flex(column, center, center);
+  width: 100%;
+  &__details {
+    @include flex(column, center, flex-start);
+    width: 100%;
+    // height: 100%;
+    // padding: 1rem 0 1rem 0;
+  }
+}
 
 .button {
   @include flex(row, space-between, center);
   width: 100%;
-  margin: 1rem 0;
+  margin: 1rem 0 0 0;
   padding: 1rem;
   background-color: $fnt-clr-text-default;
   outline: none;
   border: none;
+  @include tablet {
+    padding: 1rem 2rem;
+  }
   &__add {
     @include flex(row, center, center);
-  }
-  &__plus {
   }
   &__text {
     @include m-sub-sub-title-upper;
@@ -72,18 +115,20 @@
     padding: 0 0 0 0.5rem;
     text-transform: uppercase;
   }
-  &__icon {
-  }
-  &__heart {
-  }
 }
 
 .materials {
   &__materials {
     padding: 1rem 1rem 0 1rem;
+    @include tablet {
+      padding: 1rem 2rem 0 2rem;
+    }
   }
   &__care {
     padding: 1rem 1rem;
+    @include tablet {
+      padding: 1rem 2rem 0 2rem;
+    }
   }
   &__title {
     @include m-page-title-upper;
@@ -128,26 +173,24 @@
 }
 
 .comments {
-  @include flex(column, left, null);
+  @include flex(column, left, flex-start);
   width: 100%;
-  padding: 0 0 2rem 0;
+  padding: 0.5rem 1rem 1rem 1rem;
+  @include tablet {
+    padding: 0.5rem 2rem 1.25rem 2rem;
+  }
   &__heading {
     @include m-page-title-upper;
-    // text-transform: uppercase;
     font-weight: 700;
     align-items: left;
-    padding: 0.5rem 1rem 1rem 1rem;
   }
   &__input {
-    padding: 0 1rem;
     width: 100%;
-  }
-  &__name {
   }
   &__name-title {
     @include m-sub-title-upper;
     font-weight: 700;
-    padding: 0 0 0.5rem 0;
+    padding: 0.5rem 0 0.5rem 0;
   }
   &__name-input {
     @include m-sub-sub-title;
@@ -164,12 +207,12 @@
   }
   &__comment {
     @include m-sub-sub-title;
-    padding: 1rem 0 0 0;
+    // padding: 1rem 0 0 0;
   }
   &__comment-title {
     @include m-sub-title-upper;
     font-weight: 700;
-    padding: 0 0 0.5rem 0;
+    padding: 0.5rem 0 0.5rem 0;
     &::placeholder {
       @include m-sub-sub-title;
     }
@@ -189,12 +232,21 @@
   }
   &__submit {
     @include m-sub-sub-title;
-    margin: 0.5rem 1rem;
+    margin: 0.5rem 0;
     padding: 0.5rem 1rem;
     border-radius: 8px;
     background-color: $fnt-clr-text-default;
     color: $ele-clr-darkness-strain;
     outline: none;
     border: none;
+    width: 100%;
+    @include tablet {
+      width: 30%;
+    }
   }
+}
+
+.submit-container {
+  @include flex(row, flex-end, flex-end);
+  width: 100%;
 }

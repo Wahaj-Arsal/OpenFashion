@@ -1,6 +1,9 @@
 /** @format */
 
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
 
 .item-container {
   @include flex(row, space-between, flex-start);
@@ -12,6 +15,9 @@
   @include flex(column, space-between, center);
   padding: 1rem 0;
   width: 49%;
+  @include tablet {
+    width: 32%;
+  }
   // height: 50vh;
   &__picture {
     width: 100%;
@@ -30,6 +36,8 @@
   }
   &__title {
     @include m-sub-title;
+    font-weight: bold;
+    padding: 0 0 0.25rem 0;
   }
   &__description {
     @include m-sub-sub-title;
@@ -37,6 +45,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    @include desktop {
+      font-size: 1rem;
+    }
   }
   &__info {
     @include flex(row, space-between, flex-start);
