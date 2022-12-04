@@ -45,6 +45,7 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
   const [classComment, setClassComment] = useState(true);
 
   const [faq, setFaq] = useState(false);
+  const [reviews, setReviews] = useState(false);
 
   const showFAQ = () => {
     if (faq == false) {
@@ -229,11 +230,11 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
           </div>
           <section className="comments-container">
             <div className="comments">
-              <div className="comments__tile" onClick={showFAQ}>
+              <div id="commentsTile" className="comments__tile">
                 <h3 className="comments__title">Reviews's</h3>
                 <img
                   className={
-                    faq == false
+                    reviews == false
                       ? "comments__icon"
                       : "comments__icon comments__icon--active"
                   }
@@ -276,21 +277,21 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
                   Post Review
                 </button>
               </div>
+              {productDetails.reviews.length > 0 &&
+                productDetails.reviews.map((reviews) => {
+                  return (
+                    <CommentsDispaly
+                      key={reviews.id}
+                      reviews={reviews}
+                      newMoment={newMoment}
+                    />
+                  );
+                })}
             </div>
-            {productDetails.reviews.length > 0 &&
-              productDetails.reviews.map((reviews) => {
-                return (
-                  <CommentsDispaly
-                    key={reviews.id}
-                    reviews={reviews}
-                    newMoment={newMoment}
-                  />
-                );
-              })}
           </section>
           <section className="faq-container">
             <div className="faq">
-              <div className="faq__tile" onClick={showFAQ}>
+              <div id="faqTile" className="faq__tile">
                 <div className="faq__title">FAQ's</div>
                 <img
                   className={
