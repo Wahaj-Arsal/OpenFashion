@@ -9,6 +9,7 @@ import "./Mens.scss";
 import Filter from "../../components/filter/Filter";
 import ItemTile from "../../components/itemTile/ItemTile";
 import { Ring } from "react-awesome-spinners";
+import NewsletterBanner from "../../components/newsletterBanner/newsletterBanner";
 
 // IMPORT ASSETS
 
@@ -110,9 +111,9 @@ function Mens({ SERVER_KEY_URL }) {
         </div>
       ) : (
         <>
-          <section className="banner-container">
-            <div className="banner">
-              <h2 className="banner__heading">Check Our Products!</h2>
+          <section className="hero-container">
+            <div className="hero">
+              <h2 className="hero__heading">Check Our Products!</h2>
             </div>
           </section>
 
@@ -135,6 +136,7 @@ function Mens({ SERVER_KEY_URL }) {
                 return <ItemTile {...item} key={item.id} />;
               })}
           </section>
+          <NewsletterBanner />
         </>
       )}
     </>

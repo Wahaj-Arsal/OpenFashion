@@ -22,6 +22,8 @@ import doNotWash from "../../assets/icons/Do-Not-Wash.svg";
 import doNotIron from "../../assets/icons/Iron-Low-Temperature.svg";
 import leafFull from "../../assets/icons/leaf-g.png";
 import leafEmpty from "../../assets/icons/leaf-b.png";
+import NewsletterBanner from "../../components/newsletterBanner/newsletterBanner";
+import arrowUp from "../../assets/icons/Up.svg";
 
 const ProductDetails = ({ SERVER_KEY_URL }) => {
   const API_URL_MENS_SINGLE = (id) => `${SERVER_KEY_URL}${id}`;
@@ -41,6 +43,16 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
 
   const [className, setClassName] = useState(true);
   const [classComment, setClassComment] = useState(true);
+
+  const [faq, setFaq] = useState(false);
+
+  const showFAQ = () => {
+    if (faq == false) {
+      setFaq(true);
+    } else {
+      setFaq(false);
+    }
+  };
 
   const fetchData = () => {
     axios.get(API_URL_MENS_SINGLE(url)).then((response) => {
@@ -215,54 +227,138 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
               </div>
             </div>
           </div>
-          <div className="comments">
-            <h3 className="comments__heading">Reviews</h3>
-            <div className="comments__input">
-              <div className="comments__name">
-                <h2 className="comments__name-title">Name:</h2>
-                <input
-                  className={`${
-                    !className
-                      ? "comments__name-input comments__name-input--error"
-                      : "comments__name-input"
-                  }`}
-                  name="customerName"
-                  type="text"
-                  placeholder="Enter your name"
-                  onChange={handleChangeName}
-                />
+          <section className="comments-container">
+            <div className="comments">
+              <h3 className="comments__heading">Reviews</h3>
+              <div className="comments__input">
+                <div className="comments__name">
+                  <h2 className="comments__name-title">Name:</h2>
+                  <input
+                    className={`${
+                      !className
+                        ? "comments__name-input comments__name-input--error"
+                        : "comments__name-input"
+                    }`}
+                    name="customerName"
+                    type="text"
+                    placeholder="Enter your name"
+                    onChange={handleChangeName}
+                  />
+                </div>
+                <div className="comments__comment">
+                  <h2 className="comments__comment-title">Leave a review:</h2>
+                  <textarea
+                    className={`${
+                      !classComment
+                        ? "comments__comment-input comments__comment-input--error"
+                        : "comments__comment-input"
+                    }`}
+                    name="customerComment"
+                    type="text"
+                    placeholder="Enter your review"
+                    onChange={handleChangeReview}
+                  />
+                </div>
               </div>
-              <div className="comments__comment">
-                <h2 className="comments__comment-title">Leave a review:</h2>
-                <textarea
-                  className={`${
-                    !classComment
-                      ? "comments__comment-input comments__comment-input--error"
-                      : "comments__comment-input"
-                  }`}
-                  name="customerComment"
-                  type="text"
-                  placeholder="Enter your review"
-                  onChange={handleChangeReview}
-                />
+              <div className="submit-container">
+                <button className="comments__submit" onClick={validationStatus}>
+                  Post Review
+                </button>
               </div>
             </div>
-            <div className="submit-container">
-              <button className="comments__submit" onClick={validationStatus}>
-                Post Review
-              </button>
-            </div>
-          </div>
-          {productDetails.reviews.length > 0 &&
-            productDetails.reviews.map((reviews) => {
-              return (
-                <CommentsDispaly
-                  key={reviews.id}
-                  reviews={reviews}
-                  newMoment={newMoment}
+            {productDetails.reviews.length > 0 &&
+              productDetails.reviews.map((reviews) => {
+                return (
+                  <CommentsDispaly
+                    key={reviews.id}
+                    reviews={reviews}
+                    newMoment={newMoment}
+                  />
+                );
+              })}
+          </section>
+          <section className="faq-container">
+            <div className="faq">
+              <div className="faq__tile" onClick={showFAQ}>
+                <div className="faq__title">FAQ's</div>
+                <img
+                  className={
+                    faq == false ? "faq__icon" : "faq__icon faq__icon--active"
+                  }
+                  src={arrowUp}
+                  alt="open or close FAQ's"
                 />
-              );
-            })}
+              </div>
+              <div
+                className={
+                  faq == false
+                    ? "faq__details"
+                    : "faq__details faq__details--active"
+                }
+              >
+                <div className="faq__questions">Where is my order?</div>
+                <div className="faq__answers">
+                  You can track your order in the tracker on the left; to do
+                  this you will need the email address used to place your order
+                  and your order number. Your order number can be found in your
+                  order confirmation email and normally starts with OPN.
+                </div>
+                <div className="faq__questions">Delivery Options & Times</div>
+                <div className="faq__answers">
+                  <h3 className="answers__heading">Get it Free & Fast</h3>
+                  <div className="delivery__standard">
+                    <div className="delivery__times">
+                      <p>UK Standard</p>
+                      <p>
+                        Delivery between:
+                        <br />
+                        Monday - Friday
+                      </p>
+                    </div>
+                    <div className="delivery__cost">Free</div>
+                  </div>
+                  <div className="delivery__standard">
+                    <div className="delivery__times">
+                      <p>Click & Collect</p>
+                      <p>
+                        Collect from your local store
+                        <br />
+                        Monday - Friday
+                      </p>
+                    </div>
+                    <div className="delivery__cost">Free</div>
+                  </div>
+                </div>
+                <div className="faq__answers">
+                  <h3 className="answers__heading">Local Convenient Pickup</h3>
+                  <div className="delivery__standard">
+                    <div className="delivery__times">
+                      <p>
+                        <strong>Collect+</strong>
+                      </p>
+                      <p>
+                        Collect your order from a convenience store local to you
+                      </p>
+                    </div>
+                    <div className="delivery__cost">Free</div>
+                  </div>
+                  <div className="delivery__standard">
+                    <div className="delivery__times">
+                      <p>
+                        <strong>UPS Access Point</strong>
+                      </p>
+                      <p>
+                        Collect your order from a variety of convenient local
+                        shops and locations
+                      </p>
+                    </div>
+                    <div className="delivery__cost">Free</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <NewsletterBanner />
         </section>
       )}
     </>

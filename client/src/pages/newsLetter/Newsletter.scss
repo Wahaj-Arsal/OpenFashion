@@ -1,0 +1,58 @@
+/** @format */
+
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+
+.newsletter {
+  @include flex(column, flex-start, flex-start);
+  padding: 1rem;
+  @include tablet {
+    margin: 0 2rem;
+    padding: 1rem 0.5rem 3rem 1rem;
+  }
+  @include desktop {
+    margin: 0;
+  }
+  &__title {
+    padding: 0 0 1rem 0;
+  }
+  &__input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    border: 1px solid black;
+  }
+  &__input--false {
+    border: 1px solid red;
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+  }
+  &__send {
+    @include flex(row, flex-end, center);
+    width: 100%;
+    margin: 1rem 0 0 0;
+    padding: 0.5rem 0;
+  }
+}
+
+.send__button {
+  @include m-sub-sub-title;
+  outline: none;
+  border: 1px solid $fnt-clr-text-default;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  background-color: $fnt-clr-text-default;
+  color: $ele-clr-input-bg;
+  width: 35%;
+  &:hover {
+    background-color: $ele-clr-input-bg;
+    color: $fnt-clr-text-default;
+  }
+  @include tablet {
+    @include flex(row, center, flex-end);
+    width: 35%;
+  }
+}

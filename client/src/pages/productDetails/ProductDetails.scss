@@ -12,7 +12,8 @@
   padding: 1rem 0 1rem 0;
   @include desktop {
     @include flex(row, center, center);
-    width: 80%;
+    padding: 1rem 2rem;
+    width: 100%;
   }
   &__img {
     width: 80%;
@@ -23,9 +24,16 @@
     @include tablet {
       width: 60%;
     }
+    @include desktop {
+      width: 50%;
+    }
   }
   &__details {
     width: 100%;
+    @include desktop {
+      width: 80%;
+      padding: 0 0 0 3rem;
+    }
   }
   &__heading {
     @include flex(row, space-between, center);
@@ -34,13 +42,20 @@
     @include tablet {
       padding: 0.5rem 2rem 0 2rem;
     }
+    @include desktop {
+      padding: 0.5rem 0 0 0;
+    }
   }
   &__title {
     @include m-page-title-upper;
     font-weight: bold;
     width: 100%;
+    @include desktop {
+      font-size: 2.5rem;
+    }
   }
   &__icon {
+    // width: 10%;
   }
   &__description {
     @include m-body-large;
@@ -50,25 +65,42 @@
     @include tablet {
       padding: 0.5rem 2rem 0 2rem;
     }
+    @include desktop {
+      padding: 0.5rem 0 2.5rem 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
   }
   &__text {
     @include m-body-large;
     padding: 0.5rem 1rem 0 1rem;
-    font-style: italic;
+    // font-style: italic;
     // padding: 0.5rem 0;
     @include tablet {
       padding: 0.5rem 2rem 0 2rem;
+    }
+    @include desktop {
+      padding: 0.5rem 0 2.5rem 0;
+      font-size: 1.25rem;
     }
   }
   &__info {
     @include flex(row, flex-end, center);
     width: 100%;
+    @include desktop {
+      padding: 0.5rem 0 2.5rem 0;
+    }
   }
   &__price {
     // color: $clr-secondary-clr;
     padding: 0.5rem 1rem 0 1rem;
     @include tablet {
       padding: 0.5rem 2rem 0 2rem;
+    }
+    @include desktop {
+      padding: 0.5rem 0 0 0;
+      font-size: 1.25rem;
+      font-weight: 600;
     }
   }
   &__sustain {
@@ -77,6 +109,9 @@
     width: 100%;
     @include tablet {
       padding: 0.5rem 2rem 0 2rem;
+    }
+    @include desktop {
+      padding: 0.5rem 0 0 0;
     }
   }
   &__count {
@@ -106,6 +141,10 @@
   @include tablet {
     padding: 1rem 2rem;
   }
+  @include desktop {
+    width: 100%;
+    padding: 1rem 2rem;
+  }
   &__add {
     @include flex(row, center, center);
   }
@@ -133,10 +172,20 @@
   &__title {
     @include m-page-title-upper;
     font-weight: 700;
+    @include tablet {
+    }
+    @include desktop {
+      font-size: 1.75rem;
+    }
   }
   &__text {
     @include m-body-large;
     padding: 0.5rem 0;
+    @include tablet {
+    }
+    @include desktop {
+      font-size: 1.25rem;
+    }
   }
   &__bleach {
     @include flex(row, flex-start, center);
@@ -170,6 +219,10 @@
       padding: 0 0 0 1rem;
     }
   }
+}
+.comments-container {
+  @include flex(column, center, center);
+  padding: 0 0 3rem 0;
 }
 
 .comments {
@@ -249,4 +302,75 @@
 .submit-container {
   @include flex(row, flex-end, flex-end);
   width: 100%;
+}
+
+.faq-container {
+  @include flex(column, center, center);
+  width: 100%;
+  margin: 0 1rem;
+  padding: 0 1rem;
+}
+
+.faq {
+  @include flex(column, center, center);
+  width: 100%;
+  border-top: 1px solid $ele-footer;
+  border-bottom: 1px solid $ele-footer;
+  // border: 1px solid black;
+  // background-color: $ele-newsletter;
+  margin: 1rem 0;
+  &__tile {
+    @include flex(row, center, center);
+    width: 100%;
+    padding: 1rem 0 1rem 0;
+  }
+  &__title {
+    @include m-page-title-upper;
+    font-weight: 900;
+    width: 100%;
+  }
+  &__icon {
+    @include m-page-title-upper;
+    font-weight: 900;
+    rotate: 180deg;
+    &--active {
+      rotate: 0deg;
+    }
+  }
+  &__details {
+    @include flex(column, center, left);
+    display: none;
+  }
+  &__details--active {
+    display: flex;
+  }
+  &__questions {
+    @include m-page-title;
+    font-weight: 900;
+    padding: 1rem 0;
+  }
+  &__answers {
+    @include m-body-large;
+    padding: 0.5rem 0;
+  }
+}
+
+.answers__heading {
+  @include m-sub-title-upper;
+  padding: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.delivery {
+  @include flex(column, center, center);
+  &__standard {
+    @include flex(row, space-between, center);
+    padding: 0.5rem 0;
+  }
+  &__times {
+    @include m-sub-sub-title;
+  }
+  &__cost {
+    @include m-sub-sub-title;
+  }
 }

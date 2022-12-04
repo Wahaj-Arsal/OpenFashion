@@ -15,14 +15,14 @@
   text-align: center;
 }
 
-.banner-container {
+.hero-container {
   @include flex(row, center, center);
   margin: 0 auto;
   width: 100%;
   padding: 3.5rem 0;
 }
 
-.banner {
+.hero {
   background-image: url("../../assets/images/mens-banner.svg");
   background-position: center;
   background-repeat: no-repeat;

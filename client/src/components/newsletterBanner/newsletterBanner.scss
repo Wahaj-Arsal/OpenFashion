@@ -1,0 +1,41 @@
+/** @format */
+
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+
+.banner-container {
+  @include flex(row, center, center);
+  background-color: $ele-newsletter;
+}
+
+.banner {
+  @include flex(column, center, center);
+  padding: 2rem 1rem;
+  color: $ele-clr-darkness-strain;
+
+  &__heading {
+    @include m-page-title;
+    font-weight: bold;
+    padding: 1rem 0;
+  }
+  &__info {
+    @include m-body-large;
+    color: $ele-clr-darkness-strain;
+    text-align: center;
+  }
+  &__text {
+    padding: 1rem 0;
+  }
+  &__button {
+    @include m-body-large;
+    margin: 1rem 0;
+    padding: 0.75rem 1.75rem;
+    background-color: $ele-clr-darkness-strain;
+    font-weight: 900;
+    border: none;
+    outline: none;
+    width: 100%;
+  }
+}
