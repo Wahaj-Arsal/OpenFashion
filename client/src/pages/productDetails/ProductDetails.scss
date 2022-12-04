@@ -222,20 +222,30 @@
 }
 .comments-container {
   @include flex(column, center, center);
-  padding: 0 0 3rem 0;
+  padding: 2rem 1rem 3rem 1rem;
 }
 
 .comments {
   @include flex(column, left, flex-start);
   width: 100%;
-  padding: 0.5rem 1rem 1rem 1rem;
+  // margin: 1rem 0 2rem 0;
+  // padding: 0.5rem 1rem 1rem 1rem;
+  border-top: 1px solid $ele-footer;
+  border-bottom: 1px solid $ele-footer;
   @include tablet {
     padding: 0.5rem 2rem 1.25rem 2rem;
   }
-  &__heading {
+  &__tile {
+    @include flex(row, space-between, center);
+    width: 100%;
+    padding: 1rem 0;
+  }
+  &__title {
     @include m-page-title-upper;
     font-weight: 700;
     align-items: left;
+  }
+  &__icon {
   }
   &__input {
     width: 100%;
@@ -285,7 +295,7 @@
   }
   &__submit {
     @include m-sub-sub-title;
-    margin: 0.5rem 0;
+    margin: 0.5rem 0 1.25rem 0;
     padding: 0.5rem 1rem;
     border-radius: 8px;
     background-color: $fnt-clr-text-default;
@@ -318,7 +328,7 @@
   border-bottom: 1px solid $ele-footer;
   // border: 1px solid black;
   // background-color: $ele-newsletter;
-  margin: 1rem 0;
+  margin: 1rem 0 2rem 0;
   &__tile {
     @include flex(row, center, center);
     width: 100%;

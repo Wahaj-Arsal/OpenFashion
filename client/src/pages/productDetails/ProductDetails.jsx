@@ -229,7 +229,18 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
           </div>
           <section className="comments-container">
             <div className="comments">
-              <h3 className="comments__heading">Reviews</h3>
+              <div className="comments__tile" onClick={showFAQ}>
+                <h3 className="comments__title">Reviews's</h3>
+                <img
+                  className={
+                    faq == false
+                      ? "comments__icon"
+                      : "comments__icon comments__icon--active"
+                  }
+                  src={arrowUp}
+                  alt="open or close Comments's"
+                />
+              </div>
               <div className="comments__input">
                 <div className="comments__name">
                   <h2 className="comments__name-title">Name:</h2>
