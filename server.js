@@ -89,6 +89,17 @@ app.get(
   }
 );
 
+app.get(
+  "/womens",
+  (req, res) => {
+    const content = JSON.parse(fs.readFileSync("./data/mens/items.json"));
+    res.send(content);
+  },
+  () => {
+    console.log("Get Mens Crash");
+  }
+);
+
 //******** API THAT GETS Mens Featured Items ******** */
 app.get(
   "/mensLatest",
@@ -121,6 +132,23 @@ app.post(
 //******** API THAT GETS One Mens Items ******** */
 app.get(
   "/mens/:mensId",
+  (req, res) => {
+    const mensSingleItemId = req.params.mensId;
+    const fileContent = JSON.parse(fs.readFileSync("./data/mens/items.json"));
+    for (let i = 0; i < fileContent.length; i++) {
+      if (fileContent[i].id == mensSingleItemId) {
+        res.status(200).send(fileContent[i]);
+      }
+    }
+  },
+  () => {
+    console.log("Mens Item ID crash");
+  }
+);
+
+//******** API THAT GETS One Womens Items ******** */
+app.get(
+  "/womens/:mensId",
   (req, res) => {
     const mensSingleItemId = req.params.mensId;
     const fileContent = JSON.parse(fs.readFileSync("./data/mens/items.json"));
