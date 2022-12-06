@@ -21,10 +21,11 @@ import doNotWash from "../../assets/icons/Do-Not-Wash.svg";
 import doNotIron from "../../assets/icons/Iron-Low-Temperature.svg";
 import leafFull from "../../assets/icons/leaf-g.png";
 import leafEmpty from "../../assets/icons/leaf-b.png";
-import NewsletterBanner from "../../components/newsletterBanner/newsletterBanner";
+import NewsletterBanner from "../../components/newsletterBanner/NewsletterBanner";
 import arrowUp from "../../assets/icons/Up.svg";
+import NewsletterModal from "../../components/newsletterModal/NewsletterModal.jsx";
 
-const ProductDetails = ({ SERVER_KEY_URL }) => {
+const ProductDetails = ({ SERVER_KEY_URL, show, setShow }) => {
   const API_URL_MENS_SINGLE = (id) => `${SERVER_KEY_URL}${id}`;
   const API_URL_ID_COMMENTS = (id) => `${SERVER_KEY_URL}${id}/reviews`;
 
@@ -437,7 +438,8 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
               </div>
             </section>
           </section>
-          <NewsletterBanner />
+          <NewsletterBanner show={show} setShow={setShow} />
+          <NewsletterModal show={show} setShow={setShow} />
         </section>
       )}
     </>

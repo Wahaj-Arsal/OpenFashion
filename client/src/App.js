@@ -3,12 +3,12 @@
 import "./App.scss";
 
 import { Route, Routes } from "react-router-dom";
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { CartProvider } from "./components/helper/CartContext.jsx";
 
 import Header from "./components/header/Header.jsx";
 import Home from "./pages/home/Home.jsx";
-import Mens from "./pages/mens/Mens.jsx";
+import ProductsPage from "./pages/ProductsPage/ProductsPage.jsx";
 import ProductDetails from "./pages/productDetails/ProductDetails.jsx";
 import PaymentSuccess from "./pages/paymentSuccess/PaymentSuccess.jsx";
 import PaymentCancelled from "./pages/paymentCancelled/PaymentCancelled.jsx";
@@ -16,11 +16,12 @@ import ContactUs from "./pages/contactUs/ContactUs.jsx";
 import StoreLocator from "./pages/storeLocator/StoreLocator.jsx";
 import SendText from "./pages/sendText/SendText.jsx";
 import Footer from "./components/footer/Footer.jsx";
-import Newsletter from "./pages/newsLetter/Newsletter.jsx";
 
 const SERVER_KEY_URL = process.env.REACT_APP_SERVER_KEY;
 
 export default function App() {
+  const [show, setShow] = useState(false);
+
   return (
     <>
       {/* <h1>Main</h1> */}
@@ -30,27 +31,57 @@ export default function App() {
           <Route
             path="/"
             exact
-            element={<Home SERVER_KEY_URL={SERVER_KEY_URL} />}
+            element={
+              <Home
+                SERVER_KEY_URL={SERVER_KEY_URL}
+                setShow={setShow}
+                show={show}
+              />
+            }
           />
           <Route
             path="/mens"
             exact
-            element={<Mens SERVER_KEY_URL={SERVER_KEY_URL} />}
+            element={
+              <ProductsPage
+                SERVER_KEY_URL={SERVER_KEY_URL}
+                setShow={setShow}
+                show={show}
+              />
+            }
           />
           <Route
             path="/mens/:mensId"
             exact
-            element={<ProductDetails SERVER_KEY_URL={SERVER_KEY_URL} />}
+            element={
+              <ProductDetails
+                SERVER_KEY_URL={SERVER_KEY_URL}
+                setShow={setShow}
+                show={show}
+              />
+            }
           />
           <Route
             path="/womens"
             exact
-            element={<Mens SERVER_KEY_URL={SERVER_KEY_URL} />}
+            element={
+              <ProductsPage
+                SERVER_KEY_URL={SERVER_KEY_URL}
+                setShow={setShow}
+                show={show}
+              />
+            }
           />
           <Route
-            path="/womens/:mensId"
+            path="/womens/:womensId"
             exact
-            element={<ProductDetails SERVER_KEY_URL={SERVER_KEY_URL} />}
+            element={
+              <ProductDetails
+                SERVER_KEY_URL={SERVER_KEY_URL}
+                setShow={setShow}
+                show={show}
+              />
+            }
           />
           <Route path="/paymentsuccess" exact element={<PaymentSuccess />} />
           <Route
@@ -63,11 +94,6 @@ export default function App() {
             path="/storelocator"
             exact
             element={<StoreLocator SERVER_KEY_URL={SERVER_KEY_URL} />}
-          />
-          <Route
-            path="/newsletter"
-            exact
-            element={<Newsletter SERVER_KEY_URL={SERVER_KEY_URL} />}
           />
           <Route
             path="/sendtext"

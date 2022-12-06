@@ -1,19 +1,17 @@
 /** @format */
 
-import "./Newsletter.scss";
+import "./NewsletterModal.scss";
 
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import bulletPoint from "../../assets/icons/tick-circle.svg";
-
 const EMAIL_SERVICE_ID = process.env.REACT_APP_EMAIL_SERVICE_ID;
 const EMAIL_TEMPLATE_ID = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
 const EMAIL_PUBLIC_KEY = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
 
-const Newsletter = () => {
+const NewsletterModal = ({ show, setShow }) => {
   const [customerName, setCustomerName] = useState([]);
   const [customerEmail, setCustomerEmail] = useState([]);
 
@@ -89,62 +87,59 @@ const Newsletter = () => {
   };
 
   return (
-    <>
-      <section className="newsletter__banner-container">
-        <div className="newsletter__banner">
-          <h3 className="newsletter__banner-title">Join us for:</h3>
-          <ul className="newsletter__banner-ul">
-            <li className="newsletter__banner-li">
-              <img src={bulletPoint} />
-              <p>New sign ups get 15% off</p>
-            </li>
-            <li className="newsletter__banner-li">
-              <img src={bulletPoint} />
-              <p>Unmissable offers</p>
-            </li>
-            <li className="newsletter__banner-li">
-              <img src={bulletPoint} />
-              <p> Be the first to hear about sales</p>
-            </li>
-            <li className="newsletter__banner-li">
-              <img src={bulletPoint} />
-              <p>New collection previews and much more</p>
-            </li>
-          </ul>
+    <section
+      className={
+        show === false ? "newsletter-container" : "newsletter-container--active"
+      }
+    >
+      <form
+        ref={form}
+        // className={show === false ? "newsletter" : "newsletter--active"}
+        className="newsletter"
+        onSubmit={checkValidateStatus}
+      >
+        <div className="newsletter__heading">
+          <h3 className="newsletter__title">
+            By Subscribing To Our Newsletter You Can Get 15% Off!
+          </h3>
+          <button
+            type="reset"
+            onClick={() => setShow(false)}
+            className="newsletter__button"
+          >
+            x
+          </button>
         </div>
-      </section>
-      <form ref={form} className="newsletter" onSubmit={checkValidateStatus}>
-        <h3 className="newsletter__title">
-          By Subscribing To Our Newsletter You Can Get 15% Off!
-        </h3>
-        <input
-          id="name"
-          className={
-            !newsletterName == false
-              ? "newsletter__input"
-              : "newsletter__input--false"
-          }
-          name="name"
-          placeholder="Your Name"
-          onChange={handleChangeName}
-        />
-        <input
-          id="from_email"
-          className={
-            !newsletterEmail == false
-              ? "newsletter__input"
-              : "newsletter__input--false"
-          }
-          name="from_email"
-          placeholder="Your Email Address"
-          onChange={handleChangeEmail}
-        />
+        <div className="newsletter__fields">
+          <input
+            id="name"
+            className={
+              !newsletterName == false
+                ? "newsletter__input"
+                : "newsletter__input--false"
+            }
+            name="name"
+            placeholder="Your Name"
+            onChange={handleChangeName}
+          />
+          <input
+            id="from_email"
+            className={
+              !newsletterEmail == false
+                ? "newsletter__input"
+                : "newsletter__input--false"
+            }
+            name="from_email"
+            placeholder="Your Email Address"
+            onChange={handleChangeEmail}
+          />
+        </div>
         <div className="newsletter__send">
           <input type="submit" value="Send" className="send__button" />
         </div>
       </form>
-    </>
+    </section>
   );
 };
 
-export default Newsletter;
+export default NewsletterModal;

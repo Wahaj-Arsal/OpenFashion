@@ -1,9 +1,8 @@
 /** @format */
 
-import { Link } from "react-router-dom";
-import "./newsletterBanner.scss";
+import "./NewsletterBanner.scss";
 
-function NewsletterBanner() {
+function NewsletterBanner({ setShow }) {
   return (
     <section className="banner-container">
       <div className="banner">
@@ -14,9 +13,9 @@ function NewsletterBanner() {
             products, plus enjoy £25 off your next order over £250. Offer Terms
             & Conditions apply.
           </div>
-          <Link to="/newsletter">
-            <button className="banner__button">Sign Up Here</button>
-          </Link>
+          <button onClick={() => setShow(true)} className="banner__button">
+            Sign Up Here
+          </button>
         </div>
       </div>
     </section>

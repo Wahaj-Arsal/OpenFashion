@@ -13,12 +13,6 @@ import { CartContext } from "../helper/CartContext";
 // IMPORT ASSETS
 import menuIcon from "../../assets/icons/Menu.svg";
 import logo from "../../assets/logo/logoWhite.svg";
-import shoppingBag from "../../assets/icons/shopping-bag.svg";
-import phone from "../../assets/icons/Call.svg";
-import locator from "../../assets/icons/Location.svg";
-import twitter from "../../assets/icons/Twitter.svg";
-import instagram from "../../assets/icons/Instagram.svg";
-import youtube from "../../assets/icons/YouTube.svg";
 import shoppingBagWhite from "../../assets/icons/shopping-bag-white.svg";
 
 import { loadStripe } from "@stripe/stripe-js";
@@ -247,6 +241,9 @@ export default function Header({ SERVER_KEY_URL }) {
           </li>
           <li className="sidebar__list-item">
             <p className="sidebar__list-text">Accessories</p>
+          </li>
+          <li className="sidebar__list-item">
+            <p className="sidebar__list-text">Contact Us</p>
           </li>
         </ul>
         {/* <div className="sidebar__bottom">

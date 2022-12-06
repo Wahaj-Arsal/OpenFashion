@@ -14,9 +14,10 @@ import MensTile from "../../assets/images/mens-fashion.svg";
 import WomensTile from "../../assets/images/womens-fashion.svg";
 import Accessories from "../../assets/images/accessories.svg";
 import ImageSlider from "../../components/imageSlider/ImageSlider";
-import NewsletterBanner from "../../components/newsletterBanner/newsletterBanner";
+import NewsletterBanner from "../../components/newsletterBanner/NewsletterBanner";
+import NewsletterModal from "../../components/newsletterModal/NewsletterModal";
 
-function Home({ SERVER_KEY_URL }) {
+function Home({ SERVER_KEY_URL, setShow, show }) {
   const [mensLatest, setMensLatest] = useState([]);
 
   const mensLatestStartIndex = 0;
@@ -204,7 +205,8 @@ function Home({ SERVER_KEY_URL }) {
               </p>
             </section>
           </section>
-          <NewsletterBanner />
+          <NewsletterBanner show={show} setShow={setShow} />
+          <NewsletterModal show={show} setShow={setShow} />
         </>
       )}
     </>

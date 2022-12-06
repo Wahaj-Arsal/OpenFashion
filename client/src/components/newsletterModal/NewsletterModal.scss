@@ -5,48 +5,54 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/breakpoints" as *;
 
-.newsletter__banner {
-  &-container {
-    background-color: $ele-newsletter;
-    padding: 1rem;
-    margin: 3.5rem 0;
-    color: $ele-clr-darkness-strain;
-  }
-  &-title {
-    @include m-page-title;
-    font-weight: 600;
-    text-align: center;
-    padding: 0 0 1rem 0;
-  }
-  &-ul {
-    @include m-sub-title;
-    list-style: none;
-  }
-  &-li {
-    @include flex(row, flex-start, center);
-    padding: 0.5rem 0 0 0;
-  }
-  &-li p {
-    padding: 0 0 0 0.75rem;
-  }
-}
-
 .newsletter-container {
-  margin: 2rem 0;
+  display: none;
+  position: fixed;
+  //   width: 100%;
+  &--active {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    // width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    @include flex(column, center, center);
+  }
 }
 
 .newsletter {
-  @include flex(column, flex-start, flex-start);
-  padding: 1rem;
-  @include tablet {
-    margin: 0 2rem;
-    padding: 1rem 0.5rem 3rem 1rem;
-  }
-  @include desktop {
-    margin: 0;
+  background-color: white;
+  padding: 1rem 2rem;
+  &__heading {
+    @include flex(row, space-between, center);
+    padding: 0 0 1rem 0;
+    width: 100%;
   }
   &__title {
-    padding: 0 0 1rem 0;
+    width: 80%;
+  }
+  &__button {
+    @include m-sub-sub-title;
+    outline: none;
+    border: 1px solid $fnt-clr-text-default;
+    font-weight: bold;
+    padding: 0.5rem 0;
+    background-color: $fnt-clr-text-default;
+    color: $ele-clr-input-bg;
+    width: 8%;
+    &:hover {
+      background-color: $ele-clr-input-bg;
+      color: $fnt-clr-text-default;
+    }
+    @include tablet {
+      @include flex(row, center, flex-end);
+      width: 8%;
+    }
+  }
+  &__fields {
+    @include flex(column, center, center);
+    width: 100%;
   }
   &__input {
     width: 100%;
