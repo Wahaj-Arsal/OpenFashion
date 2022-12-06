@@ -8,7 +8,7 @@
   width: 95%;
   border-top: 1px solid $ele-clr-line;
   &:nth-last-child(1) {
-    border-bottom: 1px solid $ele-clr-line;
+    border-bottom: none;
   }
 }
 
@@ -16,8 +16,6 @@
   @include flex(column, center, flex-start);
   padding: 0.5rem 1rem 0.5rem 1rem;
   width: 100%;
-  //   border-top-width: medium;
-  //   border-top: 1px solid $ele-clr-line;
   &__name {
     @include flex(row, space-between, flex-start);
     width: 100%;
@@ -25,12 +23,7 @@
     &-title {
       @include m-sub-title-upper;
       text-transform: uppercase;
+      font-weight: bold;
     }
-    &-timestamp {
-    }
-  }
-  &__comments {
-  }
-  &__text {
   }
 }

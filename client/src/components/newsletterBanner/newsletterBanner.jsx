@@ -1,5 +1,6 @@
 /** @format */
 
+import { Link } from "react-router-dom";
 import "./newsletterBanner.scss";
 
 function NewsletterBanner() {
@@ -13,7 +14,9 @@ function NewsletterBanner() {
             products, plus enjoy £25 off your next order over £250. Offer Terms
             & Conditions apply.
           </div>
-          <button className="banner__button">Sign Up Here</button>
+          <Link to="/newsletter">
+            <button className="banner__button">Sign Up Here</button>
+          </Link>
         </div>
       </div>
     </section>

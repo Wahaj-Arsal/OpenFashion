@@ -5,6 +5,36 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/breakpoints" as *;
 
+.newsletter__banner {
+  &-container {
+    background-color: $ele-newsletter;
+    padding: 1rem;
+    margin: 3.5rem 0;
+    color: $ele-clr-darkness-strain;
+  }
+  &-title {
+    @include m-page-title;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 0 1rem 0;
+  }
+  &-ul {
+    @include m-sub-title;
+    list-style: none;
+  }
+  &-li {
+    @include flex(row, flex-start, center);
+    padding: 0.5rem 0 0 0;
+  }
+  &-li p {
+    padding: 0 0 0 0.75rem;
+  }
+}
+
+.newsletter-container {
+  margin: 2rem 0;
+}
+
 .newsletter {
   @include flex(column, flex-start, flex-start);
   padding: 1rem;

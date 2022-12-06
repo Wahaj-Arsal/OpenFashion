@@ -99,10 +99,6 @@ function Mens({ SERVER_KEY_URL }) {
   //Calculate Total Apparel
   const totalItems = sustainabilityData.length;
 
-  //Get the URL pathname to format the title on the page
-  // const formatTitle = location.pathname;
-  // const pageTitle = formatTitle.replace("/", "");
-
   return (
     <>
       {!mens.length > 0 ? (

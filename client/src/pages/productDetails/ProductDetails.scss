@@ -8,7 +8,6 @@
 .product {
   @include flex(column, center, flex-start);
   width: 100%;
-  // height: 100%;
   padding: 1rem 0 1rem 0;
   @include desktop {
     @include flex(row, center, center);
@@ -18,8 +17,6 @@
   &__img {
     width: 80%;
     height: 100%;
-
-    // padding: 1rem;
     margin: 3.5rem auto 2rem auto;
     @include tablet {
       width: 60%;
@@ -54,14 +51,10 @@
       font-size: 2.5rem;
     }
   }
-  &__icon {
-    // width: 10%;
-  }
   &__description {
     @include m-body-large;
     padding: 0.5rem 1rem 0 1rem;
     font-style: italic;
-    // padding: 0.5rem 0;
     @include tablet {
       padding: 0.5rem 2rem 0 2rem;
     }
@@ -74,8 +67,6 @@
   &__text {
     @include m-body-large;
     padding: 0.5rem 1rem 0 1rem;
-    // font-style: italic;
-    // padding: 0.5rem 0;
     @include tablet {
       padding: 0.5rem 2rem 0 2rem;
     }
@@ -92,7 +83,6 @@
     }
   }
   &__price {
-    // color: $clr-secondary-clr;
     padding: 0.5rem 1rem 0 1rem;
     @include tablet {
       padding: 0.5rem 2rem 0 2rem;
@@ -125,8 +115,6 @@
   &__details {
     @include flex(column, center, flex-start);
     width: 100%;
-    // height: 100%;
-    // padding: 1rem 0 1rem 0;
   }
 }
 
@@ -171,20 +159,16 @@
   }
   &__title {
     @include m-page-title-upper;
-    font-weight: 700;
-    @include tablet {
-    }
+    font-weight: bold;
     @include desktop {
-      font-size: 1.75rem;
+      font-size: 1.25rem;
     }
   }
   &__text {
     @include m-body-large;
     padding: 0.5rem 0;
-    @include tablet {
-    }
     @include desktop {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
     }
   }
   &__bleach {
@@ -193,6 +177,9 @@
     & p {
       @include m-body-large;
       padding: 0 0 0 1rem;
+      @include desktop {
+        font-size: 1.125rem;
+      }
     }
   }
   &__tumble {
@@ -201,6 +188,9 @@
     & p {
       @include m-body-large;
       padding: 0 0 0 1rem;
+      @include desktop {
+        font-size: 1.125rem;
+      }
     }
   }
   &__washing {
@@ -209,6 +199,9 @@
     & p {
       @include m-body-large;
       padding: 0 0 0 1rem;
+      @include desktop {
+        font-size: 1.125rem;
+      }
     }
   }
   &__iron {
@@ -217,24 +210,26 @@
     & p {
       @include m-body-large;
       padding: 0 0 0 1rem;
+      @include desktop {
+        font-size: 1.125rem;
+      }
     }
   }
 }
-.comments-container {
+
+.product__tile-container {
   @include flex(column, center, center);
-  padding: 2rem 1rem 3rem 1rem;
+  width: 100%;
+  @include desktop {
+    // @include flex(row, center, center);
+  }
 }
 
 .comments {
-  @include flex(column, left, flex-start);
+  @include flex(column, center, center);
   width: 100%;
-  // margin: 1rem 0 2rem 0;
-  // padding: 0.5rem 1rem 1rem 1rem;
   border-top: 1px solid $ele-footer;
   border-bottom: 1px solid $ele-footer;
-  @include tablet {
-    padding: 0.5rem 2rem 1.25rem 2rem;
-  }
   &__tile {
     @include flex(row, space-between, center);
     width: 100%;
@@ -242,10 +237,26 @@
   }
   &__title {
     @include m-page-title-upper;
-    font-weight: 700;
+    font-weight: bold;
     align-items: left;
+    @include desktop {
+      font-size: 1.25rem;
+    }
   }
   &__icon {
+    @include m-page-title-upper;
+    font-weight: 900;
+    rotate: 180deg;
+    &--active {
+      rotate: 0deg;
+    }
+  }
+  &__list {
+    display: none;
+    &--active {
+      @include flex(column, center, center);
+      width: 100%;
+    }
   }
   &__input {
     width: 100%;
@@ -270,7 +281,6 @@
   }
   &__comment {
     @include m-sub-sub-title;
-    // padding: 1rem 0 0 0;
   }
   &__comment-title {
     @include m-sub-title-upper;
@@ -314,11 +324,15 @@
   width: 100%;
 }
 
-.faq-container {
+.comments-container,
+.faq-container,
+.delivery-container {
   @include flex(column, center, center);
   width: 100%;
-  margin: 0 1rem;
-  padding: 0 1rem;
+  padding: 0.75rem 1rem 1.25rem 1rem;
+  @include tablet {
+    padding: 1rem 2rem;
+  }
 }
 
 .faq {
@@ -326,9 +340,6 @@
   width: 100%;
   border-top: 1px solid $ele-footer;
   border-bottom: 1px solid $ele-footer;
-  // border: 1px solid black;
-  // background-color: $ele-newsletter;
-  margin: 1rem 0 2rem 0;
   &__tile {
     @include flex(row, center, center);
     width: 100%;
@@ -336,8 +347,12 @@
   }
   &__title {
     @include m-page-title-upper;
-    font-weight: 900;
+    font-weight: bold;
+    align-items: left;
     width: 100%;
+    @include desktop {
+      font-size: 1.25rem;
+    }
   }
   &__icon {
     @include m-page-title-upper;
@@ -357,25 +372,70 @@
   &__questions {
     @include m-page-title;
     font-weight: 900;
-    padding: 1rem 0;
+    padding: 1rem 0 0 0;
+    &:nth-child(1) {
+      padding: 0;
+    }
   }
   &__answers {
     @include m-body-large;
-    padding: 0.5rem 0;
+    padding: 0.25rem 0 0 0;
+    &:nth-last-child(1) {
+      padding: 0 0 1rem 0;
+    }
   }
-}
-
-.answers__heading {
-  @include m-sub-title-upper;
-  padding: 0 0 0.5rem 0;
-  font-weight: 600;
 }
 
 .delivery {
   @include flex(column, center, center);
+  width: 100%;
+  border-top: 1px solid $ele-footer;
+  border-bottom: 1px solid $ele-footer;
+  &__tile {
+    @include flex(row, center, center);
+    width: 100%;
+    padding: 1rem 0 1rem 0;
+  }
+  &__title {
+    @include m-page-title-upper;
+    font-weight: bold;
+    align-items: left;
+    width: 100%;
+    @include desktop {
+      font-size: 1.25rem;
+    }
+  }
+  &__icon {
+    @include m-page-title-upper;
+    font-weight: 900;
+    rotate: 180deg;
+    &--active {
+      rotate: 0deg;
+    }
+  }
+  &__details {
+    @include flex(column, center, left);
+    display: none;
+  }
+  &__details--active {
+    @include flex(column, center, space-between);
+    width: 100%;
+  }
+  &__questions {
+    @include m-page-title;
+    font-weight: 900;
+    color: $fnt-clr-text-default;
+    padding: 1rem 0 0 0;
+  }
+  &__subheading {
+    padding: 0.5rem 0 0 0;
+  }
+  &__answers {
+    @include m-body-large;
+    padding: 0 0 0.5rem 0;
+  }
   &__standard {
     @include flex(row, space-between, center);
-    padding: 0.5rem 0;
   }
   &__times {
     @include m-sub-sub-title;

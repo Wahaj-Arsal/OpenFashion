@@ -4,6 +4,7 @@ import "./App.scss";
 
 import { Route, Routes } from "react-router-dom";
 import React, { useEffect } from "react";
+import { CartProvider } from "./components/helper/CartContext.jsx";
 
 import Header from "./components/header/Header.jsx";
 import Home from "./pages/home/Home.jsx";
@@ -15,7 +16,7 @@ import ContactUs from "./pages/contactUs/ContactUs.jsx";
 import StoreLocator from "./pages/storeLocator/StoreLocator.jsx";
 import SendText from "./pages/sendText/SendText.jsx";
 import Footer from "./components/footer/Footer.jsx";
-import { CartProvider } from "./components/helper/CartContext.jsx";
+import Newsletter from "./pages/newsLetter/Newsletter.jsx";
 
 const SERVER_KEY_URL = process.env.REACT_APP_SERVER_KEY;
 
@@ -62,6 +63,11 @@ export default function App() {
             path="/storelocator"
             exact
             element={<StoreLocator SERVER_KEY_URL={SERVER_KEY_URL} />}
+          />
+          <Route
+            path="/newsletter"
+            exact
+            element={<Newsletter SERVER_KEY_URL={SERVER_KEY_URL} />}
           />
           <Route
             path="/sendtext"

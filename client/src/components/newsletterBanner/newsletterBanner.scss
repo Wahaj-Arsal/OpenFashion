@@ -8,6 +8,10 @@
 .banner-container {
   @include flex(row, center, center);
   background-color: $ele-newsletter;
+  width: 100%;
+  @include desktop {
+    margin: 2rem 0 0 0;
+  }
 }
 
 .banner {

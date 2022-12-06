@@ -5,7 +5,6 @@ import React, { useEffect, useState, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
-import { v4 as uuidv4 } from "uuid";
 
 // IMPORT LOCAL FILES & COMPONENTS
 import "./ProductDetails.scss";
@@ -32,8 +31,6 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
   const location = useLocation();
   const url = location.pathname;
 
-  // console.log(url);
-
   //STATES FOR POSTING COMMENT
   const [customerName, setCustomerName] = useState([]);
   const [customerComment, setCustomerComment] = useState([]);
@@ -46,12 +43,29 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
 
   const [faq, setFaq] = useState(false);
   const [reviews, setReviews] = useState(false);
+  const [delivery, setDelivery] = useState(false);
 
-  const showFAQ = () => {
-    if (faq == false) {
+  const showFAQTile = () => {
+    if (faq === false) {
       setFaq(true);
     } else {
       setFaq(false);
+    }
+  };
+
+  const showCommentsTile = () => {
+    if (reviews === false) {
+      setReviews(true);
+    } else {
+      setReviews(false);
+    }
+  };
+
+  const showDeliveryTile = () => {
+    if (delivery === false) {
+      setDelivery(true);
+    } else {
+      setDelivery(false);
     }
   };
 
@@ -73,9 +87,7 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
     let cartItems = localStorage.getItem("item")
       ? JSON.parse(localStorage.getItem("item"))
       : [];
-    const existingItem = cartItems.findIndex(
-      (item) => item.id === productDetails.id
-    );
+    const existingItem = cartItems.findIndex((item) => item.id === id);
     if (existingItem === -1) {
       cartItems.push(productDetails);
       localStorage.setItem("item", JSON.stringify(cartItems));
@@ -93,7 +105,6 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
   //******** Comment Validation ******** */
   const validate = () => {
     if (customerName.length === 0 || customerComment.length === 0) {
-      // console.log("Empty Both");
       setClassName(false);
       setClassComment(false);
       return false;
@@ -228,147 +239,203 @@ const ProductDetails = ({ SERVER_KEY_URL }) => {
               </div>
             </div>
           </div>
-          <section className="comments-container">
-            <div className="comments">
-              <div id="commentsTile" className="comments__tile">
-                <h3 className="comments__title">Reviews's</h3>
-                <img
-                  className={
-                    reviews == false
-                      ? "comments__icon"
-                      : "comments__icon comments__icon--active"
-                  }
-                  src={arrowUp}
-                  alt="open or close Comments's"
-                />
-              </div>
-              <div className="comments__input">
-                <div className="comments__name">
-                  <h2 className="comments__name-title">Name:</h2>
-                  <input
-                    className={`${
-                      !className
-                        ? "comments__name-input comments__name-input--error"
-                        : "comments__name-input"
-                    }`}
-                    name="customerName"
-                    type="text"
-                    placeholder="Enter your name"
-                    onChange={handleChangeName}
+          <section className="product__tile-container">
+            <section className="comments-container">
+              <div className="comments">
+                <div className="comments__tile" onClick={showCommentsTile}>
+                  <h3 className="comments__title">Reviews's</h3>
+                  <img
+                    className={
+                      reviews === false
+                        ? "comments__icon"
+                        : "comments__icon comments__icon--active"
+                    }
+                    src={arrowUp}
+                    alt="open or close Comments's"
                   />
                 </div>
-                <div className="comments__comment">
-                  <h2 className="comments__comment-title">Leave a review:</h2>
-                  <textarea
-                    className={`${
-                      !classComment
-                        ? "comments__comment-input comments__comment-input--error"
-                        : "comments__comment-input"
-                    }`}
-                    name="customerComment"
-                    type="text"
-                    placeholder="Enter your review"
-                    onChange={handleChangeReview}
+                <div
+                  className={
+                    reviews === false
+                      ? "comments__list"
+                      : "comments__list comments__list--active"
+                  }
+                >
+                  <div className="comments__input">
+                    <div className="comments__name">
+                      <h2 className="comments__name-title">Name:</h2>
+                      <input
+                        className={`${
+                          !className
+                            ? "comments__name-input comments__name-input--error"
+                            : "comments__name-input"
+                        }`}
+                        name="customerName"
+                        type="text"
+                        placeholder="Enter your name"
+                        onChange={handleChangeName}
+                      />
+                    </div>
+                    <div className="comments__comment">
+                      <h2 className="comments__comment-title">
+                        Leave a review:
+                      </h2>
+                      <textarea
+                        className={`${
+                          !classComment
+                            ? "comments__comment-input comments__comment-input--error"
+                            : "comments__comment-input"
+                        }`}
+                        name="customerComment"
+                        type="text"
+                        placeholder="Enter your review"
+                        onChange={handleChangeReview}
+                      />
+                    </div>
+                  </div>
+                  <div className="submit-container">
+                    <button
+                      className="comments__submit"
+                      onClick={validationStatus}
+                    >
+                      Post Review
+                    </button>
+                  </div>
+                  {productDetails.reviews.length > 0 &&
+                    productDetails.reviews.map((reviews) => {
+                      return (
+                        <CommentsDispaly
+                          key={reviews.id}
+                          reviews={reviews}
+                          newMoment={newMoment}
+                        />
+                      );
+                    })}
+                </div>
+              </div>
+            </section>
+            <section className="faq-container">
+              <div className="faq">
+                <div className="faq__tile" onClick={showFAQTile}>
+                  <div className="faq__title">FAQ's</div>
+                  <img
+                    className={
+                      faq === false
+                        ? "faq__icon"
+                        : "faq__icon faq__icon--active"
+                    }
+                    src={arrowUp}
+                    alt="open or close FAQ's"
                   />
                 </div>
-              </div>
-              <div className="submit-container">
-                <button className="comments__submit" onClick={validationStatus}>
-                  Post Review
-                </button>
-              </div>
-              {productDetails.reviews.length > 0 &&
-                productDetails.reviews.map((reviews) => {
-                  return (
-                    <CommentsDispaly
-                      key={reviews.id}
-                      reviews={reviews}
-                      newMoment={newMoment}
-                    />
-                  );
-                })}
-            </div>
-          </section>
-          <section className="faq-container">
-            <div className="faq">
-              <div id="faqTile" className="faq__tile">
-                <div className="faq__title">FAQ's</div>
-                <img
+                <div
                   className={
-                    faq == false ? "faq__icon" : "faq__icon faq__icon--active"
+                    faq === false
+                      ? "faq__details"
+                      : "faq__details faq__details--active"
                   }
-                  src={arrowUp}
-                  alt="open or close FAQ's"
-                />
-              </div>
-              <div
-                className={
-                  faq == false
-                    ? "faq__details"
-                    : "faq__details faq__details--active"
-                }
-              >
-                <div className="faq__questions">Where is my order?</div>
-                <div className="faq__answers">
-                  You can track your order in the tracker on the left; to do
-                  this you will need the email address used to place your order
-                  and your order number. Your order number can be found in your
-                  order confirmation email and normally starts with OPN.
-                </div>
-                <div className="faq__questions">Delivery Options & Times</div>
-                <div className="faq__answers">
-                  <h3 className="answers__heading">Get it Free & Fast</h3>
-                  <div className="delivery__standard">
-                    <div className="delivery__times">
-                      <p>UK Standard</p>
-                      <p>
-                        Delivery between:
-                        <br />
-                        Monday - Friday
-                      </p>
-                    </div>
-                    <div className="delivery__cost">Free</div>
+                >
+                  <div className="faq__questions">Where is my order?</div>
+                  <div className="faq__answers">
+                    You can track your order online; to do this you will need
+                    the email address used to place your order and your order
+                    number. Your order number can be found in your order
+                    confirmation email and normally starts with OPN.
                   </div>
-                  <div className="delivery__standard">
-                    <div className="delivery__times">
-                      <p>Click & Collect</p>
-                      <p>
-                        Collect from your local store
-                        <br />
-                        Monday - Friday
-                      </p>
-                    </div>
-                    <div className="delivery__cost">Free</div>
+                  <div className="faq__questions">
+                    How do I enter my promotion code?
                   </div>
-                </div>
-                <div className="faq__answers">
-                  <h3 className="answers__heading">Local Convenient Pickup</h3>
-                  <div className="delivery__standard">
-                    <div className="delivery__times">
-                      <p>
-                        <strong>Collect+</strong>
-                      </p>
-                      <p>
-                        Collect your order from a convenience store local to you
-                      </p>
-                    </div>
-                    <div className="delivery__cost">Free</div>
+                  <div className="faq__answers">
+                    Sorry, we currently do no support this feature online... or
+                    in-store. Discounted items are tagged on the website.
                   </div>
-                  <div className="delivery__standard">
-                    <div className="delivery__times">
-                      <p>
-                        <strong>UPS Access Point</strong>
-                      </p>
-                      <p>
-                        Collect your order from a variety of convenient local
-                        shops and locations
-                      </p>
-                    </div>
-                    <div className="delivery__cost">Free</div>
+                  <div className="faq__questions">
+                    Where can I find information on sizing?
+                  </div>
+                  <div className="faq__answers">
+                    Please refer to the standard online size guides.
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
+            <section className="delivery-container">
+              <div className="delivery">
+                <div className="delivery__tile" onClick={showDeliveryTile}>
+                  <div className="delivery__title">Delivery/Returns</div>
+                  <img
+                    className={
+                      delivery === false
+                        ? "delivery__icon"
+                        : "delivery__icon delivery__icon--active"
+                    }
+                    src={arrowUp}
+                    alt="open or close delivery's tile"
+                  />
+                </div>
+                <div
+                  className={
+                    delivery === false
+                      ? "delivery__details"
+                      : "delivery__details delivery__details--active"
+                  }
+                >
+                  <div className="delivery__type">
+                    <h3 className="delivery__questions">Get it Free & Fast</h3>
+                    <div className="delivery__standard">
+                      <div className="delivery__times">
+                        <p className="delivery__subheading">
+                          <strong>UK Standard</strong>
+                        </p>
+                        <p className="delivery__answers">
+                          Delivery between Monday - Friday
+                        </p>
+                      </div>
+                      <div className="delivery__cost">Free</div>
+                    </div>
+                    <div className="delivery__standard">
+                      <div className="delivery__times">
+                        <p className="delivery__subheading">
+                          <strong>Click & Collect</strong>
+                        </p>
+                        <p className="delivery__answers">
+                          Collect from your local store Monday - Friday
+                        </p>
+                      </div>
+                      <div className="delivery__cost">Free</div>
+                    </div>
+                  </div>
+                  <div className="delivery__type">
+                    <h3 className="delivery__questions">
+                      Local Convenient Pickup
+                    </h3>
+                    <div className="delivery__standard">
+                      <div className="delivery__times">
+                        <p className="delivery__subheading">
+                          <strong>Collect+</strong>
+                        </p>
+                        <p className="delivery__answers">
+                          Collect your order from a convenience store local to
+                          you
+                        </p>
+                      </div>
+                      <div className="delivery__cost">Free</div>
+                    </div>
+                    <div className="delivery__standard">
+                      <div className="delivery__times">
+                        <p className="delivery__subheading">
+                          <strong>UPS Access Point</strong>
+                        </p>
+                        <p className="delivery__answers">
+                          Collect your order from a variety of convenient local
+                          shops and locations
+                        </p>
+                      </div>
+                      <div className="delivery__cost">Free</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </section>
           <NewsletterBanner />
         </section>
