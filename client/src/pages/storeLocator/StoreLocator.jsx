@@ -5,10 +5,10 @@ import "./StoreLocator.scss";
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 // import mapboxgl from "mapbox-gl/dist/mapbox-gl-csp";
-import "mapbox-gl/dist/mapbox-gl.css";
-import "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css";
 import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
+import "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 

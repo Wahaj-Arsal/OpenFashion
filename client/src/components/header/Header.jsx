@@ -228,13 +228,15 @@ export default function Header({ SERVER_KEY_URL }) {
                       : "menu-dropdown__list menu-dropdown__list--active"
                   }
                 >
-                  <Link
-                    className="menu__list-link"
-                    to="/storelocator"
-                    onClick={hideDropdownMenu}
-                  >
-                    <li className="menu-dropdown__list-item">Our Location</li>
-                  </Link>
+                  <ul>
+                    <Link
+                      className="menu__list-link"
+                      to="/storelocator"
+                      onClick={hideDropdownMenu}
+                    >
+                      <li className="menu-dropdown__list-item">Our Location</li>
+                    </Link>
+                  </ul>
                 </div>
               </li>
             </ul>
