@@ -15,7 +15,7 @@ import WomensTile from "../../assets/images/womens-fashion.svg";
 import KidsTile from "../../assets/images/kids-fashion.svg";
 import Accessories from "../../assets/images/accessories.svg";
 import ImageSlider from "../../components/imageSlider/ImageSlider";
-import NewsletterBanner from "../../components/newsletterBanner/NewsletterBanner";
+import NewsletterBanner from "../../components/newsletterBanner/newsletterBanner";
 import NewsletterModal from "../../components/newsletterModal/NewsletterModal";
 
 function Home({ SERVER_KEY_URL, setShow, show }) {
