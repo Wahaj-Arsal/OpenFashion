@@ -21,8 +21,8 @@ import doNotWash from "../../assets/icons/Do-Not-Wash.svg";
 import doNotIron from "../../assets/icons/Iron-Low-Temperature.svg";
 import leafFull from "../../assets/icons/leaf-g.png";
 import leafEmpty from "../../assets/icons/leaf-b.png";
-import NewsletterBanner from "../../components/newsletterBanner/NewsletterBanner";
 import arrowUp from "../../assets/icons/Up.svg";
+import NewsletterBanner from "../../components/newsletterBanner/newsletterBanner";
 import NewsletterModal from "../../components/newsletterModal/NewsletterModal.jsx";
 
 const ProductDetails = ({ SERVER_KEY_URL, show, setShow }) => {
