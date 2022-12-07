@@ -1,6 +1,6 @@
 /** @format */
 
-import "./NewsletterBanner.scss";
+import "./newsletterBanner.scss";
 
 function NewsletterBanner({ setShow }) {
   return (

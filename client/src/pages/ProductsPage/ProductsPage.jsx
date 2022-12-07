@@ -10,7 +10,7 @@ import "./ProductsPage.scss";
 import Filter from "../../components/filter/Filter";
 import ItemTile from "../../components/itemTile/ItemTile";
 import { Ring } from "react-awesome-spinners";
-import NewsletterBanner from "../../components/newsletterBanner/NewsletterBanner";
+import NewsletterBanner from "../../components/newsletterBanner/newsletterBanner";
 import NewsletterModal from "../../components/newsletterModal/NewsletterModal.jsx";
 
 function ProductsPage({ SERVER_KEY_URL, setShow, show, mens, womens }) {
