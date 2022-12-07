@@ -14,6 +14,8 @@ import { CartContext } from "../helper/CartContext";
 import menuIcon from "../../assets/icons/Menu.svg";
 import logo from "../../assets/logo/logoWhite.svg";
 import shoppingBagWhite from "../../assets/icons/shopping-bag-white.svg";
+import down from "../../assets/icons/Down.svg";
+import downWhite from "../../assets/icons/Down-white.svg";
 
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -28,12 +30,15 @@ export default function Header({ SERVER_KEY_URL }) {
   const [sideBar, setSideBar] = useState(false);
   const [shoppingCart, setShoppingCart] = useState(false);
   const [cart, setCart] = useContext(CartContext);
+  const [dropdown, setDropdown] = useState(false);
+  const [menuDropdown, setMenuDropdown] = useState(false);
 
   const showSidebar = () => setSideBar(!sideBar);
   const showShoppingCart = () => setShoppingCart(!shoppingCart);
 
   const hideSideBar = () => setSideBar(false);
   const hideCart = () => setShoppingCart(false);
+  const hideDropdownMenu = () => setMenuDropdown(false);
 
   const fetchLocalStorage = () => {
     let cartGetItemFromLS = localStorage.getItem("item")
@@ -119,6 +124,22 @@ export default function Header({ SERVER_KEY_URL }) {
     setCart(updatedCart);
   };
 
+  const showContactUsBurger = () => {
+    if (dropdown === false) {
+      setDropdown(true);
+    } else {
+      setDropdown(false);
+    }
+  };
+
+  const showContactUsMenu = () => {
+    if (menuDropdown === false) {
+      setMenuDropdown(true);
+    } else {
+      setMenuDropdown(false);
+    }
+  };
+
   // Map through the cart state and pull out items
   const cartReturnItem = cart.map((item) => {
     return (
@@ -189,9 +210,32 @@ export default function Header({ SERVER_KEY_URL }) {
                 <p className="menu__list-text">Accessories</p>
               </li>
               <li className="menu__list-item">
-                <Link to="/contactus" className="menu__list-link">
+                <div className="menu__dropdown" onClick={showContactUsMenu}>
                   <p className="menu__list-text">Contact Us</p>
-                </Link>
+                  <img
+                    className={
+                      menuDropdown == false
+                        ? "menu__list-img"
+                        : "menu__list-img menu__list-img--active"
+                    }
+                    src={downWhite}
+                  />
+                </div>
+                <div
+                  className={
+                    menuDropdown == false
+                      ? "menu-dropdown__list"
+                      : "menu-dropdown__list menu-dropdown__list--active"
+                  }
+                >
+                  <Link
+                    className="menu__list-link"
+                    to="/storelocator"
+                    onClick={hideDropdownMenu}
+                  >
+                    <li className="menu-dropdown__list-item">Our Location</li>
+                  </Link>
+                </div>
               </li>
             </ul>
           </div>
@@ -242,8 +286,33 @@ export default function Header({ SERVER_KEY_URL }) {
           <li className="sidebar__list-item">
             <p className="sidebar__list-text">Accessories</p>
           </li>
-          <li className="sidebar__list-item">
-            <p className="sidebar__list-text">Contact Us</p>
+          <li className="sidebar__sub-list-item">
+            <div className="sidebar__dropdown" onClick={showContactUsBurger}>
+              <p className="sidebar__list-text">Contact Us</p>
+              <img
+                className={
+                  dropdown == false
+                    ? "sidebar__list-img"
+                    : "sidebar__list-img sidebar__list-img--active"
+                }
+                src={down}
+              />
+            </div>
+            <ul
+              className={
+                dropdown == false
+                  ? "dropdown__list"
+                  : "dropdown__list dropdown__list--active"
+              }
+            >
+              <Link
+                className="sidebar__list-link"
+                to="/storelocator"
+                onClick={hideSideBar}
+              >
+                <li className="dropdown__list-item">Our Location</li>
+              </Link>
+            </ul>
           </li>
         </ul>
         {/* <div className="sidebar__bottom">

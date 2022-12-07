@@ -43,7 +43,7 @@ function Footer() {
               <Link to="/womens" className="footer__li-link">
                 <li className="footer__li">Women's Shopping</li>
               </Link>
-              <Link to="/kids" className="footer__li-link">
+              <Link to="#" className="footer__li-link">
                 <li className="footer__li">Kid's Shopping</li>
               </Link>
               <li className="footer__li">Accessories Shopping</li>

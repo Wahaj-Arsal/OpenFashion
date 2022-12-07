@@ -18,6 +18,8 @@ const NewsletterModal = ({ show, setShow }) => {
   const [newsletterName, setNewsletterName] = useState(true);
   const [newsletterEmail, setNewsletterEmail] = useState(true);
 
+  const closeModal = () => setShow(false);
+
   const handleChangeName = ({ target: { customerName, value } }) => {
     setCustomerName(value);
   };
@@ -74,7 +76,7 @@ const NewsletterModal = ({ show, setShow }) => {
       )
       .then(
         (result) => {
-          toastify(`${result} - Newsletter Email Sent!`);
+          toastify("Newsletter Email Sent!");
         },
         (error) => {
           toastify(`Error! - ${error}`);
@@ -135,7 +137,12 @@ const NewsletterModal = ({ show, setShow }) => {
           />
         </div>
         <div className="newsletter__send">
-          <input type="submit" value="Send" className="send__button" />
+          <input
+            onClick={closeModal}
+            type="submit"
+            value="Send"
+            className="send__button"
+          />
         </div>
       </form>
     </section>

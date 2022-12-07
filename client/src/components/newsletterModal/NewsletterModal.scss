@@ -86,6 +86,7 @@
   &:hover {
     background-color: $ele-clr-input-bg;
     color: $fnt-clr-text-default;
+    cursor: pointer;
   }
   @include tablet {
     @include flex(row, center, flex-end);

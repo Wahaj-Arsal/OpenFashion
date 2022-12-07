@@ -75,13 +75,6 @@
         "review": "This is a great product. I would recommend it to everyone.",
         "likes": "4",
         "timestamp": 1649050095000
-      },
-      {
-        "id": "96f8385d-9b46-4982-9c8d-3602e2adf29c",
-        "name": "Hey",
-        "review": "Another good product",
-        "likes": 0,
-        "timestamp": 1649167314000
       }
     ]
   },
@@ -118,13 +111,6 @@
         "review": "This is a great product. I would recommend it to everyone.",
         "likes": "5",
         "timestamp": 1649050095000
-      },
-      {
-        "id": "50280259-8532-4fc0-b522-e6d2de0ada75",
-        "name": "Wahaj",
-        "review": "Amazing",
-        "likes": 0,
-        "timestamp": 1649233832000
       }
     ]
   },

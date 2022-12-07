@@ -12,6 +12,7 @@ import uniqid from "uniqid";
 import openFashion from "../../assets/images/openfashion.svg";
 import MensTile from "../../assets/images/mens-fashion.svg";
 import WomensTile from "../../assets/images/womens-fashion.svg";
+import KidsTile from "../../assets/images/kids-fashion.svg";
 import Accessories from "../../assets/images/accessories.svg";
 import ImageSlider from "../../components/imageSlider/ImageSlider";
 import NewsletterBanner from "../../components/newsletterBanner/NewsletterBanner";
@@ -98,7 +99,7 @@ function Home({ SERVER_KEY_URL, setShow, show }) {
                   <div className="tile__card tile__background-2022-trends">
                     <img
                       className="tile__image"
-                      src={MensTile}
+                      src={KidsTile}
                       alt="kids section"
                     />
                     <p className="tile__description">Kids</p>
