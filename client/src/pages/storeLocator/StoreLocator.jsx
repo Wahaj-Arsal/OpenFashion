@@ -64,15 +64,7 @@ const StoreLocator = ({ SERVER_KEY_URL }) => {
     });
   }, [storeInfo]);
 
-  return (
-    <>
-      <div
-        className="map-container"
-        ref={mapContainerRef}
-        data-testid="storeLocator"
-      ></div>
-    </>
-  );
+  return <div className="map-container" ref={mapContainerRef}></div>;
 };
 
 export default StoreLocator;
