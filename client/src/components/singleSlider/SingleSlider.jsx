@@ -1,12 +1,19 @@
 /** @format */
 
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 function SingleSlider({ mensLatest, currentIndex }) {
+  const location = useLocation();
+
   return (
     <div className="slider__content">
-      <img
-        className="slider__image"
-        src={require(`../../assets/images/${mensLatest[currentIndex].image}`)}
-      />
+      <Link to={`${location.pathname}mens/${mensLatest[currentIndex].id}`}>
+        <img
+          className="slider__image"
+          src={require(`../../assets/images/${mensLatest[currentIndex].image}`)}
+        />
+      </Link>
       <div className="slider__information">
         <div className="slider__details">
           <p className="slider__name">{mensLatest[currentIndex].name}</p>

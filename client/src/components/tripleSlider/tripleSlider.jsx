@@ -1,13 +1,20 @@
 /** @format */
 
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 function TripleSlider({ mensLatest, currentIndex, newIndex, oldIndex }) {
+  const location = useLocation();
+
   return (
     <>
       <div className="slider__content">
-        <img
-          className="slider__image"
-          src={require(`../../assets/images/${mensLatest[oldIndex].image}`)}
-        />
+        <Link to={`${location.pathname}mens/${mensLatest[oldIndex].id}`}>
+          <img
+            className="slider__image"
+            src={require(`../../assets/images/${mensLatest[oldIndex].image}`)}
+          />
+        </Link>
         <div className="slider__information">
           <div className="slider__details">
             <p className="slider__name">{mensLatest[oldIndex].name}</p>
@@ -21,10 +28,12 @@ function TripleSlider({ mensLatest, currentIndex, newIndex, oldIndex }) {
         </div>
       </div>
       <div className="slider__content">
-        <img
-          className="slider__image"
-          src={require(`../../assets/images/${mensLatest[currentIndex].image}`)}
-        />
+        <Link to={`${location.pathname}mens/${mensLatest[currentIndex].id}`}>
+          <img
+            className="slider__image"
+            src={require(`../../assets/images/${mensLatest[currentIndex].image}`)}
+          />
+        </Link>
         <div className="slider__information">
           <div className="slider__details">
             <p className="slider__name">{mensLatest[currentIndex].name}</p>
@@ -40,10 +49,12 @@ function TripleSlider({ mensLatest, currentIndex, newIndex, oldIndex }) {
         </div>
       </div>
       <div className="slider__content">
-        <img
-          className="slider__image"
-          src={require(`../../assets/images/${mensLatest[newIndex].image}`)}
-        />
+        <Link to={`${location.pathname}mens/${mensLatest[newIndex].id}`}>
+          <img
+            className="slider__image"
+            src={require(`../../assets/images/${mensLatest[newIndex].image}`)}
+          />
+        </Link>
         <div className="slider__information">
           <div className="slider__details">
             <p className="slider__name">{mensLatest[newIndex].name}</p>

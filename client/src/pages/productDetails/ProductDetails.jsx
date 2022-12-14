@@ -156,6 +156,10 @@ const ProductDetails = ({ SERVER_KEY_URL, show, setShow }) => {
     return duration;
   };
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behaviour: "smooth" });
+  }, []);
+
   return (
     <>
       {!bleach && !iron && !tumble && !washing ? (
