@@ -17,7 +17,7 @@ import shoppingBagWhite from "../../assets/icons/shopping-bag-white.svg";
 import down from "../../assets/icons/Down.svg";
 import downWhite from "../../assets/icons/Down-white.svg";
 
-import { loadStripe } from "@stripe/stripe-js";
+import { loadStripe } from "@stripe/stripe-js/pure";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.

@@ -90,11 +90,11 @@ export default function App() {
             element={<PaymentCancelled />}
           />
           <Route path="/contactus" exact element={<ContactUs />} />
-          <Route
+          {/* <Route
             path="/storelocator"
             exact
             element={<StoreLocator SERVER_KEY_URL={SERVER_KEY_URL} />}
-          />
+          /> */}
           <Route
             path="/sendtext"
             exact
