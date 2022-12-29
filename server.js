@@ -15,7 +15,6 @@ const fs = require("fs");
 const cors = require("cors");
 const { randomUUID } = require("crypto");
 const { uniqueNamesGenerator, names } = require("unique-names-generator");
-// const { PORT, STRIPE_TOKEN, CLIENT_TOKEN } = require("./config");
 
 const app = express();
 const PORT = process.env.PORT;

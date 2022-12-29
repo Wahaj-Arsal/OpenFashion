@@ -17,6 +17,7 @@ import shoppingBagWhite from "../../assets/icons/shopping-bag-white.svg";
 import down from "../../assets/icons/Down.svg";
 import downWhite from "../../assets/icons/Down-white.svg";
 
+import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js/pure";
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
@@ -54,6 +55,12 @@ export default function Header({ SERVER_KEY_URL }) {
 
   // Send cart information to the server for Stripe payment
   const purchaseItem = async () => {
+    const config = {
+      headers: {
+        "Access-Control-Allow-Origin": `${SERVER_KEY_URL}`,
+        Vary: "Origin",
+      },
+    };
     const cartItem = cart.map((item) => {
       return {
         name: item.name,
@@ -64,7 +71,7 @@ export default function Header({ SERVER_KEY_URL }) {
       };
     });
     axios
-      .post(`${SERVER_KEY_URL}/create-checkout-session`, { cartItem })
+      .post(`${SERVER_KEY_URL}/create-checkout-session`, { cartItem }, config)
       .then((response) => {
         console.log(response);
         window.location.href = response.data.url;
