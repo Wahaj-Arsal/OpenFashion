@@ -68,8 +68,8 @@ export default function Header({ SERVER_KEY_URL }) {
       .post(`${SERVER_KEY_URL}/create-checkout-session`, { cartItem })
       .then((response) => {
         console.log(response);
-        // window.location.href = response.data.url;
-        // return stripe.redirectToCheckout({ sessionId: response.data.id });
+        window.location.href = response.data.url;
+        return stripe.redirectToCheckout({ sessionId: response.data.id });
       })
       .then((result) => {
         if (result.error) {
