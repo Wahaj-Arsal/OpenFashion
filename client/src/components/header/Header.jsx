@@ -55,12 +55,6 @@ export default function Header({ SERVER_KEY_URL }) {
 
   // Send cart information to the server for Stripe payment
   const purchaseItem = async () => {
-    const config = {
-      headers: {
-        "Access-Control-Allow-Origin": `${SERVER_KEY_URL}`,
-        Vary: "Origin",
-      },
-    };
     const cartItem = cart.map((item) => {
       return {
         name: item.name,
@@ -71,11 +65,11 @@ export default function Header({ SERVER_KEY_URL }) {
       };
     });
     axios
-      .post(`${SERVER_KEY_URL}/create-checkout-session`, { cartItem }, config)
+      .post(`${SERVER_KEY_URL}/create-checkout-session`, { cartItem })
       .then((response) => {
         console.log(response);
-        window.location.href = response.data.url;
-        return stripe.redirectToCheckout({ sessionId: response.data.id });
+        // window.location.href = response.data.url;
+        // return stripe.redirectToCheckout({ sessionId: response.data.id });
       })
       .then((result) => {
         if (result.error) {
