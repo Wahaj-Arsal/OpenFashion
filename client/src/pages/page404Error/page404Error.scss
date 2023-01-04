@@ -1,0 +1,41 @@
+/** @format */
+
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+
+.error404-container {
+  @include flex(column, center, center);
+  padding: 4rem 0rem 2rem 0;
+  margin: 0 auto;
+}
+
+.error404 {
+  &__gif {
+    padding: 4rem 0 0 0;
+  }
+  &__text {
+    padding: 0 0 0 2rem;
+  }
+  &__heading {
+    font-size: 2.5rem;
+  }
+  &__subheading {
+  }
+  &__button {
+    @include m-sub-sub-title;
+    outline: none;
+    text-decoration: none;
+    border: 1px solid $fnt-clr-text-default;
+    font-weight: bold;
+    padding: 0.5rem 2rem;
+    background-color: $fnt-clr-text-default;
+    color: $ele-clr-input-bg;
+    margin: 4rem 0;
+    &:hover {
+      background-color: $ele-clr-input-bg;
+      color: $fnt-clr-text-default;
+    }
+  }
+}

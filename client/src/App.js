@@ -2,7 +2,7 @@
 
 import "./App.scss";
 
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
 import { CartProvider } from "./components/helper/CartContext.jsx";
 
@@ -16,6 +16,7 @@ import ContactUs from "./pages/contactUs/ContactUs.jsx";
 import StoreLocator from "./pages/storeLocator/StoreLocator.jsx";
 import SendText from "./pages/sendText/SendText.jsx";
 import Footer from "./components/footer/Footer.jsx";
+import Page404Error from "./pages/page404Error/page404Error";
 
 const SERVER_KEY_URL = process.env.REACT_APP_SERVER_KEY;
 
@@ -90,16 +91,13 @@ export default function App() {
             element={<PaymentCancelled />}
           />
           <Route path="/contactus" exact element={<ContactUs />} />
-          {/* <Route
+          <Route
             path="/storelocator"
             exact
-            element={<StoreLocator SERVER_KEY_URL={SERVER_KEY_URL} />}
-          /> */}
-          <Route
-            path="/sendtext"
-            exact
-            element={<SendText SERVER_KEY_URL={SERVER_KEY_URL} />}
+            // element={<StoreLocator SERVER_KEY_URL={SERVER_KEY_URL} />}
+            element={<Navigate to="/Page404Error" />}
           />
+          <Route path="/Page404Error" exact element={<Page404Error />} />
         </Routes>
         <Footer />
       </CartProvider>
