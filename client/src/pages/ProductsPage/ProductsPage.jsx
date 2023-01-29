@@ -129,8 +129,8 @@ function ProductsPage({ SERVER_KEY_URL, setShow, show, mens, womens }) {
             sustainability={sustainability}
           /> */}
           <section className="item-container">
-            {sustainabilityData.length > 0 &&
-              sustainabilityData.map((item) => {
+            {products.length > 0 &&
+              products.map((item) => {
                 return <ItemTile {...item} key={item.id} />;
               })}
           </section>
