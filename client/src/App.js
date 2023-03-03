@@ -103,8 +103,8 @@ export default function App() {
           <Route
             path="/storelocator"
             exact
-            // element={<StoreLocator SERVER_KEY_URL={SERVER_KEY_URL} />}
-            element={<Navigate to="/Page404Error" />}
+            element={<StoreLocator SERVER_KEY_URL={SERVER_KEY_URL} />}
+            // element={<Navigate to="/Page404Error" />}
           />
           <Route path="/Page404Error" exact element={<Page404Error />} />
         </Routes>

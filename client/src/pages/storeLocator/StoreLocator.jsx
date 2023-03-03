@@ -2,69 +2,38 @@
 
 import "./StoreLocator.scss";
 
-// import React, { useState, useEffect, useRef } from "react";
-// import axios from "axios";
-// // import mapboxgl from "mapbox-gl/dist/mapbox-gl-csp";
-// import mapboxgl from "mapbox-gl";
-// import "mapbox-gl/dist/mapbox-gl.css";
-// import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
-// import "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css";
+import React from "react";
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import MyMapComponent from "../../components/mapComponent/MapComponent";
 
-// mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+const GoogleMapKey = process.env.REACT_APP_GOOGLE_MAPS_KEY;
 
-// const StoreLocator = ({ SERVER_KEY_URL }) => {
-//   const API_URL_STORE_LOCATOR = `${SERVER_KEY_URL}/storelocator`;
-//   const mapContainerRef = useRef(null);
-//   const [storeInfo, setStoreInfo] = useState([]);
+const render = (status) => {
+  switch (status) {
+    case Status.LOADING:
+      return <>Loading</>;
+    case Status.FAILURE:
+      return <>Error</>;
+    case Status.SUCCESS:
+      return <MyMapComponent />;
+  }
+};
 
-//   // Get ALL items from the API
-//   const getStoreInformation = () => {
-//     axios.get(API_URL_STORE_LOCATOR).then((response) => {
-//       const storeInfo = response.data;
-//       setStoreInfo(storeInfo);
-//     });
-//   };
+function StoreLocator() {
+  const center = { lat: 51.500998, lng: -0.12613 };
+  const zoom = 10;
+  const position = { lat: 51.500998, lng: -0.12613 };
 
-//   // Call function to get Store Information on page refresh
-//   useEffect(getStoreInformation, []);
+  return (
+    <Wrapper apiKey={GoogleMapKey} render={render}>
+      <MyMapComponent
+        center={center}
+        zoom={zoom}
+        position={position}
+        // storeLocation={storeLocation}
+      />
+    </Wrapper>
+  );
+}
 
-//   useEffect(() => {
-//     const map = new mapboxgl.Map({
-//       container: mapContainerRef.current,
-//       style: "mapbox://styles/mapbox/streets-v11",
-//       center: [-0.0773, 51.52418],
-//       zoom: 10,
-//       cooperativeGestures: true,
-//     });
-//     map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
-//     map.addControl(
-//       new MapboxDirections({
-//         accessToken: mapboxgl.accessToken,
-//         profile: "mapbox/driving",
-//       }),
-//       "top-left"
-//     );
-//     map.addControl(
-//       new mapboxgl.GeolocateControl({
-//         positionOptions: {
-//           enableHighAccuracy: true,
-//         },
-//         trackUserLocation: true,
-//       })
-//     );
-//     storeInfo.forEach((location) => {
-//       new mapboxgl.Marker()
-//         .setLngLat([`${location.coordinates[0]}`, `${location.coordinates[1]}`])
-//         .setPopup(
-//           new mapboxgl.Popup().setHTML(
-//             `${location.name} <br> ${location.address}`
-//           )
-//         )
-//         .addTo(map);
-//     });
-//   }, [storeInfo]);
-
-//   return <div className="map-container" ref={mapContainerRef}></div>;
-// };
-
-// export default StoreLocator;
+export default StoreLocator;
