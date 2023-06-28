@@ -28,9 +28,9 @@ const SERVER_KEY_URL = process.env.REACT_APP_SERVER_KEY;
 export default function App() {
   const [show, setShow] = useState(false);
 
-  const optimizely = createInstance({
-    sdkKey: "SuQeKk2R9RWS2BCNJRBbF",
-  });
+  // const optimizely = createInstance({
+  //   sdkKey: "SuQeKk2R9RWS2BCNJRBbF",
+  // });
 
   return (
     <>
