@@ -5,6 +5,11 @@ import "./App.scss";
 import { Navigate, Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
 import { CartProvider } from "./components/helper/CartContext.jsx";
+import {
+  createInstance,
+  OptimizelyProvider,
+  useDecision,
+} from "@optimizely/react-sdk";
 
 import Header from "./components/header/Header.jsx";
 import Home from "./pages/home/Home.jsx";
@@ -22,6 +27,10 @@ const SERVER_KEY_URL = process.env.REACT_APP_SERVER_KEY;
 
 export default function App() {
   const [show, setShow] = useState(false);
+
+  // const optimizely = createInstance({
+  //   sdkKey: "SuQeKk2R9RWS2BCNJRBbF",
+  // });
 
   return (
     <>
@@ -94,8 +103,8 @@ export default function App() {
           <Route
             path="/storelocator"
             exact
-            // element={<StoreLocator SERVER_KEY_URL={SERVER_KEY_URL} />}
-            element={<Navigate to="/Page404Error" />}
+            element={<StoreLocator SERVER_KEY_URL={SERVER_KEY_URL} />}
+            // element={<Navigate to="/Page404Error" />}
           />
           <Route path="/Page404Error" exact element={<Page404Error />} />
         </Routes>

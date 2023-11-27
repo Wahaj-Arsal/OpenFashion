@@ -2,69 +2,56 @@
 
 import "./StoreLocator.scss";
 
-// import React, { useState, useEffect, useRef } from "react";
-// import axios from "axios";
-// // import mapboxgl from "mapbox-gl/dist/mapbox-gl-csp";
-// import mapboxgl from "mapbox-gl";
-// import "mapbox-gl/dist/mapbox-gl.css";
-// import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
-// import "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css";
+import React, { useRef, useEffect, useState } from "react";
 
-// mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+import ReactMapGL, { Marker } from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import mapboxgl from "mapbox-gl";
 
-// const StoreLocator = ({ SERVER_KEY_URL }) => {
-//   const API_URL_STORE_LOCATOR = `${SERVER_KEY_URL}/storelocator`;
-//   const mapContainerRef = useRef(null);
-//   const [storeInfo, setStoreInfo] = useState([]);
+const MAP_BOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
-//   // Get ALL items from the API
-//   const getStoreInformation = () => {
-//     axios.get(API_URL_STORE_LOCATOR).then((response) => {
-//       const storeInfo = response.data;
-//       setStoreInfo(storeInfo);
-//     });
-//   };
+mapboxgl.accessToken = `${MAP_BOX_TOKEN}`;
 
-//   // Call function to get Store Information on page refresh
-//   useEffect(getStoreInformation, []);
+function StoreLocator() {
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+  const [lng, setLng] = useState(-0.086271);
+  const [lat, setLat] = useState(51.510824);
+  const [zoom, setZoom] = useState(16);
 
-//   useEffect(() => {
-//     const map = new mapboxgl.Map({
-//       container: mapContainerRef.current,
-//       style: "mapbox://styles/mapbox/streets-v11",
-//       center: [-0.0773, 51.52418],
-//       zoom: 10,
-//       cooperativeGestures: true,
-//     });
-//     map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
-//     map.addControl(
-//       new MapboxDirections({
-//         accessToken: mapboxgl.accessToken,
-//         profile: "mapbox/driving",
-//       }),
-//       "top-left"
-//     );
-//     map.addControl(
-//       new mapboxgl.GeolocateControl({
-//         positionOptions: {
-//           enableHighAccuracy: true,
-//         },
-//         trackUserLocation: true,
-//       })
-//     );
-//     storeInfo.forEach((location) => {
-//       new mapboxgl.Marker()
-//         .setLngLat([`${location.coordinates[0]}`, `${location.coordinates[1]}`])
-//         .setPopup(
-//           new mapboxgl.Popup().setHTML(
-//             `${location.name} <br> ${location.address}`
-//           )
-//         )
-//         .addTo(map);
-//     });
-//   }, [storeInfo]);
+  // Initialize map when component mounts
+  useEffect(() => {
+    const map = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: "mapbox://styles/mapbox/streets-v12",
+      center: [lng, lat],
+      zoom: zoom,
+      cooperativeGestures: true,
+      pitch: 45,
+      bearing: -17.6,
+      antialias: true,
+    });
 
-//   return <div className="map-container" ref={mapContainerRef}></div>;
-// };
+    // Create a new marker.
+    new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
 
-// export default StoreLocator;
+    // Add navigation control (the +/- zoom buttons)
+    map.addControl(new mapboxgl.NavigationControl(), "top-right");
+
+    // Clean up on unmount
+    return () => map.remove();
+  }, []);
+
+  return (
+    <>
+      <div className="store-container">
+        <h1>Location</h1>
+      </div>
+      <section className="location-container" id="location">
+        <div ref={mapContainer} className="map-container" />
+      </section>
+    </>
+  );
+}
+
+export default StoreLocator;

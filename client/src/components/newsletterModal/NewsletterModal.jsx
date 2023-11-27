@@ -76,6 +76,7 @@ const NewsletterModal = ({ show, setShow }) => {
       )
       .then(
         (result) => {
+          console.log(result);
           toastify("Newsletter Email Sent!");
         },
         (error) => {

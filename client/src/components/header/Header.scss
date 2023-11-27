@@ -163,7 +163,7 @@
   &__list {
     display: none;
     &--active {
-      display: absolute;
+      display: flex;
     }
   }
   &__list-item {
